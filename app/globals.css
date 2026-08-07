@@ -233,6 +233,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .join { order:6; }
   .floatingActions { order:7; }
   .floatingActions { left:14px; right:auto; bottom:max(16px,env(safe-area-inset-bottom)); gap:8px; }
+  .backToTop { position:fixed; right:14px; bottom:max(16px,env(safe-area-inset-bottom)); }
   .floatAction b { display:none; }
   .floatAction i { width:46px; height:46px; font-size:22px; }
   .siteHeader { height:74px; padding:0 16px; position:sticky; top:0; }
@@ -297,8 +298,9 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .congressCopy { position:absolute; left:0; right:0; bottom:0; width:100%; padding:52px 20px 46px; text-align:left; }
   .congressCopy h2 { margin:16px 0 22px; font-size:34px; line-height:.92; letter-spacing:-2.2px; }
   .congressCopy > p:not(.sectionLabel) { font-size:14px; line-height:1.55; }
-  .vision { display:block; min-height:auto; }
-  .visionPhoto { order:initial; }
+  .vision { display:flex; flex-direction:column; min-height:auto; }
+  .visionPhoto { order:1; }
+  .visionCopy { order:2; }
   .visionCopy { padding:58px 20px 48px; }
   .visionCopy .sectionLabel { text-align:right; }
   .visionCopy h2 { margin:18px 0 24px; text-align:right; font-size:35px; line-height:.9; letter-spacing:-2.4px; }
@@ -313,7 +315,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .joinCopy a { width:max-content; margin-left:0; }
   .joinPhoto { width:118%; height:58%; left:auto; right:-25%; }
   .joinPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.25),transparent 42%); }
-  .joinBrand { width:260px; right:10px; bottom:16px; }
+  .joinBrand { width:260px; right:28px; bottom:16px; }
 }
 
 @media (max-width: 390px) {
@@ -326,4 +328,5 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .about h2 { font-size:31px; }
   .visionCopy h2 { font-size:32px; }
   .joinCopy h2 { font-size:36px; }
+  .joinBrand { right:22px; }
 }
