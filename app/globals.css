@@ -219,6 +219,15 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 }
 
 @media (max-width: 800px) {
+  main { display:flex; flex-direction:column; }
+  .siteHeader { order:0; }
+  .mobileHero { order:1; }
+  .congress { order:2; }
+  .about { order:3; }
+  .pillars { order:4; }
+  .vision { order:5; }
+  .join { order:6; }
+  .floatingActions { order:7; }
   .floatingActions { left:14px; right:auto; bottom:max(16px,env(safe-area-inset-bottom)); gap:8px; }
   .floatAction b { display:none; }
   .floatAction i { width:46px; height:46px; font-size:22px; }
@@ -258,7 +267,10 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .mobileHeroFooter .partyLogo { width:105px; height:auto; }
 
   .about { padding:42px 0 68px; display:block; position:relative; overflow:hidden; background:linear-gradient(180deg,var(--paper) 0%,#eef0eb 100%); }
-  .aboutPhoto { height:420px; margin:0 20px; box-shadow:12px 12px 0 var(--navy); border-top:5px solid var(--orange); }
+  .aboutPhoto { height:420px; margin:0 20px; background:var(--navy); border:1px solid rgba(7,29,51,.16); border-top:6px solid var(--orange); box-shadow:12px 12px 0 var(--navy),0 24px 46px rgba(7,29,51,.22); }
+  .aboutPhoto:before { content:""; position:absolute; z-index:4; inset:12px; border:1px solid rgba(255,255,255,.5); pointer-events:none; }
+  .aboutPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.32) 0%,rgba(7,29,51,.06) 30%,transparent 54%); }
+  .aboutPhoto > img:not(.aboutBrand) { filter:saturate(.98) contrast(1.08) brightness(1.05); }
   .aboutNumber { left:auto; right:16px; bottom:12px; text-align:right; font-size:72px; }
   .aboutBrand { left:auto; right:16px; bottom:62px; width:54%; max-width:230px; }
   .aboutCopy { position:relative; z-index:5; margin:-42px 0 0 28px; padding:28px 22px 30px 24px; background:#fff; border-top:5px solid var(--orange); box-shadow:0 22px 50px rgba(7,29,51,.14); }
