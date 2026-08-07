@@ -216,8 +216,10 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .vision { order:5; }
   .join { order:6; }
   .floatingActions { order:7; }
-  .aboutPhoto > img:not(.aboutBrand) { display:block; width:100%; height:100%; margin:0; object-position:center 12%; }
-  .aboutPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.64) 0%,rgba(7,29,51,.2) 34%,transparent 56%); }
+  .aboutPhoto { border:1px solid rgba(7,29,51,.18); border-top:7px solid var(--orange); box-shadow:18px 18px 0 var(--navy),30px 30px 0 rgba(255,181,27,.92),0 34px 65px rgba(7,29,51,.2); }
+  .aboutPhoto:before { content:""; position:absolute; z-index:4; inset:16px; border:1px solid rgba(255,255,255,.62); box-shadow:inset 0 0 0 1px rgba(7,29,51,.08); pointer-events:none; }
+  .aboutPhoto > img:not(.aboutBrand) { display:block; width:100%; height:100%; margin:0; object-position:center 12%; filter:saturate(.98) contrast(1.08) brightness(1.05); }
+  .aboutPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.46) 0%,rgba(7,29,51,.1) 31%,transparent 54%); }
 }
 
 @media (max-width: 800px) {
