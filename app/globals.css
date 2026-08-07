@@ -205,6 +205,15 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 }
 
 @media (min-width:801px) {
+  main { display:flex; flex-direction:column; }
+  .siteHeader { order:0; }
+  .desktopHero { order:1; }
+  .congress { order:2; }
+  .about { order:3; }
+  .pillars { order:4; }
+  .vision { order:5; }
+  .join { order:6; }
+  .floatingActions { order:7; }
   .aboutPhoto > img:not(.aboutBrand) { display:block; width:100%; height:100%; margin:0; object-position:center 12%; }
   .aboutPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.64) 0%,rgba(7,29,51,.2) 34%,transparent 56%); }
 }
