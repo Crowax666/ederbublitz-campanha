@@ -232,8 +232,9 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .vision { order:5; }
   .join { order:6; }
   .floatingActions { order:7; }
-  .floatingActions { left:14px; right:auto; bottom:max(16px,env(safe-area-inset-bottom)); gap:8px; }
-  .backToTop { position:fixed; right:14px; bottom:max(16px,env(safe-area-inset-bottom)); }
+  .floatingActions { left:14px; right:14px; width:auto; bottom:max(16px,env(safe-area-inset-bottom)); display:flex; align-items:center; justify-content:space-between; gap:0; pointer-events:none; }
+  .floatAction { pointer-events:auto; }
+  .backToTop i { box-shadow:0 8px 20px rgba(7,29,51,.28),0 0 0 2px rgba(255,181,27,.12); }
   .floatAction b { display:none; }
   .floatAction i { width:46px; height:46px; font-size:22px; }
   .siteHeader { height:74px; padding:0 16px; position:sticky; top:0; }
