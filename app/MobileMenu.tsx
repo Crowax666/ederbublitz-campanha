@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const links = [
-  { href: "#propostas", label: "Propostas" },
-  { href: "#eder", label: "Quem é Eder" },
-  { href: "#congresso", label: "Congresso Nacional" },
-  { href: "#parana", label: "Pelo Paraná" },
+  { href: "/#propostas", label: "Propostas" },
+  { href: "/quem-e-eder", label: "Quem é Eder" },
+  { href: "/#congresso", label: "Congresso Nacional" },
+  { href: "/#parana", label: "Pelo Paraná" },
 ];
 
 export default function MobileMenu() {
@@ -30,7 +30,7 @@ export default function MobileMenu() {
             <small>0{index + 1}</small><span>{link.label}</span><b>→</b>
           </a>
         ))}
-        <a className="mobileMenuCta" href="#participe" onClick={() => setOpen(false)}>
+        <a className="mobileMenuCta" href="/#participe" onClick={() => setOpen(false)}>
           <span>Junte-se a nós</span><b>↗</b>
         </a>
       </nav>
