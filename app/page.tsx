@@ -125,7 +125,7 @@ export default function Home() {
           <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
         </div>
         <div className="joinPhoto">
-          <img src="/eder-campanha-recorte.png" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" />
+          <img src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" />
         </div>
         <img className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
       </section>
