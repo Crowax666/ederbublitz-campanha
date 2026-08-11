@@ -1,4 +1,7 @@
 import MobileMenu from "./MobileMenu";
+import JoinForm from "./JoinForm";
+import LegalFooter from "./LegalFooter";
+import { getRuntimeConfig } from "../db/runtime";
 
 const pillars = [
   { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
@@ -7,14 +10,16 @@ const pillars = [
 ];
 
 export default function Home() {
+  const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
   return (
     <main id="top">
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
+          <span className="mobileHeaderNumber" aria-hidden="true"><img src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
-          <a href="#eder">Quem é Eder</a>
+          <a href="/quem-e-eder">Quem é Eder</a>
           <a href="#propostas">Propostas</a>
           <a href="#parana">Pelo Paraná</a>
           <a href="#noticias">Notícias</a>
@@ -32,7 +37,7 @@ export default function Home() {
           <p className="desktopSlogan">Perto de quem <b>produz.</b><br />Junto de quem <strong>precisa.</strong></p>
           <p className="heroText">Trabalho, experiência e presença para representar o Paraná na Câmara Federal.</p>
           <div className="heroActions">
-            <a className="primaryButton" href="#eder">Conheça minha história <span>→</span></a>
+            <a className="primaryButton" href="/quem-e-eder">Conheça minha história <span>→</span></a>
             <a className="textButton" href="#propostas">Veja nossas propostas</a>
           </div>
         </div>
@@ -52,7 +57,7 @@ export default function Home() {
         <div className="mobileHeroCopy">
           <p>Uma nova voz para o Paraná</p>
           <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
-          <a href="#eder">Conheça o Eder <span>→</span></a>
+          <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
         <img className="mobilePortrait" src="/eder-campanha-recorte.png" alt="Eder Bublitz sorrindo, com camisa branca e braços cruzados" />
         <img className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
@@ -70,17 +75,20 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="about" id="eder">
-        <div className="aboutPhoto">
-          <img src="/eder-quem-e-portrait.jpg" alt="Retrato de Eder Bublitz sorrindo" />
-          <img className="aboutBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
+      <section className="worldAward" aria-labelledby="world-award-title">
+        <div className="worldAwardMedal" aria-hidden="true">
+          <span>2025</span>
+          <strong>Gestor<br />do Ano</strong>
         </div>
-        <div className="aboutCopy">
-          <p className="sectionLabel">Compromisso que vem da prática</p>
-          <h2>Experiência para fazer.<br /><span>Coragem para mudar.</span></h2>
-          <p className="aboutLead">Eder conhece de perto a força de quem trabalha e sabe que a política só faz sentido quando melhora a vida das pessoas.</p>
-          <p>Uma trajetória construída com diálogo, presença e capacidade de transformar desafios em resultados para o Paraná.</p>
-          <a href="#historia">Conheça a trajetória completa <span>→</span></a>
+        <div className="worldAwardCopy">
+          <p className="sectionLabel">Reconhecimento mundial • Bruxelas</p>
+          <h2 id="world-award-title">Uma gestão reconhecida<br /><span>entre as melhores do mundo.</span></h2>
+          <p>Eder foi eleito <strong>Gestor do Ano pela World Union of Wholesale Markets</strong>, reconhecimento internacional à liderança e aos resultados alcançados no abastecimento alimentar.</p>
+          <a href="/quem-e-eder#reconhecimento">Conheça essa conquista <span>→</span></a>
+        </div>
+        <div className="worldAwardSeal">
+          <b>WUWM</b>
+          <span>World Union of<br />Wholesale Markets</span>
         </div>
       </section>
 
@@ -114,13 +122,15 @@ export default function Home() {
         <div className="joinCopy">
           <p>Essa caminhada também é sua.</p>
           <h2>Vamos juntos<br />pelo Paraná.</h2>
-          <a href="#contato">Quero fazer parte <span>→</span></a>
+          <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
         </div>
         <div className="joinPhoto">
           <img src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" />
         </div>
         <img className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
       </section>
+
+      <LegalFooter />
 
       <div className="floatingActions" aria-label="Atalhos da página">
         <button className="floatAction whatsappMock" type="button" aria-label="WhatsApp — número a definir" title="WhatsApp — número a definir">
