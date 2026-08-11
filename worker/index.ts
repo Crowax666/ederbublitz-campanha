@@ -5,6 +5,10 @@ import handler from "vinext/server/app-router-entry";
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
+  TURNSTILE_SITE_KEY?: string;
+  TURNSTILE_SECRET_KEY?: string;
+  ADMIN_EMAILS?: string;
+  CLOUDFLARE_DEPLOYMENT?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -27,6 +31,13 @@ interface ExecutionContext {
 
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    globalThis.__EDER_SITE_ENV__ = {
+      DB: env.DB,
+      TURNSTILE_SITE_KEY: env.TURNSTILE_SITE_KEY,
+      TURNSTILE_SECRET_KEY: env.TURNSTILE_SECRET_KEY,
+      ADMIN_EMAILS: env.ADMIN_EMAILS,
+      CLOUDFLARE_DEPLOYMENT: env.CLOUDFLARE_DEPLOYMENT,
+    };
     const url = new URL(request.url);
 
     if (url.pathname === "/_vinext/image") {

@@ -1,0 +1,82 @@
+"use client";
+
+import { FormEvent, useEffect, useRef, useState } from "react";
+
+declare global {
+  interface Window {
+    turnstile?: { reset: (element?: HTMLElement) => void };
+  }
+}
+
+export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: string }) {
+  const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (!turnstileSiteKey || document.querySelector('script[data-turnstile-script]')) return;
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.async = true;
+    script.defer = true;
+    script.dataset.turnstileScript = "true";
+    document.head.appendChild(script);
+  }, [turnstileSiteKey]);
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setState("sending");
+    setMessage("");
+    const form = new FormData(event.currentTarget);
+
+    const response = await fetch("/api/supporters", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.get("name"),
+        phone: form.get("phone"),
+        city: form.get("city"),
+        neighborhood: form.get("neighborhood"),
+        interest: form.get("interest"),
+        consent: form.get("consent") === "on",
+        turnstileToken: form.get("cf-turnstile-response"),
+      }),
+    });
+
+    const result = await response.json() as { error?: string };
+    if (!response.ok) {
+      setState("error");
+      setMessage(result.error || "Não foi possível concluir o cadastro.");
+      window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
+      return;
+    }
+
+    formRef.current?.reset();
+    window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
+    setState("success");
+    setMessage("Cadastro recebido. Em breve entraremos em contato.");
+  }
+
+  return (
+    <form className="joinForm" id="contato" onSubmit={submit} ref={formRef}>
+      <div className="joinFields">
+        <label><span>Nome completo</span><input name="name" autoComplete="name" required minLength={3} /></label>
+        <label><span>Telefone com DDD</span><input name="phone" autoComplete="tel" inputMode="tel" required placeholder="(41) 99999-9999" /></label>
+        <label><span>Cidade</span><input name="city" autoComplete="address-level2" required /></label>
+        <label><span>Bairro <small>opcional</small></span><input name="neighborhood" autoComplete="address-level3" /></label>
+      </div>
+      <label className="joinInterest"><span>Como quer participar?</span>
+        <select name="interest" defaultValue="participar">
+          <option value="participar">Quero fazer parte</option>
+          <option value="receber-noticias">Receber notícias</option>
+          <option value="voluntariado">Ser voluntário</option>
+          <option value="propostas">Contribuir com propostas</option>
+        </select>
+      </label>
+      <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
+      {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-BR" /></div>}
+      <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Enviando..." : "Quero fazer parte"}<span>→</span></button>
+      {message && <p className={`joinMessage ${state}`} role="status">{message}</p>}
+    </form>
+  );
+}
