@@ -1,6 +1,7 @@
 import MobileMenu from "./MobileMenu";
 import JoinForm from "./JoinForm";
 import LegalFooter from "./LegalFooter";
+import JinglePlayer from "./JinglePlayer";
 import { getRuntimeConfig } from "../db/runtime";
 
 const pillars = [
@@ -114,6 +115,8 @@ export default function Home() {
       </section>
 
       <LegalFooter />
+
+      <JinglePlayer />
 
       <div className="floatingActions" aria-label="Atalhos da página">
         <button className="floatAction whatsappMock" type="button" aria-label="WhatsApp — número a definir" title="WhatsApp — número a definir">
