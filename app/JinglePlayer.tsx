@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 function PlayerIcon({ playing }: { playing: boolean }) {
   return playing ? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10M15 7v10" /></svg> : <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z" /></svg>;
@@ -14,6 +14,13 @@ export default function JinglePlayer() {
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(0);
   const progress = duration ? `${Math.min(100, (current / duration) * 100)}%` : "0%";
+
+  useEffect(() => {
+    if (!open) return;
+    const collapse = () => setOpen(false);
+    window.addEventListener("scroll", collapse, { passive:true, once:true });
+    return () => window.removeEventListener("scroll", collapse);
+  }, [open]);
 
   async function toggle() {
     const audio = audioRef.current;
