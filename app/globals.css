@@ -1226,3 +1226,62 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   width:calc(100% - 12px)!important;
   max-height:35px!important;
 }
+
+
+/* Polimento v6 — menos ruído no mobile e marca transparente no player */
+.jinglePlayer .jingleArtwork>.jingleArtworkLogo {
+  padding:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  filter:drop-shadow(0 2px 4px rgba(255,255,255,.85)) drop-shadow(0 4px 8px rgba(0,0,0,.2))!important;
+}
+.jingleRoundButton svg rect,.jinglePlay svg rect { fill:currentColor; stroke:none; }
+
+@media screen and (max-width:760px) {
+  main .mobileHero { min-height:calc(100svh - 74px)!important; }
+  main .mobileHero::before { opacity:.045!important; background-size:24px 24px!important; }
+  main .mobileHero .mobilePortrait {
+    left:-15%!important;
+    width:82%!important;
+    height:78%!important;
+  }
+  main .mobileHero .mobileHeroCopy {
+    top:11%!important;
+    right:20px!important;
+    width:55%!important;
+    max-width:225px!important;
+  }
+  main .mobileHero .mobileHeroCopy p {
+    margin-bottom:12px!important;
+    font-size:7px!important;
+    letter-spacing:1.45px!important;
+    white-space:nowrap!important;
+  }
+  main .mobileHero .mobileHeroCopy h1 {
+    max-width:220px!important;
+    font-size:clamp(20px,5.8vw,27px)!important;
+    line-height:.98!important;
+  }
+  main .mobileHero .mobileHeroCopy a {
+    margin-top:17px!important;
+    padding:12px 14px!important;
+  }
+  main .mobileHero .mobileNumber {
+    right:7%!important;
+    bottom:76px!important;
+    width:78%!important;
+    max-width:350px!important;
+  }
+  main .mobileHero .mobileHeroFooter {
+    left:20px!important;
+    right:20px!important;
+    bottom:10px!important;
+    padding-top:8px!important;
+  }
+  .jinglePlayer .jingleArtwork>.jingleArtworkLogo {
+    right:5px!important;
+    bottom:5px!important;
+    left:5px!important;
+    width:calc(100% - 10px)!important;
+  }
+}

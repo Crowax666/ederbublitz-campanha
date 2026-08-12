@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 function PlayerIcon({ playing }: { playing: boolean }) {
-  return playing ? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7v10M15 7v10" /></svg> : <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z" /></svg>;
+  return playing ? <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7.5" y="7.5" width="9" height="9" rx="1" /></svg> : <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z" /></svg>;
 }
 
 export default function JinglePlayer() {
@@ -31,7 +31,11 @@ export default function JinglePlayer() {
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => setOpen(false), 1200);
       }
-    } else audio.pause();
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      setCurrent(0);
+    }
   }
 
   return <aside className={`jinglePlayer${open ? " isOpen" : ""}${playing ? " isPlaying" : ""}`} aria-label="Jingle oficial da campanha">
