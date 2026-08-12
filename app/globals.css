@@ -1352,6 +1352,32 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   main .mobileHero .mobilePortrait { right:-20%!important; width:94%!important; }
 }
 
+/* Foto Hero — pose apontando, com enquadramento independente por tela */
+.desktopHero .photoStage > img {
+  right:-2%!important;
+  bottom:-1%!important;
+  width:96%!important;
+  height:96%!important;
+  object-fit:contain!important;
+  object-position:right bottom!important;
+  filter:drop-shadow(-22px 20px 34px rgba(3,25,18,.2))!important;
+}
+
+@media screen and (max-width:760px) {
+  main .mobileHero .mobilePortrait {
+    inset:auto -17% -1% auto!important;
+    width:102%!important;
+    height:82%!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+    filter:drop-shadow(-16px 18px 30px rgba(1,20,15,.22))!important;
+  }
+}
+
+@media screen and (max-width:380px) {
+  main .mobileHero .mobilePortrait { right:-22%!important; width:108%!important; }
+}
+
 
 /* Correção mobile — Hero íntegra e player compacto no cabeçalho */
 .siteHeader > .jinglePlayer {
