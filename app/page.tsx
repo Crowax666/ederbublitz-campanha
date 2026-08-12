@@ -25,6 +25,7 @@ export default function Home() {
           <a href="#parana">Pelo Paraná</a>
           <a href="#noticias">Notícias</a>
         </nav>
+        <JinglePlayer />
         <a className="headerCta" href="#participe">Junte-se a nós <span>↗</span></a>
         <MobileMenu />
       </header>
@@ -115,8 +116,6 @@ export default function Home() {
       </section>
 
       <LegalFooter />
-
-      <JinglePlayer />
 
       <div className="floatingActions" aria-label="Atalhos da página">
         <button className="floatAction whatsappMock" type="button" aria-label="WhatsApp — número a definir" title="WhatsApp — número a definir">

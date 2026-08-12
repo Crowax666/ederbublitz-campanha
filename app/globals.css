@@ -1285,3 +1285,72 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     width:calc(100% - 10px)!important;
   }
 }
+
+
+/* Player integrado ao cabeçalho */
+.siteHeader>.jinglePlayer {
+  position:relative!important;
+  z-index:80!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  flex:0 0 auto;
+}
+.siteHeader>.jinglePlayer .jingleTrigger {
+  grid-template-columns:34px auto 18px!important;
+  min-width:154px!important;
+  padding:5px 9px 5px 5px!important;
+  color:#fff!important;
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.18)!important;
+  border-radius:999px!important;
+  box-shadow:none!important;
+}
+.siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }
+.siteHeader>.jinglePlayer .jingleRoundButton svg { width:16px!important; height:16px!important; }
+.siteHeader>.jinglePlayer .jingleTriggerText strong { font-size:9px!important; }
+.siteHeader>.jinglePlayer .jinglePanel {
+  position:absolute!important;
+  top:calc(100% + 15px)!important;
+  right:0!important;
+  left:auto!important;
+  width:360px!important;
+  box-shadow:0 22px 60px rgba(4,22,31,.42)!important;
+}
+.siteHeader>.jinglePlayer .jinglePanel::before {
+  content:"";
+  position:absolute;
+  top:-7px;
+  right:30px;
+  width:14px;
+  height:14px;
+  background:#092337;
+  transform:rotate(45deg);
+}
+
+@media screen and (max-width:760px) {
+  .siteHeader { display:grid!important; grid-template-columns:112px 1fr 42px 46px!important; gap:7px!important; }
+  .siteHeader>.jinglePlayer { grid-column:3!important; }
+  .siteHeader>.jinglePlayer .jingleTrigger {
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    min-width:0!important;
+    width:42px!important;
+    height:42px!important;
+    padding:3px!important;
+    overflow:hidden!important;
+  }
+  .siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }
+  .siteHeader>.jinglePlayer .jingleTriggerText,.siteHeader>.jinglePlayer .jingleBars { display:none!important; }
+  .siteHeader>.jinglePlayer .jinglePanel {
+    position:fixed!important;
+    top:80px!important;
+    right:12px!important;
+    left:12px!important;
+    width:auto!important;
+    max-width:none!important;
+    height:116px!important;
+  }
+  .siteHeader>.jinglePlayer .jinglePanel::before { right:65px; }
+  .siteHeader .mobileMenu { grid-column:4!important; }
+}
