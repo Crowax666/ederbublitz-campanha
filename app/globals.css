@@ -1110,3 +1110,28 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
 
 
+
+
+/* Reset definitivo da Hero mobile: foto sem névoa ou filtros cromáticos */
+@media screen and (max-width:760px) {
+  main .mobileHero { background:#ffffff!important; isolation:auto!important; }
+  main .mobileHero::before,
+  main .mobileHero::after { content:none!important; display:none!important; opacity:0!important; background:transparent!important; }
+  main .mobileHero .mobileHeroPattern { display:none!important; opacity:0!important; background:none!important; }
+  main .mobileHero .mobilePortrait {
+    z-index:1!important;
+    inset:auto 0 0 0!important;
+    width:100%!important;
+    height:100%!important;
+    opacity:1!important;
+    filter:none!important;
+    mix-blend-mode:normal!important;
+    object-fit:cover!important;
+    object-position:50% 22%!important;
+    -webkit-mask:none!important;
+    mask:none!important;
+  }
+  main .mobileHero .mobileHeroCopy { z-index:8!important; background:rgba(7,29,51,.78)!important; border:1px solid rgba(255,255,255,.12); backdrop-filter:none!important; }
+  main .mobileHero .mobileNumber,
+  main .mobileHero .mobileHeroFooter { z-index:9!important; }
+}
