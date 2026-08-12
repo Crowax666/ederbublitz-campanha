@@ -1571,3 +1571,26 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 @media screen and (max-width:380px) {
   main .mobileHero .mobilePortrait { right:0!important; width:100%!important; height:82%!important; }
 }
+
+/* Enquadramento final do retrato: íntegro, sem invadir a mensagem */
+.desktopHero .photoStage > img {
+  right:-1%!important;
+  width:94%!important;
+  height:93%!important;
+  object-fit:contain!important;
+  object-position:right bottom!important;
+}
+
+@media screen and (max-width:760px) {
+  main .mobileHero .mobilePortrait {
+    inset:auto -4% 0 auto!important;
+    width:84%!important;
+    height:79%!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+  }
+}
+
+@media screen and (max-width:380px) {
+  main .mobileHero .mobilePortrait { right:-6%!important; width:88%!important; height:78%!important; }
+}
