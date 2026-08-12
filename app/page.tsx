@@ -17,7 +17,6 @@ export default function Home() {
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
-          <span className="mobileHeaderNumber" aria-hidden="true"><img src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a href="/quem-e-eder">Quem é Eder</a>
@@ -45,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="photoStage">
-          <img src="/eder-hero-principal.jpg" alt="Eder Bublitz sorrindo, com camisa branca e braços cruzados" />
+          <img src="/eder-campanha-recorte.png" alt="Eder Bublitz sorrindo, com camisa branca e braços cruzados" />
         </div>
 
         <div className="heroFooter">
@@ -61,7 +60,7 @@ export default function Home() {
           <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
-        <img className="mobilePortrait" src="/eder-hero-principal.jpg" alt="Eder Bublitz sorrindo, com camisa branca e braços cruzados" />
+        <img className="mobilePortrait" src="/eder-campanha-recorte.png" alt="Eder Bublitz sorrindo, com camisa branca e braços cruzados" />
         <img className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
@@ -75,6 +74,23 @@ export default function Home() {
             <a href="#participe" aria-label={`Saiba mais sobre ${pillar.title}`}>↗</a>
           </article>
         ))}
+      </section>
+
+      <section className="worldAward" aria-labelledby="world-award-title">
+        <div className="worldAwardMedal" aria-hidden="true">
+          <span>2025</span>
+          <strong>Gestor<br />do Ano</strong>
+        </div>
+        <div className="worldAwardCopy">
+          <p className="sectionLabel">Reconhecimento mundial • Bruxelas</p>
+          <h2 id="world-award-title">Uma gestão reconhecida<br /><span>entre as melhores do mundo.</span></h2>
+          <p>Eder foi eleito <strong>Gestor do Ano pela World Union of Wholesale Markets</strong>, reconhecimento internacional à liderança e aos resultados alcançados no abastecimento alimentar.</p>
+          <a href="/quem-e-eder#reconhecimento">Conheça essa conquista <span>→</span></a>
+        </div>
+        <div className="worldAwardSeal">
+          <b>WUWM</b>
+          <span>World Union of<br />Wholesale Markets</span>
+        </div>
       </section>
 
       <section className="congress" id="congresso">

@@ -56,10 +56,10 @@ a { color: inherit; text-decoration: none; }
 .primaryButton { display:inline-flex; gap:28px; align-items:center; background:var(--orange); padding:17px 22px; border-radius:4px; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:.4px; box-shadow:0 10px 25px rgba(0,0,0,.18); }
 .textButton { font-size:11px; font-weight:900; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,.6); padding-bottom:5px; }
 
-.photoStage { position:absolute; z-index:4; right:0; bottom:0; width:61%; height:100%; overflow:hidden; }
-.photoStage:before { content:""; position:absolute; z-index:1; inset:0; background:radial-gradient(ellipse at 78% 30%,rgba(118,163,211,.28) 0%,rgba(35,93,69,.22) 48%,transparent 72%); }
-.photoStage:after { content:""; position:absolute; inset:0; z-index:3; pointer-events:none; background:linear-gradient(90deg,var(--green-deep) 0%,rgba(16,61,43,.94) 13%,rgba(16,61,43,.56) 29%,transparent 52%),linear-gradient(0deg,rgba(16,61,43,.72) 0%,transparent 30%); }
-.photoStage > img { position:absolute; z-index:2; height:104%; width:auto; max-width:none; right:0; bottom:-2%; object-fit:contain; object-position:center bottom; filter:saturate(.9) contrast(1.045); -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 14%,rgba(0,0,0,.72) 31%,#000 48%); mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 14%,rgba(0,0,0,.72) 31%,#000 48%); }
+.photoStage { position:absolute; z-index:4; right:0; bottom:0; width:61%; height:100%; }
+.photoStage:before { content:""; position:absolute; z-index:1; inset:7% -8% 0 0; background:radial-gradient(ellipse at 72% 34%, rgba(135,177,221,.42) 0%, rgba(54,115,86,.20) 50%, transparent 75%); }
+.photoStage:after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, var(--green-deep) 0%, rgba(16,61,43,.50) 14%, transparent 40%), linear-gradient(0deg, rgba(16,61,43,.7) 0%, transparent 28%); z-index:3; pointer-events:none; }
+.photoStage > img { position:absolute; z-index:2; height:101%; width:auto; max-width:none; right:2.5%; bottom:-1%; object-fit:contain; object-position:center bottom; filter:saturate(.92) contrast(1.035); }
 .candidateNumber { position:absolute; z-index:5; right:2.4vw; bottom:3.4vw; width:clamp(300px,28vw,455px); filter:drop-shadow(0 8px 12px rgba(0,0,0,.2)); }
 .candidateNumber img { display:block; width:100%; height:auto; }
 .heroFooter { position:absolute; z-index:10; bottom:26px; left:5vw; right:5vw; display:flex; justify-content:space-between; align-items:center; font-size:9px; letter-spacing:1px; font-weight:800; }
@@ -431,6 +431,341 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .legalDetails div { padding:20px; }
 }
 
+/* Direção final da Hero e do player no cabeçalho */
+.siteHeader > .jinglePlayer {
+  position:relative!important;
+  z-index:90!important;
+  inset:auto!important;
+  flex:0 0 auto;
+}
+.siteHeader > .jinglePlayer .jingleTrigger {
+  display:grid!important;
+  grid-template-columns:34px minmax(0,1fr) 18px!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-width:156px!important;
+  height:44px!important;
+  padding:5px 9px 5px 5px!important;
+  color:#fff!important;
+  background:linear-gradient(135deg,#0b2a40 0%,#103e48 100%)!important;
+  border:1px solid rgba(255,181,27,.38)!important;
+  border-radius:999px!important;
+  box-shadow:0 8px 24px rgba(2,18,29,.22)!important;
+  backdrop-filter:none!important;
+}
+.siteHeader > .jinglePlayer .jingleRoundButton {
+  width:34px!important;
+  height:34px!important;
+  color:var(--navy)!important;
+  background:linear-gradient(145deg,var(--yellow),var(--orange))!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.22)!important;
+}
+.siteHeader > .jinglePlayer .jingleRoundButton svg { width:16px!important; height:16px!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText { display:grid!important; gap:1px!important; min-width:0!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText small { font-size:6px!important; letter-spacing:1px!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText strong { overflow:hidden; font-size:9px!important; letter-spacing:.2px!important; text-overflow:ellipsis; white-space:nowrap; }
+.siteHeader > .jinglePlayer .jingleBars { display:flex!important; }
+.siteHeader > .jinglePlayer .jinglePanel {
+  position:absolute!important;
+  top:calc(100% + 14px)!important;
+  right:0!important;
+  left:auto!important;
+  width:370px!important;
+  max-width:calc(100vw - 28px)!important;
+  border-color:rgba(255,181,27,.32)!important;
+  border-radius:18px!important;
+  box-shadow:0 24px 64px rgba(2,18,29,.42)!important;
+}
+.jinglePlayer .jingleArtwork > .jingleArtworkLogo {
+  padding:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  filter:drop-shadow(0 2px 3px rgba(255,255,255,.92)) drop-shadow(0 4px 8px rgba(0,0,0,.2))!important;
+}
+
+@media (max-width:800px) {
+  .siteHeader {
+    display:grid!important;
+    grid-template-columns:104px minmax(132px,1fr) 46px!important;
+    gap:8px!important;
+    height:76px!important;
+    padding:0 14px!important;
+  }
+  .siteHeader .brand { grid-column:1!important; min-width:0!important; }
+  .siteHeader .headerWordmark { font-size:16px!important; }
+  .siteHeader .headerWordmark small { font-size:5px!important; letter-spacing:1px!important; }
+  .siteHeader .mobileHeaderNumber { display:none!important; }
+  .siteHeader > .jinglePlayer { grid-column:2!important; justify-self:center!important; width:min(100%,154px)!important; }
+  .siteHeader > .jinglePlayer .jingleTrigger {
+    grid-template-columns:32px minmax(0,1fr) 16px!important;
+    gap:6px!important;
+    width:100%!important;
+    min-width:0!important;
+    height:42px!important;
+    padding:4px 8px 4px 4px!important;
+  }
+  .siteHeader > .jinglePlayer .jingleRoundButton { width:32px!important; height:32px!important; }
+  .siteHeader > .jinglePlayer .jingleTriggerText,
+  .siteHeader > .jinglePlayer .jingleBars { display:grid!important; }
+  .siteHeader > .jinglePlayer .jingleBars { display:flex!important; }
+  .siteHeader > .jinglePlayer .jinglePanel {
+    position:fixed!important;
+    top:84px!important;
+    right:14px!important;
+    left:14px!important;
+    width:auto!important;
+    max-width:none!important;
+    height:124px!important;
+  }
+  .siteHeader .mobileMenu { grid-column:3!important; justify-self:end!important; }
+
+  main .mobileHero {
+    display:block!important;
+    min-height:calc(100svh - 76px)!important;
+    overflow:hidden!important;
+    isolation:isolate!important;
+    background:linear-gradient(145deg,#0d5b42 0%,#0a4836 56%,#072d2b 100%)!important;
+  }
+  main .mobileHero::before {
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:0!important;
+    inset:0!important;
+    opacity:.055!important;
+    background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important;
+    background-size:22px 22px!important;
+    pointer-events:none!important;
+  }
+  main .mobileHero::after { content:none!important; display:none!important; }
+  main .mobileHero .mobileHeroPattern { display:none!important; }
+  main .mobileHero .mobilePortrait {
+    position:absolute!important;
+    z-index:1!important;
+    top:auto!important;
+    right:-15%!important;
+    bottom:-1%!important;
+    left:auto!important;
+    width:88%!important;
+    height:86%!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+    opacity:1!important;
+    filter:drop-shadow(-18px 18px 36px rgba(1,20,15,.26))!important;
+    mix-blend-mode:normal!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+  }
+  main .mobileHero .mobileHeroCopy {
+    position:absolute!important;
+    z-index:4!important;
+    top:10%!important;
+    right:auto!important;
+    left:20px!important;
+    width:60%!important;
+    max-width:238px!important;
+    padding:0!important;
+    color:#fff!important;
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    text-align:left!important;
+  }
+  main .mobileHero .mobileHeroCopy p {
+    justify-content:flex-start!important;
+    margin:0 0 13px!important;
+    color:var(--yellow)!important;
+    font-size:7px!important;
+    letter-spacing:1.45px!important;
+    white-space:nowrap!important;
+  }
+  main .mobileHero .mobileHeroCopy h1 {
+    max-width:230px!important;
+    margin:0!important;
+    color:#fff!important;
+    font-size:clamp(23px,7.2vw,32px)!important;
+    line-height:.94!important;
+    letter-spacing:-1px!important;
+    text-align:left!important;
+    text-shadow:0 4px 20px rgba(2,22,17,.34)!important;
+  }
+  main .mobileHero .mobileHeroCopy h1 strong { color:var(--orange)!important; }
+  main .mobileHero .mobileHeroCopy a {
+    justify-content:space-between!important;
+    min-width:142px!important;
+    margin-top:18px!important;
+    padding:12px 14px!important;
+    border-radius:8px!important;
+    box-shadow:0 10px 24px rgba(3,22,17,.2)!important;
+  }
+  main .mobileHero .mobileNumber {
+    z-index:5!important;
+    right:4%!important;
+    bottom:82px!important;
+    width:76%!important;
+    max-width:330px!important;
+  }
+  main .mobileHero .mobileHeroFooter {
+    z-index:6!important;
+    right:18px!important;
+    bottom:12px!important;
+    left:18px!important;
+  }
+}
+
+@media (max-width:380px) {
+  .siteHeader { grid-template-columns:92px minmax(124px,1fr) 44px!important; padding:0 10px!important; }
+  .siteHeader > .jinglePlayer { width:138px!important; }
+  .siteHeader > .jinglePlayer .jingleTriggerText strong { font-size:8px!important; }
+  main .mobileHero .mobileHeroCopy { left:16px!important; width:62%!important; }
+  main .mobileHero .mobilePortrait { right:-20%!important; width:94%!important; }
+}
+
+/* Player integrado ao cabeçalho */
+.siteHeader>.jinglePlayer { position:relative!important; z-index:80!important; right:auto!important; bottom:auto!important; left:auto!important; flex:0 0 auto; }
+.siteHeader>.jinglePlayer .jingleTrigger { grid-template-columns:34px auto 18px!important; min-width:154px!important; padding:5px 9px 5px 5px!important; color:#fff!important; background:rgba(255,255,255,.08)!important; border-color:rgba(255,255,255,.18)!important; border-radius:999px!important; box-shadow:none!important; }
+.siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }.siteHeader>.jinglePlayer .jingleRoundButton svg { width:16px!important; height:16px!important; }
+.siteHeader>.jinglePlayer .jinglePanel { position:absolute!important; top:calc(100% + 15px)!important; right:0!important; left:auto!important; width:360px!important; box-shadow:0 22px 60px rgba(4,22,31,.42)!important; }
+.siteHeader>.jinglePlayer .jinglePanel::before { content:""; position:absolute; top:-7px; right:30px; width:14px; height:14px; background:#092337; transform:rotate(45deg); }
+@media screen and (max-width:760px) {
+  .siteHeader { display:grid!important; grid-template-columns:112px 1fr 42px 46px!important; gap:7px!important; }
+  .siteHeader>.jinglePlayer { grid-column:3!important; }
+  .siteHeader>.jinglePlayer .jingleTrigger { display:grid!important; grid-template-columns:1fr!important; min-width:0!important; width:42px!important; height:42px!important; padding:3px!important; overflow:hidden!important; }
+  .siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }.siteHeader>.jinglePlayer .jingleTriggerText,.siteHeader>.jinglePlayer .jingleBars { display:none!important; }
+  .siteHeader>.jinglePlayer .jinglePanel { position:fixed!important; top:80px!important; right:12px!important; left:12px!important; width:auto!important; max-width:none!important; height:116px!important; }
+  .siteHeader .mobileMenu { grid-column:4!important; }
+}
+
+/* Polimento v6 — menos ruído no mobile e marca transparente no player */
+.jinglePlayer .jingleArtwork>.jingleArtworkLogo { padding:0!important; background:transparent!important; border-radius:0!important; filter:drop-shadow(0 2px 4px rgba(255,255,255,.85)) drop-shadow(0 4px 8px rgba(0,0,0,.2))!important; }
+.jingleRoundButton svg rect,.jinglePlay svg rect { fill:currentColor; stroke:none; }
+@media screen and (max-width:760px) {
+  main .mobileHero::before { opacity:.045!important; background-size:24px 24px!important; }
+  main .mobileHero .mobilePortrait { left:-15%!important; width:82%!important; height:78%!important; }
+  main .mobileHero .mobileHeroCopy { top:11%!important; right:20px!important; width:55%!important; max-width:225px!important; }
+  main .mobileHero .mobileHeroCopy p { margin-bottom:12px!important; font-size:7px!important; letter-spacing:1.45px!important; white-space:nowrap!important; }
+  main .mobileHero .mobileHeroCopy h1 { max-width:220px!important; font-size:clamp(20px,5.8vw,27px)!important; line-height:.98!important; }
+  main .mobileHero .mobileNumber { right:7%!important; bottom:76px!important; width:78%!important; max-width:350px!important; }
+  main .mobileHero .mobileHeroFooter { left:20px!important; right:20px!important; bottom:10px!important; padding-top:8px!important; }
+}
+
+/* Hero mobile v5 — composição contínua inspirada na referência */
+@media screen and (max-width:760px) {
+  main .mobileHero { display:block!important; min-height:calc(100svh - 74px)!important; background:linear-gradient(145deg,#0d513b,#0a4232 58%,#071f2d)!important; overflow:hidden!important; }
+  main .mobileHero::before { content:""!important; display:block!important; position:absolute!important; z-index:0!important; inset:0!important; opacity:.09!important; background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important; background-size:20px 20px!important; pointer-events:none!important; }
+  main .mobileHero::after { content:none!important; display:none!important; }
+  main .mobileHero .mobilePortrait { position:absolute!important; z-index:1!important; top:auto!important; right:auto!important; bottom:0!important; left:-12%!important; width:76%!important; height:83%!important; object-fit:contain!important; object-position:left bottom!important; filter:none!important; opacity:1!important; -webkit-mask-image:linear-gradient(90deg,#000,#000 84%,transparent)!important; mask-image:linear-gradient(90deg,#000,#000 84%,transparent)!important; }
+  main .mobileHero .mobileHeroCopy { position:absolute!important; z-index:3!important; top:16%!important; right:18px!important; left:auto!important; width:55%!important; max-width:250px!important; padding:0!important; background:transparent!important; border:0!important; text-align:right!important; }
+  main .mobileHero .mobileHeroCopy p { justify-content:flex-end!important; }.mobileHeroCopy h1 { margin-left:auto!important; max-width:245px!important; font-size:clamp(21px,6.3vw,29px)!important; line-height:.94!important; }.mobileHeroCopy h1 strong { color:var(--orange)!important; }
+  main .mobileHero .mobileNumber { z-index:4!important; right:5%!important; bottom:88px!important; width:88%!important; max-width:410px!important; }
+}
+.jinglePlayer .jingleArtwork>.jingleArtworkLogo { top:auto!important; right:6px!important; bottom:6px!important; left:6px!important; width:calc(100% - 12px)!important; max-height:35px!important; }
+
+/* UI v4: Hero mobile inspirado no desktop e player totalmente isolado */
+.jinglePlayer .jinglePanel { display:grid!important; grid-template-columns:minmax(0,1fr) 92px!important; width:360px!important; max-width:calc(100vw - 32px)!important; height:132px!important; min-height:0!important; padding:0!important; overflow:hidden!important; }
+.jinglePlayer .jinglePanelContent { min-width:0!important; height:132px!important; padding:15px!important; overflow:hidden!important; }
+.jinglePlayer .jingleArtwork { position:relative!important; display:block!important; width:92px!important; height:132px!important; min-height:0!important; overflow:hidden!important; background:#fff!important; }
+.jinglePlayer .jingleArtwork>.jinglePortrait { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; min-height:0!important; max-width:none!important; object-fit:cover!important; object-position:50% 22%!important; opacity:1!important; filter:none!important; transform:none!important; animation:none!important; -webkit-mask:none!important; mask:none!important; }
+.jinglePlayer .jingleArtwork>.jingleArtworkLogo { position:absolute!important; z-index:2!important; top:7px!important; right:6px!important; bottom:auto!important; left:6px!important; width:calc(100% - 12px)!important; height:auto!important; max-height:40px!important; padding:3px 4px!important; object-fit:contain!important; background:rgba(255,255,255,.92)!important; border-radius:5px!important; }
+@media screen and (max-width:760px) {
+  main .mobileHero { display:grid!important; grid-template-rows:44% 56%!important; min-height:calc(100svh - 74px)!important; background:#0b4a36!important; }
+  main .mobileHero::before,main .mobileHero::after,main .mobileHeroPattern { display:none!important; content:none!important; }
+  main .mobileHero .mobilePortrait { position:absolute!important; z-index:1!important; top:44%!important; right:0!important; bottom:0!important; left:0!important; width:100%!important; height:56%!important; object-fit:cover!important; object-position:50% 25%!important; filter:none!important; opacity:1!important; -webkit-mask:none!important; mask:none!important; }
+  main .mobileHero .mobileHeroCopy { position:relative!important; z-index:3!important; top:auto!important; left:auto!important; right:auto!important; grid-row:1!important; width:100%!important; max-width:none!important; padding:28px 22px 22px!important; background:#0b4a36!important; border:0!important; border-radius:0!important; text-align:left!important; }
+  main .mobileHero .mobileHeroCopy h1 { max-width:330px!important; font-size:clamp(30px,9vw,42px)!important; line-height:.92!important; }
+  main .mobileHero .mobileNumber { z-index:4!important; right:14px!important; bottom:54px!important; width:min(58%,250px)!important; }
+  .jinglePlayer .jinglePanel { grid-template-columns:minmax(0,1fr) 76px!important; width:min(310px,calc(100vw - 28px))!important; height:116px!important; }
+  .jinglePlayer .jinglePanelContent { height:116px!important; padding:12px!important; }.jinglePlayer .jingleArtwork { width:76px!important; height:116px!important; }
+}
+
+/* Reset definitivo da Hero mobile: foto sem névoa ou filtros cromáticos */
+@media screen and (max-width:760px) {
+  main .mobileHero { background:#fff!important; isolation:auto!important; }
+  main .mobileHero::before,main .mobileHero::after { content:none!important; display:none!important; opacity:0!important; background:transparent!important; }
+  main .mobileHero .mobileHeroPattern { display:none!important; opacity:0!important; background:none!important; }
+  main .mobileHero .mobilePortrait { z-index:1!important; inset:auto 0 0 0!important; width:100%!important; height:100%!important; opacity:1!important; filter:none!important; mix-blend-mode:normal!important; object-fit:cover!important; object-position:50% 22%!important; -webkit-mask:none!important; mask:none!important; }
+  main .mobileHero .mobileHeroCopy { z-index:8!important; background:rgba(7,29,51,.78)!important; border:1px solid rgba(255,255,255,.12); backdrop-filter:none!important; }
+  main .mobileHero .mobileNumber,main .mobileHero .mobileHeroFooter { z-index:9!important; }
+}
+
+/* Player v2 e Hero mobile sem qualquer névoa sobre a fotografia */
+.jingleArtwork { position:relative; width:96px; min-height:132px; overflow:hidden; border-left:1px solid rgba(255,255,255,.12); background:#f3f2ef; }
+.jingleArtwork .jinglePortrait { width:100%; height:100%; min-height:132px; object-fit:cover; object-position:48% 23%; border:0; }
+.jingleArtworkLogo { position:absolute; left:7px; right:7px; bottom:7px; width:calc(100% - 14px); height:auto; padding:4px 5px; background:rgba(255,255,255,.9); border-radius:5px; filter:drop-shadow(0 4px 8px rgba(0,0,0,.2)); }
+.jingleError { margin:8px 0 0; color:#ffd166; font-size:8px; line-height:1.35; }
+
+@media (max-width:760px) {
+  .mobileHero:before,.mobileHero:after { display:none!important; content:none!important; background:none!important; }
+  .mobileHeroPattern { display:none!important; }
+  .mobilePortrait { filter:none!important; opacity:1!important; mix-blend-mode:normal!important; -webkit-mask-image:none!important; mask-image:none!important; }
+  .mobileHeroCopy { padding:12px; background:linear-gradient(90deg,rgba(7,29,51,.68),rgba(7,29,51,.08)); border-radius:10px; }
+  .jingleArtwork { width:82px; min-height:118px; }.jingleArtwork .jinglePortrait { min-height:118px; }.jingleArtworkLogo { left:5px; right:5px; bottom:5px; width:calc(100% - 10px); padding:3px; }
+}
+
+/* Correção final: player compacto e fotografia mobile sem névoa */
+.jingleTrigger { grid-template-columns:42px auto 22px; }
+.jingleRoundButton,.jinglePlay { display:grid; place-items:center; color:var(--navy); background:linear-gradient(145deg,var(--yellow),var(--orange)); border-radius:50%; box-shadow:0 8px 20px rgba(0,0,0,.2); }
+.jingleRoundButton { width:42px; height:42px; }
+.jingleRoundButton svg,.jinglePlay svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2.3; stroke-linecap:round; stroke-linejoin:round; }
+.jinglePanel { display:grid; grid-template-columns:1fr 96px; width:370px; padding:0; overflow:hidden; }
+.jinglePanelContent { min-width:0; padding:16px; }
+.jingleIdentity { grid-template-columns:1fr 28px; }
+.jinglePortrait { width:96px; height:100%; min-height:132px; object-fit:cover; object-position:48% 24%; border-left:1px solid rgba(255,255,255,.12); }
+.jinglePlay { width:40px; height:40px; padding:0; border:0; cursor:pointer; }
+.jinglePlayer.isPlaying .jingleBars i { animation:jinglePulse .8s ease-in-out infinite alternate; }
+.jinglePlayer:not(.isPlaying) .jingleBars i { animation:none; height:6px; opacity:.7; }
+
+@media (max-width:760px) {
+  .mobileHero:before { background:linear-gradient(180deg,rgba(6,39,30,.48) 0%,rgba(6,39,30,.1) 16%,transparent 29%),linear-gradient(0deg,rgba(7,29,51,.42) 0%,transparent 22%); }
+  .mobileHero:after { height:18%; background:linear-gradient(0deg,rgba(7,29,51,.46),transparent); }
+  .mobileHeroPattern { opacity:.018; }
+  .mobilePortrait { filter:none; object-position:50% 22%; }
+  .jinglePlayer { left:14px; right:auto; bottom:78px; max-width:calc(100vw - 28px); }
+  .jingleTrigger { grid-template-columns:38px auto 18px; min-width:164px; padding:6px 9px 6px 6px; border-radius:999px; }
+  .jingleRoundButton { width:38px; height:38px; }.jingleRoundButton svg { width:18px; height:18px; }
+  .jinglePanel { grid-template-columns:1fr 82px; width:min(318px,calc(100vw - 28px)); border-radius:16px; }
+  .jinglePanelContent { padding:13px; }.jinglePortrait { width:82px; min-height:118px; }.jingleTitle strong { font-size:11px; }.jingleTitle small { font-size:6.5px; }
+  .jingleControls { grid-template-columns:36px 1fr; gap:10px; margin-top:12px; padding-top:10px; }.jinglePlay { width:36px; height:36px; }.jinglePlay svg { width:17px; height:17px; }
+}
+
+/* Player oficial 1020 — compacto, legível e responsivo */
+.jinglePlayer { position:fixed; z-index:70; right:clamp(22px,3.4vw,58px); bottom:86px; font-family:var(--font-body); }
+.jingleTrigger { display:grid; grid-template-columns:42px auto 24px; align-items:center; gap:10px; min-width:190px; padding:7px 10px 7px 7px; color:#fff; background:linear-gradient(135deg,rgba(7,29,51,.97),rgba(12,54,58,.97)); border:1px solid rgba(255,255,255,.2); border-radius:14px; box-shadow:0 16px 42px rgba(7,29,51,.32); backdrop-filter:blur(14px); cursor:pointer; transition:transform .22s ease,box-shadow .22s ease; }
+.jingleTrigger:hover { transform:translateY(-3px); box-shadow:0 22px 48px rgba(7,29,51,.38); }
+.jingleDisc { display:grid; place-items:center; width:42px; height:42px; background:conic-gradient(from 20deg,var(--orange),var(--yellow),var(--orange)); border:3px solid rgba(255,255,255,.2); border-radius:50%; box-shadow:inset 0 0 0 5px rgba(7,29,51,.12); }
+.jingleDisc i { color:var(--navy); font:950 20px/1 var(--font-display); font-style:normal; }
+.jingleTriggerText,.jingleTitle { display:grid; gap:3px; min-width:0; text-align:left; }
+.jingleTriggerText small,.jingleTitle small { color:var(--yellow); font-size:7px; font-weight:850; letter-spacing:1.2px; text-transform:uppercase; }
+.jingleTriggerText strong { font-size:11px; font-weight:950; letter-spacing:.45px; text-transform:uppercase; }
+.jingleBars { display:flex; align-items:center; justify-content:center; gap:2px; height:20px; }
+.jingleBars i { width:2px; height:7px; background:var(--yellow); border-radius:4px; animation:jinglePulse .8s ease-in-out infinite alternate; }
+.jingleBars i:nth-child(2) { height:15px; animation-delay:.16s; }.jingleBars i:nth-child(3) { height:10px; animation-delay:.3s; }
+.jinglePanel { width:350px; padding:14px; color:#fff; background:linear-gradient(145deg,rgba(7,29,51,.98),rgba(10,56,54,.97)); border:1px solid rgba(255,255,255,.18); border-radius:18px; box-shadow:0 24px 65px rgba(4,22,31,.4); backdrop-filter:blur(16px); }
+.jingleIdentity { display:grid; grid-template-columns:42px 1fr 28px; align-items:center; gap:11px; }
+.jingleTitle strong { overflow:hidden; font-size:12px; letter-spacing:.3px; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap; }.jingleTitle b { color:var(--yellow); }
+.jingleClose { align-self:start; width:28px; height:28px; padding:0; color:rgba(255,255,255,.68); background:rgba(255,255,255,.06); border:0; border-radius:50%; font-size:20px; line-height:1; cursor:pointer; }
+.jingleControls { display:grid; grid-template-columns:40px 1fr; align-items:center; gap:12px; margin-top:13px; padding-top:12px; border-top:1px solid rgba(255,255,255,.11); }
+.jinglePlay { display:grid; place-items:center; width:40px; height:40px; padding:0; color:var(--navy); background:linear-gradient(145deg,var(--yellow),var(--orange)); border:0; border-radius:50%; box-shadow:0 8px 20px rgba(0,0,0,.2); cursor:pointer; }.jinglePlay span { margin-left:2px; font-size:13px; font-weight:950; }
+.jingleTrack { display:grid; gap:5px; }.jingleTrack input { width:100%; height:4px; margin:0; appearance:none; background:linear-gradient(90deg,var(--yellow) var(--jingle-progress),rgba(255,255,255,.2) var(--jingle-progress)); border-radius:99px; cursor:pointer; }.jingleTrack input::-webkit-slider-thumb { width:13px; height:13px; appearance:none; background:#fff; border:3px solid var(--yellow); border-radius:50%; }.jingleTrack span { display:flex; justify-content:space-between; color:rgba(255,255,255,.55); font-size:8px; }
+.jinglePlayer.isPlaying .jingleDisc { animation:jingleSpin 4s linear infinite; }
+@keyframes jinglePulse { to { height:18px; opacity:.65; } } @keyframes jingleSpin { to { transform:rotate(360deg); } }
+
+/* Hero mobile: fotografia nítida, com cor apenas onde melhora a leitura */
+@media (max-width:760px) {
+  .mobileHero { background:#0b4937; }
+  .mobileHero:before { content:""; position:absolute; z-index:4; inset:0; background:linear-gradient(180deg,rgba(8,53,40,.84) 0%,rgba(8,53,40,.28) 19%,transparent 37%),linear-gradient(0deg,rgba(7,29,51,.72) 0%,transparent 30%); pointer-events:none; }
+  .mobileHero:after { z-index:5; height:28%; background:linear-gradient(0deg,rgba(7,29,51,.82),transparent); }
+  .mobileHeroPattern { z-index:6; opacity:.035; }
+  .mobilePortrait { z-index:3; left:0; bottom:0; width:100%; height:100%; object-fit:cover; object-position:50% 23%; filter:saturate(.98) contrast(1.04) brightness(1.02); -webkit-mask-image:none; mask-image:none; }
+  .mobileHeroCopy { z-index:8; top:7%; left:18px; right:18px; width:auto; max-width:310px; text-align:left; }
+  .mobileHeroCopy h1 { color:#fff; text-shadow:0 3px 20px rgba(4,23,18,.65); }.mobileHeroCopy h1 strong { color:var(--yellow); }
+  .mobileNumber { z-index:9; right:15px; bottom:88px; width:min(70%,300px); }
+  .mobileHeroFooter { z-index:10; }
+  .jinglePlayer { display:block!important; left:14px; right:auto; bottom:78px; }
+  .jingleTrigger { grid-template-columns:38px auto 20px; min-width:170px; border-radius:13px; }.jingleDisc { width:38px; height:38px; }.jingleTriggerText strong { font-size:10px; }
+  .jinglePanel { width:min(340px,calc(100vw - 28px)); padding:12px; border-radius:16px; }.jingleIdentity { grid-template-columns:38px 1fr 28px; }.jingleControls { margin-top:11px; padding-top:10px; }
+}
+
 @media (max-width: 800px) {
   main { display:flex; flex-direction:column; }
   .siteHeader { order:0; }
@@ -490,7 +825,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .mobileHeroCopy h1 { margin:0; font-size:clamp(18px,5.1vw,23px); line-height:1.04; letter-spacing:-.7px; font-style:italic; font-weight:900; text-transform:uppercase; text-wrap:balance; }
   .mobileHeroCopy h1 strong { color:var(--orange); font:inherit; }
   .mobileHeroCopy a { display:inline-flex; gap:14px; margin-top:16px; padding:10px 13px; background:var(--orange); font-size:8px; font-weight:900; text-transform:uppercase; border-radius:3px; }
-  .mobilePortrait { position:absolute; z-index:3; left:-22%; bottom:-1%; width:135%; height:88%; object-fit:contain; object-position:left bottom; filter:saturate(.92) contrast(1.04); -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 72%,rgba(0,0,0,.35) 90%,transparent 100%); mask-image:linear-gradient(90deg,#000 0%,#000 72%,rgba(0,0,0,.35) 90%,transparent 100%); }
+  .mobilePortrait { position:absolute; z-index:3; left:-22%; bottom:-1%; width:135%; height:88%; object-fit:contain; object-position:left bottom; filter:saturate(.94) contrast(1.03); }
   .mobileNumber { position:absolute; z-index:8; right:7%; bottom:120px; width:86%; height:auto; object-fit:contain; filter:drop-shadow(0 12px 18px rgba(0,0,0,.38)); }
   .mobileHeroFooter { position:absolute; z-index:10; left:18px; right:18px; bottom:15px; display:flex; justify-content:flex-end; align-items:baseline; gap:8px; font-size:9px; font-weight:900; letter-spacing:1.2px; }
   .mobileHeroFooter b { font-size:18px; }
@@ -967,390 +1302,52 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .legalDetails { gap:11px; }
 }
 
-
-/* Jingle oficial da campanha */
-.jinglePlayer { position:fixed; z-index:61; left:clamp(14px,2vw,28px); bottom:150px; font-family:var(--font-body); }
-.jingleTrigger { display:flex; align-items:center; gap:11px; padding:8px 14px 8px 8px; color:#fff; background:rgba(7,29,51,.96); border:1px solid rgba(255,255,255,.18); border-radius:999px; box-shadow:0 14px 34px rgba(7,29,51,.28); cursor:pointer; transition:transform .2s ease,box-shadow .2s ease; }
-.jingleTrigger:hover { transform:translateY(-2px); box-shadow:0 18px 38px rgba(7,29,51,.34); }
-.jingleTriggerIcon { display:grid; place-items:center; width:36px; height:36px; color:var(--navy); background:linear-gradient(145deg,var(--yellow),var(--orange)); border-radius:50%; font:900 21px/1 var(--font-display); }
-.jingleTrigger > span:last-child { display:grid; gap:2px; text-align:left; font-size:10px; font-weight:900; letter-spacing:.45px; text-transform:uppercase; }
-.jingleTrigger small,.jingleTitle small { color:var(--yellow); font-size:7px; font-weight:800; letter-spacing:1.25px; text-transform:uppercase; }
-.jinglePanel { width:330px; padding:13px 14px 11px; color:#fff; background:linear-gradient(135deg,rgba(7,29,51,.98),rgba(13,50,74,.98)); border:1px solid rgba(255,255,255,.18); border-radius:16px; box-shadow:0 18px 50px rgba(7,29,51,.35); backdrop-filter:blur(12px); }
-.jinglePanelTop { display:grid; grid-template-columns:42px 1fr 28px; align-items:center; gap:10px; }
-.jinglePlay { display:grid; place-items:center; width:42px; height:42px; padding:0; color:var(--navy); background:linear-gradient(145deg,var(--yellow),var(--orange)); border:0; border-radius:50%; cursor:pointer; }
-.jinglePlay span { margin-left:2px; font-size:14px; font-weight:900; }
-.jingleTitle { display:grid; gap:3px; min-width:0; }
-.jingleTitle strong { overflow:hidden; font-size:11px; letter-spacing:.5px; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap; }
-.jingleClose { align-self:start; padding:0; color:rgba(255,255,255,.7); background:transparent; border:0; font-size:24px; line-height:1; cursor:pointer; }
-.jingleTimeline { display:grid; grid-template-columns:32px 1fr 32px; align-items:center; gap:7px; margin-top:10px; color:rgba(255,255,255,.65); font-size:8px; }
-.jingleTimeline span:last-child { text-align:right; }
-.jingleTimeline input { width:100%; height:3px; accent-color:var(--yellow); cursor:pointer; }
-@media (max-width:760px) {
-  .jinglePlayer { left:14px; bottom:80px; }
-  .jinglePanel { width:min(330px,calc(100vw - 28px)); }
-  .jingleTrigger { padding-right:12px; }
+/* ÚLTIMA CAMADA — cabeçalho musical e Hero mobile aprovados */
+.siteHeader > .jinglePlayer { position:relative!important; z-index:90!important; inset:auto!important; flex:0 0 auto!important; }
+.siteHeader > .jinglePlayer .jingleTrigger {
+  display:grid!important; grid-template-columns:34px minmax(0,1fr) 18px!important; align-items:center!important; gap:8px!important;
+  width:160px!important; min-width:160px!important; height:44px!important; padding:5px 9px 5px 5px!important;
+  color:#fff!important; background:linear-gradient(135deg,#0b2a40,#103e48)!important;
+  border:1px solid rgba(255,181,27,.38)!important; border-radius:999px!important; box-shadow:0 8px 24px rgba(2,18,29,.22)!important;
 }
-
-
-/* Ajuste de posição e experiência móvel */
-.jinglePlayer { left:auto; right:clamp(24px,4vw,72px); bottom:92px; }
-@media (min-width:761px) {
-  .floatingActions .backToTop { position:fixed; right:clamp(24px,4vw,72px); bottom:max(20px,env(safe-area-inset-bottom)); }
-}
-@media (max-width:760px) {
-  .jinglePlayer { display:block !important; left:14px; right:auto; bottom:82px; }
-  .jinglePanel { width:min(330px,calc(100vw - 28px)); }
-  .worldAward { display:none !important; }
-}
-
-
-/* Direção de arte mobile: verde institucional integrado à fotografia */
-@media (max-width:760px) {
-  .mobileHero {
-    min-height:calc(100svh - 74px);
-    isolation:isolate;
-    background:
-      radial-gradient(circle at 78% 44%,rgba(48,125,92,.38),transparent 38%),
-      linear-gradient(145deg,#0d4935 0%,#0a382b 55%,#071f24 100%);
-  }
-  .mobileHero:before {
-    content:"";
-    position:absolute;
-    z-index:4;
-    inset:0;
-    background:
-      linear-gradient(180deg,rgba(8,48,36,.96) 0%,rgba(8,48,36,.74) 17%,rgba(8,48,36,.1) 42%,rgba(7,29,51,.62) 100%),
-      linear-gradient(90deg,rgba(8,55,40,.88) 0%,rgba(8,55,40,.54) 38%,rgba(12,66,51,.22) 70%,rgba(9,45,41,.28) 100%);
-    pointer-events:none;
-  }
-  .mobileHero:after {
-    z-index:5;
-    height:42%;
-    background:linear-gradient(0deg,rgba(7,29,51,.96) 0%,rgba(7,39,42,.62) 48%,transparent 100%);
-  }
-  .mobileHeroPattern { z-index:6; opacity:.07; }
-  .mobilePortrait {
-    z-index:3;
-    left:0;
-    bottom:0;
-    width:100%;
-    height:88%;
-    object-fit:cover;
-    object-position:48% 23%;
-    filter:saturate(.72) contrast(1.08) brightness(.9);
-    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 100%);
-    mask-image:linear-gradient(180deg,transparent 0%,#000 12%,#000 100%);
-  }
-  .mobileHeroCopy {
-    z-index:8;
-    top:8%;
-    left:20px;
-    right:20px;
-    width:auto;
-    max-width:330px;
-    text-align:left;
-  }
-  .mobileHeroCopy p {
-    display:flex;
-    align-items:center;
-    gap:9px;
-    margin-bottom:11px;
-    color:#ffd166;
-  }
-  .mobileHeroCopy p:before {
-    content:"";
-    width:24px;
-    height:2px;
-    background:var(--orange);
-  }
-  .mobileHeroCopy h1 {
-    max-width:290px;
-    color:#fff;
-    font-size:clamp(23px,7vw,31px);
-    line-height:.96;
-    letter-spacing:-1px;
-    text-shadow:0 3px 18px rgba(4,24,20,.42);
-  }
-  .mobileHeroCopy h1 strong { color:var(--yellow); }
-  .mobileHeroCopy a {
-    margin-top:15px;
-    padding:11px 15px;
-    color:#fff;
-    background:linear-gradient(135deg,var(--orange),#e95012);
-    border-radius:6px;
-    box-shadow:0 10px 24px rgba(7,29,51,.24);
-  }
-  .mobileNumber {
-    z-index:9;
-    right:18px;
-    bottom:92px;
-    width:min(72%,310px);
-    filter:drop-shadow(0 12px 22px rgba(0,0,0,.4));
-  }
-  .mobileHeroFooter {
-    z-index:10;
-    bottom:17px;
-    padding-top:11px;
-    border-top:1px solid rgba(255,255,255,.13);
-  }
-  .mobileHeroFooter .partyLogo { width:94px; filter:brightness(0) invert(1); opacity:.88; }
-}
-@media (max-width:380px) {
-  .mobileHeroCopy { top:6%; }
-  .mobileHeroCopy h1 { font-size:22px; }
-  .mobilePortrait { object-position:48% 24%; }
-  .mobileNumber { bottom:86px; width:76%; }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Reset definitivo da Hero mobile: foto sem névoa ou filtros cromáticos */
-@media screen and (max-width:760px) {
-  main .mobileHero { background:#ffffff!important; isolation:auto!important; }
-  main .mobileHero::before,
-  main .mobileHero::after { content:none!important; display:none!important; opacity:0!important; background:transparent!important; }
-  main .mobileHero .mobileHeroPattern { display:none!important; opacity:0!important; background:none!important; }
-  main .mobileHero .mobilePortrait {
-    z-index:1!important;
-    inset:auto 0 0 0!important;
-    width:100%!important;
-    height:100%!important;
-    opacity:1!important;
-    filter:none!important;
-    mix-blend-mode:normal!important;
-    object-fit:cover!important;
-    object-position:50% 22%!important;
-    -webkit-mask:none!important;
-    mask:none!important;
-  }
-  main .mobileHero .mobileHeroCopy { z-index:8!important; background:rgba(7,29,51,.78)!important; border:1px solid rgba(255,255,255,.12); backdrop-filter:none!important; }
-  main .mobileHero .mobileNumber,
-  main .mobileHero .mobileHeroFooter { z-index:9!important; }
-}
-
-
-/* UI v4: Hero mobile inspirado no desktop e player totalmente isolado */
-.jinglePlayer .jinglePanel { display:grid!important; grid-template-columns:minmax(0,1fr) 92px!important; width:360px!important; max-width:calc(100vw - 32px)!important; height:132px!important; min-height:0!important; padding:0!important; overflow:hidden!important; }
-.jinglePlayer .jinglePanelContent { width:auto!important; min-width:0!important; height:132px!important; padding:15px!important; overflow:hidden!important; }
-.jinglePlayer .jingleArtwork { position:relative!important; display:block!important; width:92px!important; height:132px!important; min-height:0!important; overflow:hidden!important; background:#fff!important; }
-.jinglePlayer .jingleArtwork > .jinglePortrait { position:absolute!important; inset:0!important; display:block!important; width:100%!important; height:100%!important; min-height:0!important; max-width:none!important; object-fit:cover!important; object-position:50% 22%!important; opacity:1!important; filter:none!important; transform:none!important; animation:none!important; -webkit-mask:none!important; mask:none!important; }
-.jinglePlayer .jingleArtwork > .jingleArtworkLogo { position:absolute!important; z-index:2!important; top:7px!important; right:6px!important; bottom:auto!important; left:6px!important; display:block!important; width:calc(100% - 12px)!important; height:auto!important; max-height:40px!important; padding:3px 4px!important; object-fit:contain!important; background:rgba(255,255,255,.92)!important; border-radius:5px!important; }
+.siteHeader > .jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; color:var(--navy)!important; background:linear-gradient(145deg,var(--yellow),var(--orange))!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText { display:grid!important; gap:1px!important; min-width:0!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText small { font-size:6px!important; letter-spacing:1px!important; }
+.siteHeader > .jinglePlayer .jingleTriggerText strong { overflow:hidden; font-size:9px!important; text-overflow:ellipsis; white-space:nowrap; }
+.siteHeader > .jinglePlayer .jingleBars { display:flex!important; }
+.siteHeader > .jinglePlayer .jinglePanel { position:absolute!important; top:calc(100% + 14px)!important; right:0!important; left:auto!important; width:370px!important; max-width:calc(100vw - 28px)!important; border-color:rgba(255,181,27,.32)!important; }
+.jinglePlayer .jingleArtwork > .jingleArtworkLogo { padding:0!important; background:transparent!important; border-radius:0!important; }
 
 @media screen and (max-width:760px) {
-  main .mobileHero { display:grid!important; grid-template-rows:44% 56%!important; min-height:calc(100svh - 74px)!important; background:#0b4a36!important; }
-  main .mobileHero::before,main .mobileHero::after,main .mobileHeroPattern { display:none!important; content:none!important; }
-  main .mobileHero .mobilePortrait { position:absolute!important; z-index:1!important; top:44%!important; right:0!important; bottom:0!important; left:0!important; width:100%!important; height:56%!important; object-fit:cover!important; object-position:50% 25%!important; filter:none!important; opacity:1!important; -webkit-mask:none!important; mask:none!important; }
-  main .mobileHero .mobileHeroCopy { position:relative!important; z-index:3!important; top:auto!important; left:auto!important; right:auto!important; grid-row:1!important; width:100%!important; max-width:none!important; padding:28px 22px 22px!important; color:#fff!important; background:#0b4a36!important; border:0!important; border-radius:0!important; text-align:left!important; }
-  main .mobileHero .mobileHeroCopy h1 { max-width:330px!important; font-size:clamp(30px,9vw,42px)!important; line-height:.92!important; }
-  main .mobileHero .mobileHeroCopy a { margin-top:20px!important; }
-  main .mobileHero .mobileNumber { z-index:4!important; right:14px!important; bottom:54px!important; width:min(58%,250px)!important; }
-  main .mobileHero .mobileHeroFooter { z-index:4!important; bottom:10px!important; }
-  .jinglePlayer .jinglePanel { grid-template-columns:minmax(0,1fr) 76px!important; width:min(310px,calc(100vw - 28px))!important; height:116px!important; }
-  .jinglePlayer .jinglePanelContent { height:116px!important; padding:12px!important; }
-  .jinglePlayer .jingleArtwork { width:76px!important; height:116px!important; }
-  .jinglePlayer .jingleArtwork > .jingleArtworkLogo { top:5px!important; right:4px!important; left:4px!important; width:calc(100% - 8px)!important; }
-}
+  .siteHeader { display:grid!important; grid-template-columns:104px minmax(132px,1fr) 46px!important; gap:8px!important; height:76px!important; padding:0 14px!important; }
+  .siteHeader .brand { grid-column:1!important; min-width:0!important; }
+  .siteHeader .headerWordmark { font-size:16px!important; }
+  .siteHeader .headerWordmark small { font-size:5px!important; }
+  .siteHeader .mobileHeaderNumber { display:none!important; }
+  .siteHeader > .jinglePlayer { grid-column:2!important; justify-self:center!important; width:min(100%,154px)!important; }
+  .siteHeader > .jinglePlayer .jingleTrigger { grid-template-columns:32px minmax(0,1fr) 16px!important; gap:6px!important; width:100%!important; min-width:0!important; height:42px!important; padding:4px 8px 4px 4px!important; overflow:visible!important; }
+  .siteHeader > .jinglePlayer .jingleRoundButton { width:32px!important; height:32px!important; }
+  .siteHeader > .jinglePlayer .jingleTriggerText { display:grid!important; }
+  .siteHeader > .jinglePlayer .jingleBars { display:flex!important; }
+  .siteHeader > .jinglePlayer .jinglePanel { position:fixed!important; top:84px!important; right:14px!important; left:14px!important; width:auto!important; max-width:none!important; height:124px!important; }
+  .siteHeader .mobileMenu { grid-column:3!important; justify-self:end!important; }
 
-
-/* Hero mobile v5 — composição contínua inspirada na referência */
-@media screen and (max-width:760px) {
-  main .mobileHero {
-    display:block!important;
-    min-height:calc(100svh - 74px)!important;
-    background:linear-gradient(145deg,#0d513b 0%,#0a4232 58%,#071f2d 100%)!important;
-    overflow:hidden!important;
-  }
-  main .mobileHero::before {
-    content:""!important;
-    display:block!important;
-    position:absolute!important;
-    z-index:0!important;
-    inset:0!important;
-    opacity:.09!important;
-    background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important;
-    background-size:20px 20px!important;
-    pointer-events:none!important;
-  }
-  main .mobileHero::after { content:none!important; display:none!important; }
-  main .mobileHero .mobilePortrait {
-    position:absolute!important;
-    z-index:1!important;
-    top:auto!important;
-    right:auto!important;
-    bottom:0!important;
-    left:-12%!important;
-    width:76%!important;
-    height:83%!important;
-    object-fit:contain!important;
-    object-position:left bottom!important;
-    filter:none!important;
-    opacity:1!important;
-    -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 84%,transparent 100%)!important;
-    mask-image:linear-gradient(90deg,#000 0%,#000 84%,transparent 100%)!important;
-  }
-  main .mobileHero .mobileHeroCopy {
-    position:absolute!important;
-    z-index:3!important;
-    top:16%!important;
-    right:18px!important;
-    left:auto!important;
-    width:55%!important;
-    max-width:250px!important;
-    padding:0!important;
-    background:transparent!important;
-    border:0!important;
-    text-align:right!important;
-  }
-  main .mobileHero .mobileHeroCopy p { justify-content:flex-end!important; color:var(--yellow)!important; }
-  main .mobileHero .mobileHeroCopy h1 { margin-left:auto!important; max-width:245px!important; font-size:clamp(21px,6.3vw,29px)!important; line-height:.94!important; text-shadow:0 3px 16px rgba(0,0,0,.28)!important; }
+  main .mobileHero { display:block!important; min-height:calc(100svh - 76px)!important; overflow:hidden!important; isolation:isolate!important; background:linear-gradient(145deg,#0d5b42,#0a4836 56%,#072d2b)!important; }
+  main .mobileHero::before { content:""!important; display:block!important; position:absolute!important; z-index:0!important; inset:0!important; opacity:.055!important; background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important; background-size:22px 22px!important; }
+  main .mobileHero::after,main .mobileHero .mobileHeroPattern { content:none!important; display:none!important; }
+  main .mobileHero .mobilePortrait { position:absolute!important; z-index:1!important; top:auto!important; right:-15%!important; bottom:-1%!important; left:auto!important; width:88%!important; height:86%!important; object-fit:contain!important; object-position:right bottom!important; opacity:1!important; filter:drop-shadow(-18px 18px 36px rgba(1,20,15,.26))!important; mix-blend-mode:normal!important; -webkit-mask-image:none!important; mask-image:none!important; }
+  main .mobileHero .mobileHeroCopy { position:absolute!important; z-index:4!important; top:10%!important; right:auto!important; left:20px!important; width:60%!important; max-width:238px!important; padding:0!important; background:transparent!important; border:0!important; text-align:left!important; }
+  main .mobileHero .mobileHeroCopy p { justify-content:flex-start!important; margin:0 0 13px!important; font-size:7px!important; letter-spacing:1.45px!important; white-space:nowrap!important; }
+  main .mobileHero .mobileHeroCopy h1 { max-width:230px!important; margin:0!important; color:#fff!important; font-size:clamp(23px,7.2vw,32px)!important; line-height:.94!important; text-align:left!important; text-shadow:0 4px 20px rgba(2,22,17,.34)!important; }
   main .mobileHero .mobileHeroCopy h1 strong { color:var(--orange)!important; }
-  main .mobileHero .mobileHeroCopy a { margin-top:20px!important; padding:13px 16px!important; }
-  main .mobileHero .mobileNumber { z-index:4!important; right:5%!important; bottom:88px!important; width:88%!important; max-width:410px!important; }
-  main .mobileHero .mobileHeroFooter { z-index:5!important; }
+  main .mobileHero .mobileHeroCopy a { justify-content:space-between!important; min-width:142px!important; margin-top:18px!important; padding:12px 14px!important; border-radius:8px!important; }
+  main .mobileHero .mobileNumber { z-index:5!important; right:4%!important; bottom:82px!important; width:76%!important; max-width:330px!important; }
+  main .mobileHero .mobileHeroFooter { z-index:6!important; right:18px!important; bottom:12px!important; left:18px!important; }
 }
 
-/* A marca do player fica abaixo do rosto */
-.jinglePlayer .jingleArtwork>.jingleArtworkLogo {
-  top:auto!important;
-  right:6px!important;
-  bottom:6px!important;
-  left:6px!important;
-  width:calc(100% - 12px)!important;
-  max-height:35px!important;
-}
-
-
-/* Polimento v6 — menos ruído no mobile e marca transparente no player */
-.jinglePlayer .jingleArtwork>.jingleArtworkLogo {
-  padding:0!important;
-  background:transparent!important;
-  border-radius:0!important;
-  filter:drop-shadow(0 2px 4px rgba(255,255,255,.85)) drop-shadow(0 4px 8px rgba(0,0,0,.2))!important;
-}
-.jingleRoundButton svg rect,.jinglePlay svg rect { fill:currentColor; stroke:none; }
-
-@media screen and (max-width:760px) {
-  main .mobileHero { min-height:calc(100svh - 74px)!important; }
-  main .mobileHero::before { opacity:.045!important; background-size:24px 24px!important; }
-  main .mobileHero .mobilePortrait {
-    left:-15%!important;
-    width:82%!important;
-    height:78%!important;
-  }
-  main .mobileHero .mobileHeroCopy {
-    top:11%!important;
-    right:20px!important;
-    width:55%!important;
-    max-width:225px!important;
-  }
-  main .mobileHero .mobileHeroCopy p {
-    margin-bottom:12px!important;
-    font-size:7px!important;
-    letter-spacing:1.45px!important;
-    white-space:nowrap!important;
-  }
-  main .mobileHero .mobileHeroCopy h1 {
-    max-width:220px!important;
-    font-size:clamp(20px,5.8vw,27px)!important;
-    line-height:.98!important;
-  }
-  main .mobileHero .mobileHeroCopy a {
-    margin-top:17px!important;
-    padding:12px 14px!important;
-  }
-  main .mobileHero .mobileNumber {
-    right:7%!important;
-    bottom:76px!important;
-    width:78%!important;
-    max-width:350px!important;
-  }
-  main .mobileHero .mobileHeroFooter {
-    left:20px!important;
-    right:20px!important;
-    bottom:10px!important;
-    padding-top:8px!important;
-  }
-  .jinglePlayer .jingleArtwork>.jingleArtworkLogo {
-    right:5px!important;
-    bottom:5px!important;
-    left:5px!important;
-    width:calc(100% - 10px)!important;
-  }
-}
-
-
-/* Player integrado ao cabeçalho */
-.siteHeader>.jinglePlayer {
-  position:relative!important;
-  z-index:80!important;
-  right:auto!important;
-  bottom:auto!important;
-  left:auto!important;
-  flex:0 0 auto;
-}
-.siteHeader>.jinglePlayer .jingleTrigger {
-  grid-template-columns:34px auto 18px!important;
-  min-width:154px!important;
-  padding:5px 9px 5px 5px!important;
-  color:#fff!important;
-  background:rgba(255,255,255,.08)!important;
-  border-color:rgba(255,255,255,.18)!important;
-  border-radius:999px!important;
-  box-shadow:none!important;
-}
-.siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }
-.siteHeader>.jinglePlayer .jingleRoundButton svg { width:16px!important; height:16px!important; }
-.siteHeader>.jinglePlayer .jingleTriggerText strong { font-size:9px!important; }
-.siteHeader>.jinglePlayer .jinglePanel {
-  position:absolute!important;
-  top:calc(100% + 15px)!important;
-  right:0!important;
-  left:auto!important;
-  width:360px!important;
-  box-shadow:0 22px 60px rgba(4,22,31,.42)!important;
-}
-.siteHeader>.jinglePlayer .jinglePanel::before {
-  content:"";
-  position:absolute;
-  top:-7px;
-  right:30px;
-  width:14px;
-  height:14px;
-  background:#092337;
-  transform:rotate(45deg);
-}
-
-@media screen and (max-width:760px) {
-  .siteHeader { display:grid!important; grid-template-columns:112px 1fr 42px 46px!important; gap:7px!important; }
-  .siteHeader>.jinglePlayer { grid-column:3!important; }
-  .siteHeader>.jinglePlayer .jingleTrigger {
-    display:grid!important;
-    grid-template-columns:1fr!important;
-    min-width:0!important;
-    width:42px!important;
-    height:42px!important;
-    padding:3px!important;
-    overflow:hidden!important;
-  }
-  .siteHeader>.jinglePlayer .jingleRoundButton { width:34px!important; height:34px!important; }
-  .siteHeader>.jinglePlayer .jingleTriggerText,.siteHeader>.jinglePlayer .jingleBars { display:none!important; }
-  .siteHeader>.jinglePlayer .jinglePanel {
-    position:fixed!important;
-    top:80px!important;
-    right:12px!important;
-    left:12px!important;
-    width:auto!important;
-    max-width:none!important;
-    height:116px!important;
-  }
-  .siteHeader>.jinglePlayer .jinglePanel::before { right:65px; }
-  .siteHeader .mobileMenu { grid-column:4!important; }
+@media screen and (max-width:380px) {
+  .siteHeader { grid-template-columns:92px minmax(124px,1fr) 44px!important; padding:0 10px!important; }
+  .siteHeader > .jinglePlayer { width:138px!important; }
+  main .mobileHero .mobileHeroCopy { left:16px!important; width:62%!important; }
+  main .mobileHero .mobilePortrait { right:-20%!important; width:94%!important; }
 }
