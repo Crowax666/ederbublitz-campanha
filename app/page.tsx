@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="photoStage">
-          <img src="/eder-hero-aponta.png" alt="Eder Bublitz sorrindo e apontando para baixo" />
+          <img src="/eder-hero-cruzado.png" alt="Eder Bublitz sorrindo e com os braços cruzados" />
         </div>
 
         <div className="heroFooter">
@@ -60,7 +60,7 @@ export default function Home() {
           <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
-        <img className="mobilePortrait" src="/eder-hero-aponta.png" alt="Eder Bublitz sorrindo e apontando para baixo" />
+        <img className="mobilePortrait" src="/eder-hero-cruzado.png" alt="Eder Bublitz sorrindo e com os braços cruzados" />
         <img className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>

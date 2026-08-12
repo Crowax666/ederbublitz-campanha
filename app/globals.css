@@ -1524,3 +1524,50 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   main .mobileHero .mobileHeroCopy { left:16px!important; width:61%!important; }
   main .mobileHero .mobilePortrait { right:-24%!important; width:100%!important; }
 }
+
+/* Hero com retrato integral — proporção original preservada */
+.desktopHero .photoStage > img {
+  right:0!important;
+  bottom:0!important;
+  width:100%!important;
+  height:95%!important;
+  max-width:100%!important;
+  object-fit:contain!important;
+  object-position:right bottom!important;
+  transform:none!important;
+  filter:drop-shadow(-20px 20px 34px rgba(3,25,18,.2))!important;
+}
+
+/* No desktop, o estado ativo precisa ser lido por inteiro. */
+@media screen and (min-width:761px) {
+  .siteHeader > .jinglePlayer { width:206px!important; }
+  .siteHeader > .jinglePlayer .jingleTrigger {
+    width:206px!important;
+    grid-template-columns:34px minmax(112px,1fr) 18px!important;
+    gap:8px!important;
+  }
+  .siteHeader > .jinglePlayer .jingleTriggerText strong {
+    overflow:visible!important;
+    font-size:10px!important;
+    letter-spacing:.35px!important;
+    text-overflow:clip!important;
+    white-space:nowrap!important;
+  }
+}
+
+@media screen and (max-width:760px) {
+  main .mobileHero .mobilePortrait {
+    inset:auto 0 0 auto!important;
+    width:100%!important;
+    height:83%!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+    transform:none!important;
+    filter:drop-shadow(-16px 18px 30px rgba(1,20,15,.22))!important;
+  }
+}
+
+@media screen and (max-width:380px) {
+  main .mobileHero .mobilePortrait { right:0!important; width:100%!important; height:82%!important; }
+}
