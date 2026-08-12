@@ -990,3 +990,15 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .jinglePanel { width:min(330px,calc(100vw - 28px)); }
   .jingleTrigger { padding-right:12px; }
 }
+
+
+/* Ajuste de posição e experiência móvel */
+.jinglePlayer { left:auto; right:clamp(24px,4vw,72px); bottom:92px; }
+@media (min-width:761px) {
+  .floatingActions .backToTop { position:fixed; right:clamp(24px,4vw,72px); bottom:max(20px,env(safe-area-inset-bottom)); }
+}
+@media (max-width:760px) {
+  .jinglePlayer { display:block !important; left:14px; right:auto; bottom:82px; }
+  .jinglePanel { width:min(330px,calc(100vw - 28px)); }
+  .worldAward { display:none !important; }
+}
