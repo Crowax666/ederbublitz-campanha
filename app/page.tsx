@@ -76,23 +76,6 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="worldAward" aria-labelledby="world-award-title">
-        <div className="worldAwardMedal" aria-hidden="true">
-          <span>2025</span>
-          <strong>Gestor<br />do Ano</strong>
-        </div>
-        <div className="worldAwardCopy">
-          <p className="sectionLabel">Reconhecimento mundial • Bruxelas</p>
-          <h2 id="world-award-title">Uma gestão reconhecida<br /><span>entre as melhores do mundo.</span></h2>
-          <p>Eder foi eleito <strong>Gestor do Ano pela World Union of Wholesale Markets</strong>, reconhecimento internacional à liderança e aos resultados alcançados no abastecimento alimentar.</p>
-          <a href="/quem-e-eder#reconhecimento">Conheça essa conquista <span>→</span></a>
-        </div>
-        <div className="worldAwardSeal">
-          <b>WUWM</b>
-          <span>World Union of<br />Wholesale Markets</span>
-        </div>
-      </section>
-
       <section className="congress" id="congresso">
         <img src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" />
         <div className="congressCopy">
