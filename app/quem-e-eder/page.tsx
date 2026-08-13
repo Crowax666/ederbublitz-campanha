@@ -55,7 +55,7 @@ export default function QuemEEder() {
 
       <section className="bioExperience" id="experiencia">
         <div className="bioExperiencePhoto">
-          <img src="/eder-experiencia-azul.webp" alt="Eder Bublitz sorrindo e apontando para baixo" />
+          <img src="/eder-experiencia-retrato-v2.webp" alt="Retrato de Eder Bublitz sorrindo e com os braços cruzados" />
           <span aria-hidden="true">Experiência<br />que transforma</span>
         </div>
         <div className="bioExperienceCopy">
@@ -148,7 +148,7 @@ export default function QuemEEder() {
           <p>O mesmo compromisso com resultado, diálogo e presença agora orienta um novo projeto: representar o Paraná na Câmara Federal.</p>
           <a href="/#propostas">Conheça as propostas <span>→</span></a>
         </div>
-        <img src="/eder-proximo-passo.jpg" alt="Eder Bublitz sorrindo e apontando para o convite à participação" />
+        <img src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" />
         <img className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" />
       </section>
 
