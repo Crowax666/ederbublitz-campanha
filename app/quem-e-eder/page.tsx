@@ -55,7 +55,7 @@ export default function QuemEEder() {
 
       <section className="bioExperience" id="experiencia">
         <div className="bioExperiencePhoto">
-          <img src="/eder-quem-e-portrait.jpg" alt="Retrato de Eder Bublitz sorrindo" />
+          <img src="/eder-experiencia-azul.webp" alt="Eder Bublitz sorrindo e apontando para baixo" />
           <span aria-hidden="true">Experiência<br />que transforma</span>
         </div>
         <div className="bioExperienceCopy">
