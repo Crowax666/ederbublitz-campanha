@@ -1632,3 +1632,53 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 @media screen and (max-width:380px) {
   main .mobileHero .mobilePortrait { right:-18%!important; width:100%!important; }
 }
+
+/* Hero desktop HQ — azul original preservado e encontro verde sem névoa. */
+@media screen and (min-width:761px) {
+  .desktopHero {
+    background:var(--green-deep)!important;
+  }
+  .desktopHero .photoStage {
+    inset:0 0 0 43%!important;
+    isolation:isolate!important;
+    overflow:hidden!important;
+    background:#a9c4ee!important;
+  }
+  .desktopHero .photoStage::before {
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:3!important;
+    inset:0!important;
+    background:linear-gradient(90deg,
+      var(--green-deep) 0%,
+      rgba(16,61,43,.96) 7%,
+      rgba(16,61,43,.72) 17%,
+      rgba(16,61,43,.34) 28%,
+      rgba(16,61,43,.10) 38%,
+      transparent 48%)!important;
+    pointer-events:none!important;
+  }
+  .desktopHero .photoStage::after {
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:3!important;
+    inset:0!important;
+    background:linear-gradient(0deg,rgba(8,42,32,.20),transparent 25%)!important;
+    pointer-events:none!important;
+  }
+  .desktopHero .photoStage > img {
+    z-index:2!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:cover!important;
+    object-position:51% 19%!important;
+    image-rendering:auto!important;
+    filter:saturate(1.015) contrast(1.015)!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+  }
+}

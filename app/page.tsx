@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="photoStage">
-          <img src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" />
+          <img src="/eder-hero-desktop-hq-v3.jpg" alt="Eder Bublitz sorrindo e com os braços cruzados" />
         </div>
 
         <div className="heroFooter">
