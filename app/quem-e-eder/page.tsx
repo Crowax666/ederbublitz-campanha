@@ -142,14 +142,16 @@ export default function QuemEEder() {
       </section>
 
       <section className="bioNext">
-        <div>
+        <div className="bioNextCopy">
           <p className="sectionLabel">O próximo passo</p>
           <h2>Levar a experiência<br /><span>para Brasília.</span></h2>
           <p>O mesmo compromisso com resultado, diálogo e presença agora orienta um novo projeto: representar o Paraná na Câmara Federal.</p>
           <a href="/#propostas">Conheça as propostas <span>→</span></a>
         </div>
-        <img src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" />
-        <img className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" />
+        <div className="bioNextVisual">
+          <img className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" />
+          <img className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" />
+        </div>
       </section>
 
       <footer className="bioFooter">
