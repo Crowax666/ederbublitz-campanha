@@ -1059,8 +1059,8 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .bioHeroCopy h1 { font-size:45px; line-height:.87; letter-spacing:-2.7px; }
   .bioHeroCopy > p:not(.sectionLabel) { font-size:15px; }
   .bioExperience { display:flex; flex-direction:column; margin:34px 16px 0; }
-  .bioExperiencePhoto { min-height:440px; }
-  .bioExperiencePhoto > img { left:-12%; right:auto; width:124%; max-width:none; padding:10px 0 0; object-position:center bottom; }
+  .bioExperiencePhoto { min-height:400px; }
+  .bioExperiencePhoto > img { left:50%; right:auto; width:112%; max-width:none; padding:0; object-position:center bottom; transform:translateX(-50%); }
   .bioExperiencePhoto > span { left:22px; bottom:22px; font-size:24px; }
   .bioExperienceCopy { padding:42px 24px 48px; text-align:left; }
   .bioExperienceCopy h2 { font-size:40px; line-height:.9; letter-spacing:-2px; }
