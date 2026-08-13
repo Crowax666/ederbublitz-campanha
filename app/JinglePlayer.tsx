@@ -64,7 +64,7 @@ export default function JinglePlayer() {
       ref={audioRef}
       preload="auto"
       playsInline
-      src="/jingle-eder-1020-completo.mp3"
+      src="/jingle-eder-1020-integral-80k.mp3"
       onCanPlay={() => setAudioError(false)}
       onError={() => { setAudioError(true); setPlaying(false); setLoading(false); }}
       onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
