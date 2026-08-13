@@ -13,7 +13,7 @@ export default function JinglePlayer() {
   const [playing, setPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [audioReady, setAudioReady] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const progress = duration ? `${Math.min(100, (current / duration) * 100)}%` : "0%";
 
@@ -23,10 +23,13 @@ export default function JinglePlayer() {
     if (audio.paused) {
       try {
         setAudioError(false);
+        setLoading(true);
         await audio.play();
       } catch {
         setAudioError(true);
         setPlaying(false);
+      } finally {
+        setLoading(false);
       }
     }
     else {
@@ -39,7 +42,7 @@ export default function JinglePlayer() {
   return <aside className={`jinglePlayer${playing ? " isPlaying" : ""}`} aria-label="Jingle oficial da campanha">
     <button className="jingleTrigger" type="button" onClick={toggle} aria-label={playing ? "Parar jingle" : "Tocar jingle"}>
       <span className="jingleRoundButton"><PlayerIcon playing={playing} /></span>
-      <span className="jingleTriggerText"><small>Jingle oficial</small><strong>{audioError ? "Tente novamente" : playing ? "Tocando agora" : audioReady ? "Ouça o 1020" : "Carregando"}</strong></span>
+      <span className="jingleTriggerText"><small>Jingle oficial</small><strong>{audioError ? "Tente novamente" : playing ? "Tocando agora" : loading ? "Preparando..." : "Ouça o 1020"}</strong></span>
       <span className="jingleBars" aria-hidden="true"><i /><i /><i /></span>
     </button>
     <input
@@ -59,11 +62,11 @@ export default function JinglePlayer() {
     />
     <audio
       ref={audioRef}
-      preload="metadata"
+      preload="auto"
       playsInline
-      src="/jingle-eder-1020-v3.mp3"
-      onCanPlay={() => { setAudioReady(true); setAudioError(false); }}
-      onError={() => { setAudioReady(false); setAudioError(true); setPlaying(false); }}
+      src="/jingle-eder-1020-completo.mp3"
+      onCanPlay={() => setAudioError(false)}
+      onError={() => { setAudioError(true); setPlaying(false); setLoading(false); }}
       onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
       onTimeUpdate={(event) => setCurrent(event.currentTarget.currentTime)}
       onPlay={() => setPlaying(true)}
