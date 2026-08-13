@@ -1121,7 +1121,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .bioNext { min-height:auto; display:flex; flex-direction:column; padding:64px 22px 0; }
   .bioNext > div { padding-bottom:42px; }
   .bioNext h2 { font-size:44px; }
-  .bioNext > img:not(.bioNextBrand) { position:relative; right:auto; bottom:auto; width:calc(100% + 44px); height:430px; margin-left:-22px; object-fit:cover; object-position:center 28%; }
+  .bioNext > img:not(.bioNextBrand) { position:relative; right:auto; bottom:auto; display:block; width:100%; max-width:100%; height:clamp(260px,78vw,360px); margin:0; object-fit:cover; object-position:center 28%; border-radius:16px 16px 0 0; }
   .bioNext:after { background:linear-gradient(0deg,rgba(7,29,51,.78),transparent 32%); }
   .bioNextBrand { right:16px; bottom:24px; width:min(78%,350px); }
   .bioFooter { min-height:100px; padding:22px; }
