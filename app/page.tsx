@@ -89,6 +89,22 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="vision" id="parana">
+        <div className="visionCopy">
+          <p className="sectionLabel">Visão para o Paraná</p>
+          <h2>Olhar adiante.<br /><span>Trabalhar agora.</span></h2>
+          <p>Representar é estar perto, ouvir cada região e transformar as prioridades dos paranaenses em trabalho sério em Brasília.</p>
+          <div className="visionValues" aria-label="Valores da atuação">
+            <span>Presença</span><span>Diálogo</span><span>Resultado</span>
+          </div>
+          <a href="#propostas">Conheça as propostas <span>→</span></a>
+        </div>
+        <div className="visionPhoto">
+          <img src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
+          <span>PARANÁ<br /><strong>EM FRENTE</strong></span>
+        </div>
+      </section>
+
       <section className="videosSection" id="noticias">
         <div className="videosIntro">
           <p className="sectionLabel">Notícias e vídeos</p>
@@ -150,23 +166,6 @@ export default async function Home() {
             </svg>
             Inscreva-se no canal
           </a>
-        </div>
-      </section>
-
-
-      <section className="vision" id="parana">
-        <div className="visionCopy">
-          <p className="sectionLabel">Visão para o Paraná</p>
-          <h2>Olhar adiante.<br /><span>Trabalhar agora.</span></h2>
-          <p>Representar é estar perto, ouvir cada região e transformar as prioridades dos paranaenses em trabalho sério em Brasília.</p>
-          <div className="visionValues" aria-label="Valores da atuação">
-            <span>Presença</span><span>Diálogo</span><span>Resultado</span>
-          </div>
-          <a href="#propostas">Conheça as propostas <span>→</span></a>
-        </div>
-        <div className="visionPhoto">
-          <img src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
-          <span>PARANÁ<br /><strong>EM FRENTE</strong></span>
         </div>
       </section>
 
