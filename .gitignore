@@ -40,3 +40,12 @@ next-env.d.ts
 /.sites-runtime/
 /outputs/
 /work/
+
+# Arquivos do macOS
+.DS_Store
+__MACOSX/
+._*
+
+# Arquivos do Windows
+Thumbs.db
+Desktop.ini
