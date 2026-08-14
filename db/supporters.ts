@@ -16,6 +16,7 @@ export async function createSupporter(input: NewSupporter) {
   const consentId = crypto.randomUUID();
   const now = Date.now();
 
+  // Deve acompanhar a data exibida em app/privacidade/page.tsx.
   await db.batch([
     db.prepare(`
       INSERT INTO supporters
@@ -25,7 +26,7 @@ export async function createSupporter(input: NewSupporter) {
     db.prepare(`
       INSERT INTO consent_events
         (id, supporter_id, purpose, privacy_version, granted, created_at)
-      VALUES (?, ?, 'contato-e-mobilizacao', '2026-08-10', ?, ?)
+      VALUES (?, ?, 'contato-e-mobilizacao', '2026-08-11', ?, ?)
     `).bind(consentId, supporterId, input.consent ? 1 : 0, now),
   ]);
 
