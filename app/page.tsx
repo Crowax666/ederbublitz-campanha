@@ -86,6 +86,44 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="videosSection" id="noticias">
+        <div className="videosIntro">
+          <p className="sectionLabel">Notícias e vídeos</p>
+          <h2>Acompanhe o Eder<br /><span>no YouTube.</span></h2>
+          <p>Fique por dentro das novidades, entrevistas e propostas para o nosso Paraná.</p>
+        </div>
+
+        <div className="videoGrid">
+          <div className="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/5gOkUhKxzCw"
+              title="Paraná Entrevista: Eder Eduardo Bublitz"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          <div className="videoWrapper videoPlaceholder">
+            <p>Próximo vídeo em breve</p>
+          </div>
+        </div>
+
+        <div className="canalCta">
+          {/* sub_confirmation=1 faz o YouTube já sugerir a inscrição automaticamente ao abrir o canal */}
+          <a
+            className="btnYoutube"
+            href="https://www.youtube.com/@EderBublitz?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
+            </svg>
+            Inscreva-se no canal
+          </a>
+        </div>
+      </section>
+
       <section className="vision" id="parana">
         <div className="visionCopy">
           <p className="sectionLabel">Visão para o Paraná</p>
