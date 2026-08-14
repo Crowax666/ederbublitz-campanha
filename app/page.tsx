@@ -3,6 +3,7 @@ import JoinForm from "./JoinForm";
 import LegalFooter from "./LegalFooter";
 import JinglePlayer from "./JinglePlayer";
 import { getRuntimeConfig } from "../db/runtime";
+import { listYoutubeVideos, formatVideoDate, compactDescription, CHANNEL_URL, CHANNEL_SUBSCRIBE_URL } from "../db/youtube";
 
 const pillars = [
   { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
@@ -10,8 +11,10 @@ const pillars = [
   { number: "03", title: "Representar os municípios", text: "Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região." },
 ];
 
-export default function Home() {
+export default async function Home() {
   const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
+  const youtubeVideos = await listYoutubeVideos();
+  const [latestVideo, ...otherVideos] = youtubeVideos;
   return (
     <main id="top">
       <header className="siteHeader">
@@ -93,29 +96,55 @@ export default function Home() {
           <p>Fique por dentro das novidades, entrevistas e propostas para o nosso Paraná.</p>
         </div>
 
-        <div className="videoGrid">
-          <div className="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/5gOkUhKxzCw"
-              title="Paraná Entrevista: Eder Eduardo Bublitz"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
+        {latestVideo ? (
+          <div className="videoGrid">
+            <div className="videoWrapper videoWrapperFeatured">
+              <div className="videoFrame">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${latestVideo.id}?rel=0&modestbranding=1&playsinline=1`}
+                  title={latestVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+              <div className="videoCaption">
+                <span>{formatVideoDate(latestVideo.publishedAt)}</span>
+                <h3>{latestVideo.title}</h3>
+                <p>{compactDescription(latestVideo.description)}</p>
+              </div>
+            </div>
+
+            {otherVideos.slice(0, 3).map((video) => (
+              <div className="videoWrapper" key={video.id}>
+                <div className="videoFrame">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1&playsinline=1`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+                <div className="videoCaption">
+                  <span>{formatVideoDate(video.publishedAt)}</span>
+                  <h3>{video.title}</h3>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="videoWrapper videoPlaceholder">
-            <p>Próximo vídeo em breve</p>
+        ) : (
+          <div className="videosEmpty">
+            <p>Não conseguimos carregar o feed do YouTube neste momento.</p>
+            <a href={CHANNEL_URL} target="_blank" rel="noopener noreferrer">Abrir o canal diretamente ↗</a>
           </div>
-        </div>
+        )}
 
         <div className="canalCta">
           {/* sub_confirmation=1 faz o YouTube já sugerir a inscrição automaticamente ao abrir o canal */}
-          <a
-            className="btnYoutube"
-            href="https://www.youtube.com/@EderBublitz?sub_confirmation=1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="btnYoutube" href={CHANNEL_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
             </svg>
@@ -123,6 +152,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+
 
       <section className="vision" id="parana">
         <div className="visionCopy">
