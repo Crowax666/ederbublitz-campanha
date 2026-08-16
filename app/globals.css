@@ -169,7 +169,10 @@ a { color: inherit; text-decoration: none; }
 .joinMessage.success { color:#bff7bd; }
 .joinMessage.error { color:#ffe0cf; }
 
-.mobileHero { display:none; }
+.mobileHero { display:none !important; }
+@media screen and (max-width:760px) {
+  .mobileHero { display:block !important; }
+}
 .legalFooter { order:8; display:flex; justify-content:space-between; align-items:flex-start; gap:36px; padding:30px 5vw; color:rgba(255,255,255,.68); background:#031323; border-top:1px solid rgba(255,255,255,.09); font-size:10px; line-height:1.55; }
 .legalFooterIdentity { display:grid; gap:3px; }
 .legalFooterIdentity strong { color:#fff; font-size:10px; letter-spacing:.35px; text-transform:uppercase; }
@@ -553,7 +556,6 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     display:block!important;
     min-height:calc(100svh - 76px)!important;
     overflow:hidden!important;
-    isolation:isolate!important;
     background:linear-gradient(145deg,#0d5b42 0%,#0a4836 56%,#072d2b 100%)!important;
   }
   main .mobileHero::before {
@@ -1367,7 +1369,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .siteHeader > .jinglePlayer .jinglePanel { position:fixed!important; top:84px!important; right:14px!important; left:14px!important; width:auto!important; max-width:none!important; height:124px!important; }
   .siteHeader .mobileMenu { grid-column:3!important; justify-self:end!important; }
 
-  main .mobileHero { display:block!important; min-height:calc(100svh - 76px)!important; overflow:hidden!important; isolation:isolate!important; background:linear-gradient(145deg,#0d5b42,#0a4836 56%,#072d2b)!important; }
+  main .mobileHero { display:block!important; min-height:calc(100svh - 76px)!important; overflow:hidden!important; background:linear-gradient(145deg,#0d5b42,#0a4836 56%,#072d2b)!important; }
   main .mobileHero::before { content:""!important; display:block!important; position:absolute!important; z-index:0!important; inset:0!important; opacity:.055!important; background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important; background-size:22px 22px!important; }
   main .mobileHero::after,main .mobileHero .mobileHeroPattern { content:none!important; display:none!important; }
   main .mobileHero .mobilePortrait { position:absolute!important; z-index:1!important; top:auto!important; right:-15%!important; bottom:-1%!important; left:auto!important; width:88%!important; height:86%!important; object-fit:contain!important; object-position:right bottom!important; opacity:1!important; filter:drop-shadow(-18px 18px 36px rgba(1,20,15,.26))!important; mix-blend-mode:normal!important; -webkit-mask-image:none!important; mask-image:none!important; }
@@ -1497,7 +1499,6 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     position:relative!important;
     min-height:calc(100svh - 76px)!important;
     overflow:hidden!important;
-    isolation:isolate!important;
     color:#fff!important;
     background:linear-gradient(145deg,#0d5b42,#0a4836 56%,#072d2b)!important;
   }
@@ -1668,16 +1669,15 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   main .mobileHero .mobilePortrait { right:-18%!important; width:100%!important; }
 }
 
-/* Hero desktop HQ — azul original preservado e encontro verde sem névoa. */
+/* Hero desktop HQ — paleta oficial da marca, sem azul */
 @media screen and (min-width:761px) {
   .desktopHero {
     background:var(--green-deep)!important;
   }
   .desktopHero .photoStage {
     inset:0 0 0 43%!important;
-    isolation:isolate!important;
     overflow:hidden!important;
-    background:#a9c4ee!important;
+    background:var(--green-deep)!important;
   }
   .desktopHero .photoStage::before {
     content:""!important;
