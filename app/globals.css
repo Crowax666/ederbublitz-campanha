@@ -1717,3 +1717,42 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     mask-image:none!important;
   }
 }
+
+/* =========================================================
+   CORRECAO DE BUG SAFARI: PREVENCAO DE GHOSTING E REPAINTING
+   ========================================================= */
+
+/* 1. Forca renderizacao via GPU nas secoes proximas aos iframes pesados,
+      criando um novo contexto de empilhamento limpo pra cada uma */
+.desktopHero,
+.videosSection {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+/* 2. Blinda os iframes do YouTube contra vazamento/fantasma de pixels */
+.videoFrame iframe {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  background-color: transparent;
+}
+
+/* 3. Garantia extrema de que o Hero mobile nunca aparece no desktop,
+      remove qualquer chance de layout/pintura mesmo se algo conflitar
+      com o display:none */
+@media (min-width: 761px) {
+  .mobileHero {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
