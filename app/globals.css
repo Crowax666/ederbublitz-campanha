@@ -1756,3 +1756,49 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     padding: 0 !important;
   }
 }
+
+/* =========================================================
+   PAGINA DE PROPOSTA: EDUCACAO (e futuras paginas de proposta)
+   ========================================================= */
+.propostaQuote { padding:110px 8vw; background:var(--paper); }
+.propostaQuoteInner { max-width:900px; margin:0 auto; text-align:center; }
+.propostaQuoteInner h2 { margin:16px 0 26px; font-family:var(--font-display); font-size:clamp(38px,4.4vw,60px); line-height:.96; letter-spacing:-2px; font-style:italic; text-transform:uppercase; color:var(--ink); }
+.propostaQuoteInner h2 span { color:var(--orange); }
+.propostaQuoteInner p { max-width:720px; margin:0 auto 14px; color:#65736b; font-size:16px; line-height:1.7; }
+
+.goalsSection { padding:110px 8vw 130px; background:#fff; }
+.goalsHeading { max-width:640px; margin:0 auto 56px; text-align:center; }
+.goalsHeading h2 { margin:16px 0 14px; font-family:var(--font-display); font-size:clamp(40px,4.6vw,64px); line-height:.94; letter-spacing:-2.5px; font-style:italic; text-transform:uppercase; color:var(--ink); }
+.goalsHeading h2 span { color:var(--orange); }
+.goalsHeading p { color:#65736b; font-size:16px; line-height:1.6; }
+.goalsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.goalCard { padding:30px 26px; background:var(--paper); border-top:5px solid var(--orange); box-shadow:0 14px 34px rgba(7,29,51,.06); transition:transform .28s ease, box-shadow .28s ease; }
+.goalCard:hover { transform:translateY(-6px); box-shadow:0 22px 46px rgba(7,29,51,.1); }
+.goalCard > span { color:var(--orange); font-size:11px; font-weight:900; }
+.goalCard h3 { margin:20px 0 10px; font-family:var(--font-display); font-size:21px; line-height:1.08; font-style:italic; text-transform:uppercase; color:var(--ink); }
+.goalCard .goalObjective { margin:0 0 16px; color:#65736b; font-size:13px; line-height:1.55; }
+.goalCard ul { display:grid; gap:8px; padding:14px 0 0; border-top:1px solid rgba(21,54,42,.1); list-style:none; }
+.goalCard li { position:relative; padding-left:16px; color:#4c5a53; font-size:12.5px; line-height:1.5; }
+.goalCard li:before { content:""; position:absolute; left:0; top:7px; width:6px; height:6px; background:var(--lime); }
+
+@media (max-width:900px) {
+  .propostaQuote { padding:80px 6vw; }
+  .goalsSection { padding:70px 6vw 90px; }
+  .goalsGrid { grid-template-columns:1fr; }
+}
+
+.topicProposals { padding:0 7vw 110px; }
+.topicProposalsHeading { max-width:520px; margin:0 0 30px; }
+.topicProposalsHeading h2 { margin:14px 0 0; font-family:var(--font-display); font-size:clamp(30px,3.2vw,42px); line-height:.95; letter-spacing:-1.5px; font-style:italic; text-transform:uppercase; color:var(--ink); }
+.topicProposalsHeading h2 span { color:var(--orange); }
+.topicProposalCard { display:block; padding:34px; background:var(--navy); color:#fff; text-decoration:none; border-left:5px solid var(--lime); transition:transform .25s ease, box-shadow .25s ease; }
+.topicProposalCard:hover { transform:translateY(-4px); box-shadow:0 20px 44px rgba(7,29,51,.18); }
+.topicProposalTag { display:inline-block; margin-bottom:14px; padding:6px 14px; background:rgba(82,192,53,.16); color:var(--lime); font-size:10px; font-weight:900; letter-spacing:1px; text-transform:uppercase; }
+.topicProposalCard h3 { margin:0 0 10px; font-family:var(--font-display); font-size:clamp(22px,2.4vw,30px); line-height:1.1; font-style:italic; max-width:640px; }
+.topicProposalCard p { margin:0 0 18px; color:rgba(255,255,255,.68); font-size:14px; line-height:1.6; max-width:600px; }
+.topicProposalCta { display:inline-flex; align-items:center; gap:10px; color:var(--yellow); font-size:11px; font-weight:900; letter-spacing:.5px; text-transform:uppercase; }
+
+@media (max-width:900px) {
+  .topicProposals { padding:0 6vw 70px; }
+  .topicProposalCard { padding:26px; }
+}

@@ -79,6 +79,19 @@ export default async function Home() {
         ))}
       </section>
 
+      <section className="topicProposals">
+        <div className="topicProposalsHeading">
+          <p className="sectionLabel">Propostas por tema</p>
+          <h2>Compromissos<br /><span>detalhados.</span></h2>
+        </div>
+        <a className="topicProposalCard" href="/propostas/educacao">
+          <span className="topicProposalTag">Educação</span>
+          <h3>Educação de qualidade é direito, não privilégio.</h3>
+          <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
+          <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
+        </a>
+      </section>
+
       <section className="congress" id="congresso">
         <img src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" loading="lazy" />
         <div className="congressCopy">
