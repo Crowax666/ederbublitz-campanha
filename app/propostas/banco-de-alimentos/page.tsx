@@ -34,11 +34,17 @@ export default function PropostaBancoDeAlimentos() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img src="/eder-quem-e.jpg" alt="Eder Bublitz sorrindo" loading="eager" fetchPriority="high" />
+          <img
+            src="/eder-luta-fome.jpg"
+            alt="Eder Bublitz com os punhos erguidos, em posição de luta"
+            loading="eager"
+            fetchPriority="high"
+            style={{ objectPosition: "32% 24%" }}
+          />
         </div>
         <div className="bioHeroCopy">
           <p className="sectionLabel">Proposta • Banco de Alimentos</p>
-          <h1>Solidariedade<br /><span>em movimento.</span></h1>
+          <h1>Luta contra<br /><span>a fome.</span></h1>
           <p>O Banco de Alimentos nasce da convicção de que desperdício e fome não podem coexistir na mesma sociedade. Mais do que uma estrutura logística, a iniciativa é uma ponte entre quem produz em excesso e quem precisa de apoio alimentar com dignidade.</p>
           <div className="bioFacts">
             <span><b>2024</b>Ouro no Stevie Awards</span>
