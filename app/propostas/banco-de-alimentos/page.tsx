@@ -44,7 +44,7 @@ export default function PropostaBancoDeAlimentos() {
         </div>
         <div className="bioHeroCopy">
           <p className="sectionLabel">Proposta • Banco de Alimentos</p>
-          <h1>Luta contra<br /><span>a fome.</span></h1>
+          <h1>Luta contra<br /><span>o desperdício.</span></h1>
           <p>O Banco de Alimentos nasce da convicção de que desperdício e fome não podem coexistir na mesma sociedade. Mais do que uma estrutura logística, a iniciativa é uma ponte entre quem produz em excesso e quem precisa de apoio alimentar com dignidade.</p>
           <div className="bioFacts">
             <span><b>2024</b>Ouro no Stevie Awards</span>
