@@ -1791,6 +1791,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .topicProposalsHeading { max-width:520px; margin:0 0 30px; }
 .topicProposalsHeading h2 { margin:14px 0 0; font-family:var(--font-display); font-size:clamp(30px,3.2vw,42px); line-height:.95; letter-spacing:-1.5px; font-style:italic; text-transform:uppercase; color:var(--ink); }
 .topicProposalsHeading h2 span { color:var(--orange); }
+.topicProposalsList { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
 .topicProposalCard { display:block; padding:34px; background:var(--navy); color:#fff; text-decoration:none; border-left:5px solid var(--lime); transition:transform .25s ease, box-shadow .25s ease; }
 .topicProposalCard:hover { transform:translateY(-4px); box-shadow:0 20px 44px rgba(7,29,51,.18); }
 .topicProposalTag { display:inline-block; margin-bottom:14px; padding:6px 14px; background:rgba(82,192,53,.16); color:var(--lime); font-size:10px; font-weight:900; letter-spacing:1px; text-transform:uppercase; }
@@ -1800,5 +1801,6 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
 @media (max-width:900px) {
   .topicProposals { padding:0 6vw 70px; }
+  .topicProposalsList { grid-template-columns:1fr; }
   .topicProposalCard { padding:26px; }
 }

@@ -84,12 +84,20 @@ export default async function Home() {
           <p className="sectionLabel">Propostas por tema</p>
           <h2>Compromissos<br /><span>detalhados.</span></h2>
         </div>
-        <a className="topicProposalCard" href="/propostas/educacao">
-          <span className="topicProposalTag">Educação</span>
-          <h3>Educação de qualidade é direito, não privilégio.</h3>
-          <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
-          <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
-        </a>
+        <div className="topicProposalsList">
+          <a className="topicProposalCard" href="/propostas/educacao">
+            <span className="topicProposalTag">Educação</span>
+            <h3>Educação de qualidade é direito, não privilégio.</h3>
+            <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
+            <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
+          </a>
+          <a className="topicProposalCard" href="/propostas/banco-de-alimentos">
+            <span className="topicProposalTag">Banco de Alimentos</span>
+            <h3>Solidariedade em movimento: 7,3 milhões de quilos por ano.</h3>
+            <p>Ouro no Stevie Awards, Melhor Gestor do Ano pela WUWM e 160 mil pessoas atendidas todo mês no Paraná.</p>
+            <span className="topicProposalCta">Conheça o programa <span>→</span></span>
+          </a>
+        </div>
       </section>
 
       <section className="congress" id="congresso">
