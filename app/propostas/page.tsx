@@ -69,6 +69,12 @@ export default function PropostasPage() {
             <p>Ouro no Stevie Awards, Melhor Gestor do Ano pela WUWM e 160 mil pessoas atendidas todo mês no Paraná.</p>
             <span className="topicProposalCta">Conheça o programa <span>→</span></span>
           </a>
+          <a className="topicProposalCard agricultureCard" href="/propostas/agricultura">
+            <span className="topicProposalTag">Agricultura</span>
+            <h3>Valorização e dignidade para o pequeno produtor.</h3>
+            <p>Tecnologia, crédito justo, seguro rural e cooperativas para fortalecer quem produz.</p>
+            <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
+          </a>
         </div>
       </section>
 

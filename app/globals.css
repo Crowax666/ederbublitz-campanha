@@ -1823,3 +1823,11 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .homeOriginal .hero, .homeOriginal .congress, .homeOriginal .vision, .homeOriginal .join { min-height:auto; }
   .homeOriginal .pillars { padding-top:64px; padding-bottom:64px; }
 }
+
+/* Variacoes visuais especificas da proposta de Agricultura */
+.agricultureCard { background:linear-gradient(135deg,#0b392c,#166148) !important; border-left-color:var(--yellow) !important; }
+.agricultureCard .topicProposalTag { color:var(--yellow); }
+.agricultureProposal .bioHeroPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(6,42,31,.5)); pointer-events:none; }
+.agricultureProposal .bioPhotoTag { z-index:2; }
+.agricultureGoals .goalCard:nth-child(1), .agricultureGoals .goalCard:nth-child(4) { border-top-color:var(--lime); }
+.agricultureGoals .goalCard:nth-child(2), .agricultureGoals .goalCard:nth-child(3) { border-top-color:var(--yellow); }
