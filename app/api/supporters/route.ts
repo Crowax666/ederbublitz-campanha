@@ -1,5 +1,6 @@
 import { createSupporter } from "../../../db/supporters";
 import { getRuntimeConfig } from "../../../db/runtime";
+import { sendZapiMessage, welcomeMessage } from "../../../db/zapi";
 
 const interests = new Set(["participar", "receber-noticias", "voluntariado", "propostas"]);
 
@@ -43,6 +44,11 @@ export async function POST(request: Request) {
     }
 
     await createSupporter({ name, phone, city, neighborhood, interest, consent });
+
+    // Best-effort: aguarda o envio (Workers pode encerrar chamadas em segundo
+    // plano sem isso), mas uma falha aqui nao derruba o cadastro em si.
+    await sendZapiMessage(phone, welcomeMessage(name)).catch(() => {});
+
     return Response.json({ ok: true }, { status: 201 });
   } catch {
     return Response.json({ error: "Não foi possível concluir o cadastro agora." }, { status: 500 });

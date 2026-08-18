@@ -4,6 +4,9 @@ type DatabaseRuntime = {
   TURNSTILE_SECRET_KEY?: string;
   ADMIN_EMAILS?: string;
   CLOUDFLARE_DEPLOYMENT?: string;
+  ZAPI_INSTANCE_ID?: string;
+  ZAPI_INSTANCE_TOKEN?: string;
+  ZAPI_CLIENT_TOKEN?: string;
 };
 
 declare global {
