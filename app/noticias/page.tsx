@@ -1,6 +1,7 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { listYoutubeVideos, formatVideoDate, compactDescription, CHANNEL_URL, CHANNEL_SUBSCRIBE_URL } from "../../db/youtube";
+import { listNews } from "../../db/news";
 import { pageMetadata } from "../../db/seo";
 import FloatingActions from "../FloatingActions";
 
@@ -11,7 +12,10 @@ export const metadata = pageMetadata({
 });
 
 export default async function NoticiasPage() {
-  const youtubeVideos = await listYoutubeVideos();
+  const [youtubeVideos, news] = await Promise.all([
+    listYoutubeVideos(),
+    listNews({ onlyPublished: true }),
+  ]);
   const [latestVideo, ...otherVideos] = youtubeVideos;
 
   return (
@@ -96,6 +100,24 @@ export default async function NoticiasPage() {
           </a>
         </div>
       </section>
+
+      {news.length > 0 && (
+        <section className="newsListSection">
+          <p className="sectionLabel">Últimas notícias</p>
+          <h2>O que está<br /><span>acontecendo.</span></h2>
+          <div className="newsListGrid">
+            {news.map((item) => (
+              <a className="newsCard" href={`/noticias/${item.slug}`} key={item.id}>
+                <time dateTime={new Date(item.published_at || item.created_at).toISOString()}>
+                  {new Date(item.published_at || item.created_at).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+                </time>
+                <h3>{item.title}</h3>
+                <p>{item.excerpt}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <LegalFooter />
           <FloatingActions />
