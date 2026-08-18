@@ -1,34 +1,22 @@
 import MobileMenu from "./MobileMenu";
-import JoinForm from "./JoinForm";
 import LegalFooter from "./LegalFooter";
 import JinglePlayer from "./JinglePlayer";
-import { getRuntimeConfig } from "../db/runtime";
-import { listYoutubeVideos, formatVideoDate, compactDescription, CHANNEL_URL, CHANNEL_SUBSCRIBE_URL } from "../db/youtube";
 
-const pillars = [
-  { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
-  { number: "02", title: "Cuidar de quem precisa", text: "Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado." },
-  { number: "03", title: "Representar os municípios", text: "Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região." },
-];
-
-export default async function Home() {
-  const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
-  const youtubeVideos = await listYoutubeVideos();
-  const [latestVideo, ...otherVideos] = youtubeVideos;
+export default function Home() {
   return (
-    <main id="top">
+    <main id="top" className="homeOnly">
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a href="/quem-e-eder">Quem é Eder</a>
-          <a href="#propostas">Propostas</a>
-          <a href="#parana">Pelo Paraná</a>
-          <a href="#noticias">Notícias</a>
+          <a href="/propostas">Propostas</a>
+          <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/noticias">Notícias</a>
         </nav>
         <JinglePlayer />
-        <a className="headerCta" href="#participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>
         <MobileMenu />
       </header>
 
@@ -42,7 +30,7 @@ export default async function Home() {
           <p className="heroText">Trabalho, experiência e presença para representar o Paraná na Câmara Federal.</p>
           <div className="heroActions">
             <a className="primaryButton" href="/quem-e-eder">Conheça minha história <span>→</span></a>
-            <a className="textButton" href="#propostas">Veja nossas propostas</a>
+            <a className="textButton" href="/propostas">Veja nossas propostas</a>
           </div>
         </div>
 
@@ -66,140 +54,6 @@ export default async function Home() {
         <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
         <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
-      </section>
-
-      <section className="pillars" id="propostas">
-        {pillars.map((pillar) => (
-          <article key={pillar.number}>
-            <span>{pillar.number}</span>
-            <h3>{pillar.title}</h3>
-            <p>{pillar.text}</p>
-            <a href="#participe" aria-label={`Saiba mais sobre ${pillar.title}`}>↗</a>
-          </article>
-        ))}
-      </section>
-
-      <section className="topicProposals">
-        <div className="topicProposalsHeading">
-          <p className="sectionLabel">Propostas por tema</p>
-          <h2>Compromissos<br /><span>detalhados.</span></h2>
-        </div>
-        <div className="topicProposalsList">
-          <a className="topicProposalCard" href="/propostas/educacao">
-            <span className="topicProposalTag">Educação</span>
-            <h3>Educação de qualidade é direito, não privilégio.</h3>
-            <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
-            <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
-          </a>
-          <a className="topicProposalCard" href="/propostas/banco-de-alimentos">
-            <span className="topicProposalTag">Banco de Alimentos</span>
-            <h3>Solidariedade em movimento: 7,3 milhões de quilos por ano.</h3>
-            <p>Ouro no Stevie Awards, Melhor Gestor do Ano pela WUWM e 160 mil pessoas atendidas todo mês no Paraná.</p>
-            <span className="topicProposalCta">Conheça o programa <span>→</span></span>
-          </a>
-        </div>
-      </section>
-
-      <section className="congress" id="congresso">
-        <img decoding="async" src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" loading="lazy" />
-        <div className="congressCopy">
-          <p className="sectionLabel">Compromisso em Brasília</p>
-          <h2>Lutando por você<br /><span>no Congresso Nacional.</span></h2>
-          <p>Com firmeza, preparo e presença para defender os interesses do Paraná e transformar as necessidades das pessoas em trabalho de verdade.</p>
-          <a href="#propostas">Conheça as propostas <span>→</span></a>
-        </div>
-      </section>
-
-      <section className="vision" id="parana">
-        <div className="visionCopy">
-          <p className="sectionLabel">Visão para o Paraná</p>
-          <h2>Olhar adiante.<br /><span>Trabalhar agora.</span></h2>
-          <p>Representar é estar perto, ouvir cada região e transformar as prioridades dos paranaenses em trabalho sério em Brasília.</p>
-          <div className="visionValues" aria-label="Valores da atuação">
-            <span>Presença</span><span>Diálogo</span><span>Resultado</span>
-          </div>
-          <a href="#propostas">Conheça as propostas <span>→</span></a>
-        </div>
-        <div className="visionPhoto">
-          <img decoding="async" src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
-          <span>PARANÁ<br /><strong>EM FRENTE</strong></span>
-        </div>
-      </section>
-
-      <section className="videosSection" id="noticias">
-        <div className="videosIntro">
-          <p className="sectionLabel">Notícias e vídeos</p>
-          <h2>Acompanhe o Eder<br /><span>no YouTube.</span></h2>
-          <p>Fique por dentro das novidades, entrevistas e propostas para o nosso Paraná.</p>
-        </div>
-
-        {latestVideo ? (
-          <div className="videoGrid">
-            <div className="videoWrapper videoWrapperFeatured">
-              <div className="videoFrame">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${latestVideo.id}?rel=0&modestbranding=1&playsinline=1`}
-                  title={latestVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
-              </div>
-              <div className="videoCaption">
-                <span>{formatVideoDate(latestVideo.publishedAt)}</span>
-                <h3>{latestVideo.title}</h3>
-                <p>{compactDescription(latestVideo.description)}</p>
-              </div>
-            </div>
-
-            {otherVideos.slice(0, 3).map((video) => (
-              <div className="videoWrapper" key={video.id}>
-                <div className="videoFrame">
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0&modestbranding=1&playsinline=1`}
-                    title={video.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                </div>
-                <div className="videoCaption">
-                  <span>{formatVideoDate(video.publishedAt)}</span>
-                  <h3>{video.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="videosEmpty">
-            <p>Não conseguimos carregar o feed do YouTube neste momento.</p>
-            <a href={CHANNEL_URL} target="_blank" rel="noopener noreferrer">Abrir o canal diretamente ↗</a>
-          </div>
-        )}
-
-        <div className="canalCta">
-          {/* sub_confirmation=1 faz o YouTube já sugerir a inscrição automaticamente ao abrir o canal */}
-          <a className="btnYoutube" href={CHANNEL_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
-            </svg>
-            Inscreva-se no canal
-          </a>
-        </div>
-      </section>
-
-      <section className="join" id="participe">
-        <div className="joinCopy">
-          <p>Essa caminhada também é sua.</p>
-          <h2>Vamos juntos<br />pelo Paraná.</h2>
-          <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
-        </div>
-        <div className="joinPhoto">
-          <img decoding="async" src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" loading="lazy" />
-        </div>
-        <img decoding="async" className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" loading="lazy" />
       </section>
 
       <LegalFooter />

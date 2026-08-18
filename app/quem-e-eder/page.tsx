@@ -27,11 +27,11 @@ export default function QuemEEder() {
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a className="active" href="/quem-e-eder">Quem é Eder</a>
-          <a href="/#propostas">Propostas</a>
-          <a href="/#parana">Pelo Paraná</a>
-          <a href="/#participe">Participe</a>
+          <a href="/propostas">Propostas</a>
+          <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/noticias">Notícias</a>
         </nav>
-        <a className="headerCta" href="/#participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>
         <MobileMenu />
       </header>
 
@@ -146,7 +146,7 @@ export default function QuemEEder() {
           <p className="sectionLabel">O próximo passo</p>
           <h2>Levar a experiência<br /><span>para Brasília.</span></h2>
           <p>O mesmo compromisso com resultado, diálogo e presença agora orienta um novo projeto: representar o Paraná na Câmara Federal.</p>
-          <a href="/#propostas">Conheça as propostas <span>→</span></a>
+          <a href="/propostas">Conheça as propostas <span>→</span></a>
         </div>
         <div className="bioNextVisual">
           <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />

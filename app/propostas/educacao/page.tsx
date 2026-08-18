@@ -80,11 +80,11 @@ export default function PropostaEducacao() {
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a href="/quem-e-eder">Quem é Eder</a>
-          <a className="active" href="/#propostas">Propostas</a>
-          <a href="/#parana">Pelo Paraná</a>
-          <a href="/#participe">Participe</a>
+          <a className="active" href="/propostas">Propostas</a>
+          <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/noticias">Notícias</a>
         </nav>
-        <a className="headerCta" href="/#participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>
         <MobileMenu />
       </header>
 
@@ -154,7 +154,7 @@ export default function PropostaEducacao() {
           <p className="sectionLabel">Vamos juntos</p>
           <h2>Apoie essa<br /><span>jornada.</span></h2>
           <p>Com respeito e determinação, convido você a acreditar em uma educação melhor para o Paraná — e para o Brasil.</p>
-          <a href="/#participe">Quero participar <span>→</span></a>
+          <a href="/participe">Quero participar <span>→</span></a>
         </div>
         <div className="bioNextVisual">
           <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
