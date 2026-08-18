@@ -61,9 +61,9 @@ export default function PropostaMulheres() {
           <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
-          <a href="/quem-e-eder">Quem é Eder</a>
-          <a className="active" href="/propostas">Propostas</a>
           <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/quem-e-eder">Quem é o Eder</a>
+          <a className="active" href="/propostas">Propostas</a>
           <a href="/noticias">Notícias</a>
         </nav>
         <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>

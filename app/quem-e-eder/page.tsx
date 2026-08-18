@@ -34,9 +34,9 @@ export default function QuemEEder() {
           <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
-          <a className="active" href="/quem-e-eder">Quem é Eder</a>
-          <a href="/propostas">Propostas</a>
           <a href="/pelo-parana">Pelo Paraná</a>
+          <a className="active" href="/quem-e-eder">Quem é o Eder</a>
+          <a href="/propostas">Propostas</a>
           <a href="/noticias">Notícias</a>
         </nav>
         <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>

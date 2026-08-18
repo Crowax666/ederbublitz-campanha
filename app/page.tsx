@@ -14,9 +14,9 @@ export default function Home() {
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
-          <a href="/quem-e-eder">Quem é Eder</a>
-          <a href="/propostas">Propostas</a>
           <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/quem-e-eder">Quem é o Eder</a>
+          <a href="/propostas">Propostas</a>
           <a href="/noticias">Notícias</a>
         </nav>
         <JinglePlayer />

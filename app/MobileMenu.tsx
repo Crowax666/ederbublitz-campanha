@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const links = [
-  { href: "/quem-e-eder", label: "Quem é Eder" },
-  { href: "/propostas", label: "Propostas" },
   { href: "/pelo-parana", label: "Pelo Paraná" },
+  { href: "/quem-e-eder", label: "Quem é o Eder" },
+  { href: "/propostas", label: "Propostas" },
   { href: "/noticias", label: "Notícias" },
 ];
 

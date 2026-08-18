@@ -22,9 +22,9 @@ export default function ParticipePage() {
           <span className="mobileHeaderNumber" aria-hidden="true"><img src="/brand-lockup-1-navy.png" alt="" decoding="async" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
-          <a href="/quem-e-eder">Quem é Eder</a>
-          <a href="/propostas">Propostas</a>
           <a href="/pelo-parana">Pelo Paraná</a>
+          <a href="/quem-e-eder">Quem é o Eder</a>
+          <a href="/propostas">Propostas</a>
           <a href="/noticias">Notícias</a>
         </nav>
         <a className="headerCta active" href="/participe">Junte-se a nós <span>↗</span></a>
