@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 
-export const META_PIXEL_ID = "1558601305229355";
+export const META_PIXEL_ID = "1506939384536867";
 
 declare global {
   interface Window {
