@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { trackMetaEvent } from "./MetaPixel";
 
 declare global {
   interface Window {
@@ -65,6 +66,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
     window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
     setState("success");
     setMessage("Cadastro recebido. Em breve entraremos em contato.");
+    trackMetaEvent("Lead");
   }
 
   return (
