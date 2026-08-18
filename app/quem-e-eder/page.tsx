@@ -166,7 +166,7 @@ export default function QuemEEder() {
         <a href="/">← Voltar para a página inicial</a>
         <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
       </footer>
-      <LegalFooter biography />
+      <LegalFooter />
           <FloatingActions />
     </main>
   );
