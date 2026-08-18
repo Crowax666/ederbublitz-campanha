@@ -1810,3 +1810,16 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .topicProposalsList { grid-template-columns:1fr; }
   .topicProposalCard { padding:26px; }
 }
+
+/* Home combinada (todas as secoes juntas) precisa de alturas minimas
+   proprias, diferentes das paginas internas dedicadas */
+.homeOriginal .hero { min-height:calc(100vh - 104px); }
+.homeOriginal .congress { min-height:790px; }
+.homeOriginal .pillars { padding-top:125px; padding-bottom:125px; }
+.homeOriginal .vision { min-height:790px; }
+.homeOriginal .join { min-height:900px; }
+
+@media (max-width:800px) {
+  .homeOriginal .hero, .homeOriginal .congress, .homeOriginal .vision, .homeOriginal .join { min-height:auto; }
+  .homeOriginal .pillars { padding-top:64px; padding-bottom:64px; }
+}

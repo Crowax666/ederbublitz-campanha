@@ -1,10 +1,13 @@
 import MobileMenu from "./MobileMenu";
 import LegalFooter from "./LegalFooter";
 import JinglePlayer from "./JinglePlayer";
+import JoinForm from "./JoinForm";
+import { getRuntimeConfig } from "../db/runtime";
 
 export default function Home() {
+  const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
   return (
-    <main id="top" className="homeOnly">
+    <main id="top" className="homeOriginal">
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
@@ -54,6 +57,50 @@ export default function Home() {
         <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
         <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
+      </section>
+
+      <section className="congress" id="congresso">
+        <img decoding="async" src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" loading="lazy" />
+        <div className="congressCopy">
+          <p className="sectionLabel">Compromisso em Brasília</p>
+          <h2>Lutando por você<br /><span>no Congresso Nacional.</span></h2>
+          <p>Com firmeza, preparo e presença para defender os interesses do Paraná e transformar as necessidades das pessoas em trabalho de verdade.</p>
+          <a href="/propostas">Conheça as propostas <span>→</span></a>
+        </div>
+      </section>
+
+      <section className="pillars" id="propostas">
+        <article><span>01</span><h3>Fortalecer quem produz</h3><p>Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.</p><a href="/propostas">↗</a></article>
+        <article><span>02</span><h3>Cuidar de quem precisa</h3><p>Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.</p><a href="/propostas">↗</a></article>
+        <article><span>03</span><h3>Representar os municípios</h3><p>Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.</p><a href="/propostas">↗</a></article>
+      </section>
+
+      <section className="vision" id="parana">
+        <div className="visionCopy">
+          <p className="sectionLabel">Visão para o Paraná</p>
+          <h2>Olhar adiante.<br /><span>Trabalhar agora.</span></h2>
+          <p>Representar é estar perto, ouvir cada região e transformar as prioridades dos paranaenses em trabalho sério em Brasília.</p>
+          <div className="visionValues" aria-label="Valores da atuação">
+            <span>Presença</span><span>Diálogo</span><span>Resultado</span>
+          </div>
+          <a href="/propostas">Conheça as propostas <span>→</span></a>
+        </div>
+        <div className="visionPhoto">
+          <img decoding="async" src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
+          <span>PARANÁ<br /><strong>EM FRENTE</strong></span>
+        </div>
+      </section>
+
+      <section className="join" id="participe">
+        <div className="joinCopy">
+          <p>Essa caminhada também é sua.</p>
+          <h2>Vamos juntos<br />pelo Paraná.</h2>
+          <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
+        </div>
+        <div className="joinPhoto">
+          <img decoding="async" src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" loading="lazy" />
+        </div>
+        <img decoding="async" className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" loading="lazy" />
       </section>
 
       <LegalFooter />
