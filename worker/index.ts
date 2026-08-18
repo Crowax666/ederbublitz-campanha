@@ -9,6 +9,9 @@ interface Env {
   TURNSTILE_SECRET_KEY?: string;
   ADMIN_EMAILS?: string;
   CLOUDFLARE_DEPLOYMENT?: string;
+  ZAPI_INSTANCE_ID?: string;
+  ZAPI_INSTANCE_TOKEN?: string;
+  ZAPI_CLIENT_TOKEN?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -37,6 +40,9 @@ const worker = {
       TURNSTILE_SECRET_KEY: env.TURNSTILE_SECRET_KEY,
       ADMIN_EMAILS: env.ADMIN_EMAILS,
       CLOUDFLARE_DEPLOYMENT: env.CLOUDFLARE_DEPLOYMENT,
+      ZAPI_INSTANCE_ID: env.ZAPI_INSTANCE_ID,
+      ZAPI_INSTANCE_TOKEN: env.ZAPI_INSTANCE_TOKEN,
+      ZAPI_CLIENT_TOKEN: env.ZAPI_CLIENT_TOKEN,
     };
     const url = new URL(request.url);
 
