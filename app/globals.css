@@ -1890,3 +1890,59 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .newsDetail h1 { margin:14px 0 26px; font-family:var(--font-display); font-size:clamp(34px,4.4vw,58px); line-height:1.02; font-style:italic; text-transform:uppercase; color:var(--ink); }
 .newsDetail .newsBody { font-size:17px; line-height:1.75; color:#37453d; white-space:pre-wrap; }
 .newsDetail .newsBackLink { display:inline-flex; margin-top:40px; color:var(--orange); font-weight:900; font-size:12px; text-transform:uppercase; }
+
+/* =========================================================
+   MOBILE CONSOLIDADO — prevalece sobre os ajustes antigos
+   ========================================================= */
+@media (max-width:1023px){
+  body{overflow-x:hidden}
+  main{width:100%;overflow-x:clip}
+  img{max-width:100%;height:auto}
+
+  /* Seções fotográficas da home */
+  .homeOriginal .congress{min-height:760px!important}
+  .homeOriginal .congress>img{object-fit:cover!important;object-position:62% 20%!important}
+  .homeOriginal .congress:after{background:linear-gradient(180deg,rgba(7,29,51,.24) 0%,rgba(7,29,51,.88) 56%,#071d33 100%)!important}
+  .homeOriginal .congressCopy{position:absolute!important;right:0!important;bottom:0!important;left:0!important;width:100%!important;padding:280px 22px 54px!important}
+  .homeOriginal .congressCopy h2{font-size:clamp(39px,11vw,58px)!important}
+  .homeOriginal .pillars{grid-template-columns:1fr!important;gap:16px!important;padding:62px 20px!important}
+  .homeOriginal .pillars article{min-height:290px!important}
+  .homeOriginal .vision{display:flex!important;flex-direction:column!important;min-height:auto!important}
+  .homeOriginal .visionPhoto{order:1!important;width:100%!important;min-height:0!important;height:clamp(470px,125vw,680px)!important}
+  .homeOriginal .visionPhoto img{object-fit:cover!important;object-position:45% 16%!important}
+  .homeOriginal .visionCopy{order:2!important;width:100%!important;padding:54px 22px 64px!important}
+  .homeOriginal .join{display:flex!important;flex-direction:column!important;min-height:auto!important;padding:58px 20px 0!important}
+  .homeOriginal .joinCopy{position:relative!important;z-index:4!important;width:100%!important;padding:0!important}
+  .homeOriginal .joinPhoto{position:relative!important;right:auto!important;bottom:auto!important;left:-20px!important;width:calc(100% + 40px)!important;height:clamp(500px,128vw,690px)!important;margin-top:28px!important;overflow:hidden!important}
+  .homeOriginal .joinPhoto img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:55% 9%!important;mix-blend-mode:normal!important}
+  .homeOriginal .joinBrand{right:16px!important;bottom:28px!important;width:min(72%,320px)!important}
+
+  /* Páginas internas */
+  .internalPage .bioHero{display:flex!important;flex-direction:column!important;min-height:auto!important}
+  .internalPage .bioHeroPhoto{order:1!important;width:100%!important;min-height:0!important;height:clamp(460px,122vw,680px)!important}
+  .internalPage .bioHeroPhoto img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:var(--mobile-photo-position,50% 18%)!important}
+  .internalPage .bioHeroCopy{order:2!important;width:100%!important;margin:0!important;padding:50px 22px 64px!important}
+  .internalPage .bioHeroCopy h1{font-size:clamp(40px,11.5vw,58px)!important;line-height:.9!important;overflow-wrap:normal!important;word-break:normal!important}
+
+  /* Final de cada proposta: sem caixa ou moldura branca */
+  .internalPage .bioNext{display:flex!important;flex-direction:column!important;min-height:auto!important;padding:62px 22px 0!important;overflow:hidden!important;background:linear-gradient(155deg,var(--green-deep),#0a2930)!important}
+  .internalPage .bioNextCopy{width:100%!important;padding:0 0 38px!important}
+  .internalPage .bioNext h2{font-size:clamp(40px,11.5vw,58px)!important}
+  .internalPage .bioNextVisual{position:relative!important;right:auto!important;bottom:auto!important;width:calc(100% + 44px)!important;height:clamp(500px,128vw,700px)!important;margin:0 -22px!important;padding:0!important;overflow:hidden!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+  .internalPage .bioNextPhoto{position:absolute!important;z-index:1!important;inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:var(--mobile-next-position,50% 20%)!important;border:0!important;border-radius:0!important}
+  .internalPage .bioNextBrand{position:absolute!important;z-index:4!important;right:16px!important;bottom:26px!important;width:min(76%,320px)!important;max-width:calc(100% - 32px)!important;margin:0!important;object-fit:contain!important;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))!important}
+  .internalPage .bioNext:after{display:block!important;z-index:2!important;background:linear-gradient(0deg,rgba(7,29,51,.72),transparent 42%)!important}
+
+  .agricultureProposal{--mobile-photo-position:48% 16%;--mobile-next-position:50% 18%}
+  .legalFooter{margin:0!important}
+}
+
+@media (max-width:479px){
+  .homeOriginal .congress{min-height:720px!important}
+  .homeOriginal .congressCopy{padding:250px 18px 46px!important}
+  .homeOriginal .visionCopy{padding:48px 18px 56px!important}
+  .homeOriginal .join{padding-right:18px!important;padding-left:18px!important}
+  .homeOriginal .joinPhoto{left:-18px!important;width:calc(100% + 36px)!important}
+  .internalPage .bioHeroCopy,.internalPage .bioNext{padding-right:18px!important;padding-left:18px!important}
+  .internalPage .bioNextVisual{width:calc(100% + 36px)!important;margin-right:-18px!important;margin-left:-18px!important}
+}
