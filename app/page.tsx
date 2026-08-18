@@ -4,7 +4,7 @@ import JinglePlayer from "./JinglePlayer";
 
 export default function Home() {
   return (
-    <main id="top" className="homeOnly">
+    <main id="top" className="homeShowcase">
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
@@ -54,6 +54,86 @@ export default function Home() {
         <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
         <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
+      </section>
+
+      <section className="homeManifest" aria-labelledby="manifest-title">
+        <div className="homeManifestCopy">
+          <p className="sectionLabel">Experiência para representar</p>
+          <h2 id="manifest-title">Do Paraná para<br /><span>Brasília.</span></h2>
+          <p>Uma trajetória construída perto de quem produz, com gestão, diálogo e resultados que chegaram à vida de milhares de pessoas.</p>
+          <a className="homeArrowLink" href="/quem-e-eder">Conheça a trajetória <span>→</span></a>
+        </div>
+        <div className="homeManifestPhoto">
+          <img decoding="async" src="/eder-experiencia-retrato-v2.webp" alt="Eder Bublitz sorrindo, com os braços cruzados" loading="lazy" />
+          <span>Trabalho<br /><b>que entrega.</b></span>
+        </div>
+      </section>
+
+      <section className="homeNumbers" aria-label="Resultados em destaque">
+        <article><strong>7,3 mi</strong><span>quilos de alimentos<br />destinados por ano</span></article>
+        <article><strong>160 mil</strong><span>pessoas atendidas<br />todos os meses</span></article>
+        <article><strong>2025</strong><span>Gestor do Ano<br />reconhecido no mundo</span></article>
+      </section>
+
+      <section className="homeExplore" aria-labelledby="explore-title">
+        <div className="homeExploreHead">
+          <div>
+            <p className="sectionLabel">Explore o projeto</p>
+            <h2 id="explore-title">Escolha por onde<br /><span>começar.</span></h2>
+          </div>
+          <p>Conteúdo organizado, direto e sem páginas intermináveis. Veja uma prévia e aprofunde apenas no tema que desejar.</p>
+        </div>
+        <div className="homeExploreGrid">
+          <a className="homeExploreCard homeExploreCardPhoto" href="/quem-e-eder">
+            <img decoding="async" src="/eder-visao.jpg" alt="" loading="lazy" />
+            <span className="homeCardNumber">01</span>
+            <div><small>Trajetória</small><h3>Quem é Eder</h3><p>Origem, preparo, experiência e resultados.</p><b>Conheça →</b></div>
+          </a>
+          <a className="homeExploreCard homeExploreCardOrange" href="/propostas">
+            <span className="homeCardNumber">02</span>
+            <div><small>Compromissos</small><h3>Propostas</h3><p>Planos objetivos para defender o Paraná.</p><b>Veja as propostas →</b></div>
+          </a>
+          <a className="homeExploreCard homeExploreCardGreen" href="/pelo-parana">
+            <span className="homeCardNumber">03</span>
+            <div><small>Presença</small><h3>Pelo Paraná</h3><p>Uma voz conectada a cada região do estado.</p><b>Conheça a visão →</b></div>
+          </a>
+          <a className="homeExploreCard homeExploreCardVideo" href="/noticias">
+            <span className="homeCardPlay" aria-hidden="true">▶</span>
+            <span className="homeCardNumber">04</span>
+            <div><small>Notícias e vídeos</small><h3>Acompanhe</h3><p>Novidades, entrevistas e a campanha em movimento.</p><b>Assistir agora →</b></div>
+          </a>
+        </div>
+      </section>
+
+      <section className="homeProposalSpotlight" aria-labelledby="spotlight-title">
+        <div className="homeProposalTitle">
+          <p className="sectionLabel">Propostas em destaque</p>
+          <h2 id="spotlight-title">Ideias que já<br /><span>viraram resultado.</span></h2>
+          <a className="homeArrowLink" href="/propostas">Ver todas as propostas <span>→</span></a>
+        </div>
+        <div className="homeProposalCards">
+          <a href="/propostas/educacao">
+            <small>Educação</small>
+            <h3>Educação de qualidade é direito, não privilégio.</h3>
+            <p>Seis frentes concretas para levar a Brasília.</p>
+            <b>Conheça o plano →</b>
+          </a>
+          <a href="/propostas/banco-de-alimentos">
+            <small>Banco de Alimentos</small>
+            <h3>Combater o desperdício e colocar alimento na mesa.</h3>
+            <p>Um modelo premiado que pode alcançar todo o Brasil.</p>
+            <b>Conheça o programa →</b>
+          </a>
+        </div>
+      </section>
+
+      <section className="homeFinalCta">
+        <div>
+          <p className="sectionLabel">Essa caminhada também é sua</p>
+          <h2>Vamos juntos<br /><span>pelo Paraná.</span></h2>
+          <p>Faça parte de uma campanha construída com presença, trabalho e respeito pelas pessoas.</p>
+        </div>
+        <a href="/participe">Junte-se a nós <span>↗</span></a>
       </section>
 
       <LegalFooter />

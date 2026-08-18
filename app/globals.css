@@ -25,7 +25,7 @@ a { color: inherit; text-decoration: none; }
 .pageIntro { padding:72px 7vw 48px; background:var(--paper); color:var(--green-deep); }
 .pageIntro h1 { max-width:900px; margin:10px 0 18px; font:900 italic clamp(48px,7vw,88px)/.92 var(--font-display); text-transform:uppercase; }
 .pageIntro > p:last-child { max-width:760px; margin:0; font-size:clamp(17px,2vw,22px); line-height:1.55; }
-@media (max-width:800px) { .pageIntro { padding:48px 6vw 32px; } main.homeOnly { min-height:calc(100vh - 76px); } }
+@media (max-width:800px) { .pageIntro { padding:48px 6vw 32px; } }
 
 .siteHeader {
   height: 104px; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between;
@@ -1809,4 +1809,82 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .topicProposals { padding:0 6vw 70px; }
   .topicProposalsList { grid-template-columns:1fr; }
   .topicProposalCard { padding:26px; }
+}
+
+/* =========================================================
+   HOME EM FORMATO DE VITRINE (showcase) — prevdefinido, direciona
+   para as paginas completas em vez de empilhar conteudo
+   ========================================================= */
+.homeShowcase main { background: var(--paper); }
+
+.homeManifest { display:grid; grid-template-columns:1fr 1fr; min-height:680px; }
+.homeManifestCopy { display:flex; flex-direction:column; justify-content:center; padding:9vw 8vw; }
+.homeManifestCopy h2, .homeExploreHead h2, .homeProposalTitle h2, .homeFinalCta h2 { margin:12px 0 28px; color:var(--green-deep); font:900 italic clamp(48px,6vw,88px)/.9 var(--font-display); text-transform:uppercase; letter-spacing:-2px; }
+.homeManifestCopy h2 span, .homeExploreHead h2 span, .homeProposalTitle h2 span, .homeFinalCta h2 span { color:var(--orange); }
+.homeManifestCopy > p:last-of-type { max-width:630px; font-size:19px; line-height:1.65; color:#5c6d65; }
+.homeArrowLink { display:inline-flex; align-items:center; gap:18px; width:max-content; margin-top:32px; color:var(--green-deep); font-size:12px; font-weight:900; letter-spacing:1px; text-transform:uppercase; border-bottom:3px solid var(--yellow); padding-bottom:8px; }
+.homeArrowLink span { color:var(--orange); }
+.homeManifestPhoto { position:relative; min-height:620px; overflow:hidden; background:var(--green-deep); }
+.homeManifestPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(5,35,26,.82)); }
+.homeManifestPhoto img { width:100%; height:100%; object-fit:cover; }
+.homeManifestPhoto > span { position:absolute; z-index:2; left:8%; bottom:8%; color:#fff; font:900 italic clamp(40px,5vw,72px)/.9 var(--font-display); text-transform:uppercase; }
+.homeManifestPhoto > span b { color:var(--yellow); }
+
+.homeNumbers { display:grid; grid-template-columns:repeat(3,1fr); padding:0 6vw; background:var(--navy); color:#fff; }
+.homeNumbers article { display:flex; align-items:center; gap:20px; min-height:180px; padding:36px 4vw; border-right:1px solid rgba(255,255,255,.13); }
+.homeNumbers article:last-child { border:0; }
+.homeNumbers strong { color:var(--yellow); font:900 italic clamp(38px,4vw,64px)/1 var(--font-display); }
+.homeNumbers span { font-size:13px; font-weight:700; line-height:1.4; text-transform:uppercase; letter-spacing:.5px; }
+
+.homeExplore { padding:110px 7vw; background:#f5f3ec; }
+.homeExploreHead { display:grid; grid-template-columns:1.4fr .6fr; align-items:end; gap:40px; margin-bottom:55px; }
+.homeExploreHead h2 { margin-bottom:0; }
+.homeExploreHead > p { max-width:480px; color:#62736b; font-size:17px; line-height:1.65; }
+.homeExploreGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.homeExploreCard { position:relative; display:flex; min-height:370px; overflow:hidden; padding:38px; color:#fff; background:var(--navy); border-radius:4px; isolation:isolate; transition:transform .25s, box-shadow .25s; }
+.homeExploreCard:hover { transform:translateY(-6px); box-shadow:0 25px 55px rgba(5,30,25,.18); }
+.homeExploreCard div { align-self:flex-end; position:relative; z-index:2; max-width:480px; }
+.homeExploreCard small { color:var(--yellow); font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:1.2px; }
+.homeExploreCard h3 { margin:8px 0 10px; font:900 italic clamp(36px,4vw,58px)/.95 var(--font-display); text-transform:uppercase; }
+.homeExploreCard p { max-width:380px; margin:0 0 25px; color:rgba(255,255,255,.82); line-height:1.5; }
+.homeExploreCard b { font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+.homeCardNumber { position:absolute; z-index:2; right:30px; top:25px; color:rgba(255,255,255,.28); font:900 italic 56px/1 var(--font-display); }
+.homeExploreCardPhoto img { position:absolute; z-index:-2; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; }
+.homeExploreCardPhoto:after, .homeExploreCardVideo:after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,rgba(5,34,27,.95),rgba(5,34,27,.22)); }
+.homeExploreCardOrange { background:linear-gradient(135deg,#fd6b19,#e94a10); }
+.homeExploreCardGreen { background:linear-gradient(135deg,#0d523d,#1c7254); }
+.homeExploreCardVideo { background:linear-gradient(135deg,#071d33,#17496e); }
+.homeCardPlay { position:absolute; right:44px; top:50%; transform:translateY(-50%); display:grid; place-items:center; width:86px; height:86px; color:var(--navy); background:var(--yellow); border-radius:50%; font-size:25px; padding-left:5px; }
+
+.homeProposalSpotlight { display:grid; grid-template-columns:.8fr 1.2fr; gap:6vw; padding:110px 7vw; }
+.homeProposalCards { display:grid; gap:18px; }
+.homeProposalCards a { display:block; padding:38px 42px; color:#fff; background:var(--navy); border-left:6px solid var(--lime); transition:transform .2s; }
+.homeProposalCards a:hover { transform:translateX(7px); }
+.homeProposalCards a:nth-child(2) { border-left-color:var(--yellow); }
+.homeProposalCards small { color:var(--lime); font-weight:900; text-transform:uppercase; letter-spacing:1px; }
+.homeProposalCards a:nth-child(2) small { color:var(--yellow); }
+.homeProposalCards h3 { margin:12px 0; font:800 italic clamp(25px,3vw,38px)/1.08 var(--font-display); }
+.homeProposalCards p { color:rgba(255,255,255,.7); line-height:1.5; }
+.homeProposalCards b { display:block; margin-top:22px; color:var(--yellow); font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+
+.homeFinalCta { display:flex; align-items:center; justify-content:space-between; gap:50px; padding:90px 8vw; color:#fff; background:linear-gradient(120deg,var(--green-deep),#0b543d); }
+.homeFinalCta h2 { margin-bottom:18px; color:#fff; }
+.homeFinalCta > div > p:last-child { max-width:620px; color:rgba(255,255,255,.75); font-size:18px; line-height:1.55; }
+.homeFinalCta > a { flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; min-width:260px; padding:24px 28px; background:var(--orange); border-radius:4px; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:1px; box-shadow:0 15px 30px rgba(0,0,0,.18); }
+
+@media (max-width:800px) {
+  .homeManifest { grid-template-columns:1fr; min-height:0; }
+  .homeManifestCopy { padding:72px 7vw; }
+  .homeManifestPhoto { min-height:520px; }
+  .homeNumbers { grid-template-columns:1fr; padding:20px 7vw; }
+  .homeNumbers article { min-height:125px; padding:26px 0; border-right:0; border-bottom:1px solid rgba(255,255,255,.13); }
+  .homeExplore { padding:75px 6vw; }
+  .homeExploreHead { grid-template-columns:1fr; gap:18px; }
+  .homeExploreGrid { grid-template-columns:1fr; }
+  .homeExploreCard { min-height:340px; padding:30px; }
+  .homeCardPlay { right:28px; top:75px; width:65px; height:65px; }
+  .homeProposalSpotlight { grid-template-columns:1fr; padding:75px 6vw; }
+  .homeProposalCards a { padding:30px 26px; }
+  .homeFinalCta { align-items:flex-start; flex-direction:column; padding:75px 7vw; }
+  .homeFinalCta > a { width:100%; }
 }
