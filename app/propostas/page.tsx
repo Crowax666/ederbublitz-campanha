@@ -74,6 +74,12 @@ export default function PropostasPage() {
             <p>Tecnologia, crédito justo, seguro rural e cooperativas para fortalecer quem produz.</p>
             <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
           </a>
+          <a className="topicProposalCard" href="/propostas/mulheres">
+            <span className="topicProposalTag">Mulheres</span>
+            <h3>A força da mulher: protagonismo, capacitação e voz.</h3>
+            <p>Comitê de Mulheres da Ceasa, Embaixadoras, Selo ABNT de Igualdade e apoio às mulheres do campo.</p>
+            <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
+          </a>
         </div>
       </section>
 
