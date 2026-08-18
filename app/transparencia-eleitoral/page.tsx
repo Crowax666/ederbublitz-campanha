@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { pageMetadata } from "../../db/seo";
 
-export const metadata = { title: "Transparência Eleitoral | Eder Bublitz 1020" };
+export const metadata = pageMetadata({
+  path: "/transparencia-eleitoral",
+  title: "Transparência Eleitoral | Eder Bublitz 1020",
+  description: "Identificação oficial da candidatura de Eder Bublitz para Deputado Federal.",
+});
 
 const details = [
   ["Candidato", "Eder Eduardo Bublitz"],

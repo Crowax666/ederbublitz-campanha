@@ -1,5 +1,6 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
+import { pageMetadata } from "../../db/seo";
 
 const timeline = [
   { year: "2006", title: "Formação", text: "Conclui Zootecnia na Universidade Estadual de Maringá — UEM." },
@@ -16,6 +17,12 @@ const results = [
   { number: "03", title: "Alimento na mesa", text: "Fortalecimento do Banco de Alimentos e combate ao desperdício com responsabilidade social." },
   { number: "04", title: "Visão sustentável", text: "Projetos que conectam abastecimento, reaproveitamento, energia limpa e futuro." },
 ];
+
+export const metadata = pageMetadata({
+  path: "/quem-e-eder",
+  title: "Quem é Eder — Eder Bublitz 1020",
+  description: "Conheça a trajetória de Eder Bublitz: origem, experiência e resultados.",
+});
 
 export default function QuemEEder() {
   return (

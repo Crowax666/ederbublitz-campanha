@@ -1,5 +1,6 @@
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
+import { pageMetadata } from "../../../db/seo";
 
 const goals = [
   {
@@ -50,14 +51,11 @@ const connection = [
   { number: "03", title: "Futuro no campo", text: "Condições para que as famílias permaneçam no meio rural com qualidade de vida." },
 ];
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/propostas/agricultura",
   title: "Agricultura — Propostas de Eder Bublitz 1020",
   description: "Propostas de Eder Bublitz para valorizar o pequeno produtor e fortalecer a agricultura.",
-  openGraph: {
-    title: "Agricultura — Propostas de Eder Bublitz 1020",
-    description: "Propostas de Eder Bublitz para valorizar o pequeno produtor e fortalecer a agricultura.",
-  },
-};
+});
 
 export default function PropostaAgricultura() {
   return (

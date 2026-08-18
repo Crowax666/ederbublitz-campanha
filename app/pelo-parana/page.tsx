@@ -1,14 +1,12 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
+import { pageMetadata } from "../../db/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/pelo-parana",
   title: "Pelo Paraná — Eder Bublitz 1020",
   description: "Visão, presença e trabalho de Eder Bublitz por todas as regiões do Paraná.",
-  openGraph: {
-    title: "Pelo Paraná — Eder Bublitz 1020",
-    description: "Visão, presença e trabalho de Eder Bublitz por todas as regiões do Paraná.",
-  },
-};
+});
 
 export default function PeloParanaPage() {
   return (

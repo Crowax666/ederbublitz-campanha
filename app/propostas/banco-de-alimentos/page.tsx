@@ -1,5 +1,6 @@
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
+import { pageMetadata } from "../../../db/seo";
 
 const trajectory = [
   { number: "01", title: "Visão de Gestão", text: "Estruturou o modelo unindo eficiência logística, inovação e impacto social direto, garantindo que os produtos chegassem com rapidez e qualidade a quem mais precisa." },
@@ -13,6 +14,12 @@ const impact = [
   { number: "5", title: "Cidades atendidas", text: "Curitiba, Londrina, Maringá, Foz do Iguaçu e Cascavel, através da capilaridade das unidades da Ceasa Paraná." },
   { number: "Centenas", title: "De instituições", text: "Creches, orfanatos, hospitais públicos e casas de recuperação beneficiados com técnica, agilidade e respeito." },
 ];
+
+export const metadata = pageMetadata({
+  path: "/propostas/banco-de-alimentos",
+  title: "Banco de Alimentos — Propostas de Eder Bublitz 1020",
+  description: "Luta contra o desperdício: 7,3 milhões de quilos de alimentos recuperados por ano.",
+});
 
 export default function PropostaBancoDeAlimentos() {
   return (

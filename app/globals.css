@@ -1831,3 +1831,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .agricultureProposal .bioPhotoTag { z-index:2; }
 .agricultureGoals .goalCard:nth-child(1), .agricultureGoals .goalCard:nth-child(4) { border-top-color:var(--lime); }
 .agricultureGoals .goalCard:nth-child(2), .agricultureGoals .goalCard:nth-child(3) { border-top-color:var(--yellow); }
+
+/* Campo honeypot (anti-spam) - invisivel visualmente, mas presente no DOM
+   pra bots preencherem (usuarios reais nunca veem nem preenchem) */
+.formTrap { position:absolute !important; width:1px !important; height:1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; }

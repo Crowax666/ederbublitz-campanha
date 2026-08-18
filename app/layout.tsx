@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { pageMetadata } from "../db/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,21 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eder Bublitz 1020 — Deputado Federal",
-  description: "Eder Bublitz - Deputado Federal 1020. Perto de quem produz, junto de quem precisa.",
+  ...pageMetadata({
+    path: "/",
+    title: "Eder Bublitz 1020 — Deputado Federal",
+    description: "Site oficial de Eder Bublitz, candidato a Deputado Federal pelo Paraná, número 1020.",
+  }),
   robots: "index,follow",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
-  },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    title: "Eder Bublitz 1020 — Deputado Federal",
-    description: "Perto de quem produz. Junto de quem precisa.",
-  },
-  twitter: {
-    card: "summary_large_image",
   },
 };
 

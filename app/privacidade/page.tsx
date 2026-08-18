@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { pageMetadata } from "../../db/seo";
 
-export const metadata = { title: "Política de Privacidade | Eder Bublitz 1020" };
+export const metadata = pageMetadata({
+  path: "/privacidade",
+  title: "Política de Privacidade | Eder Bublitz 1020",
+  description: "Como os dados enviados pelo formulário Junte-se a nós são tratados.",
+});
 
 export default function PrivacyPage() {
   return <main className="privacyPage" id="top"><header><Link href="/">← Voltar ao site</Link><span>Eder Bublitz <small>1020</small></span></header><article>

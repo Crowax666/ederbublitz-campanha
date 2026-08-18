@@ -1,5 +1,6 @@
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
+import { pageMetadata } from "../../../db/seo";
 
 const goals = [
   {
@@ -69,6 +70,12 @@ const goals = [
     ],
   },
 ];
+
+export const metadata = pageMetadata({
+  path: "/propostas/educacao",
+  title: "Educação — Propostas de Eder Bublitz 1020",
+  description: "Plano de metas de Eder Bublitz para a educação: cooperativas, valorização dos profissionais, alimentação escolar e mais.",
+});
 
 export default function PropostaEducacao() {
   return (

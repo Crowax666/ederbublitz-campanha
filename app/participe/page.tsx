@@ -2,15 +2,13 @@ import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import JoinForm from "../JoinForm";
 import { getRuntimeConfig } from "../../db/runtime";
+import { pageMetadata } from "../../db/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/participe",
   title: "Junte-se a nós — Eder Bublitz 1020",
   description: "Participe da caminhada de Eder Bublitz pelo Paraná.",
-  openGraph: {
-    title: "Junte-se a nós — Eder Bublitz 1020",
-    description: "Participe da caminhada de Eder Bublitz pelo Paraná.",
-  },
-};
+});
 
 export default function ParticipePage() {
   const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();

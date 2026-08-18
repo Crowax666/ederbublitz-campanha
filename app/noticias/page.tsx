@@ -1,15 +1,13 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { listYoutubeVideos, formatVideoDate, compactDescription, CHANNEL_URL, CHANNEL_SUBSCRIBE_URL } from "../../db/youtube";
+import { pageMetadata } from "../../db/seo";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/noticias",
   title: "Notícias e vídeos — Eder Bublitz 1020",
   description: "Acompanhe as notícias e os vídeos de Eder Bublitz.",
-  openGraph: {
-    title: "Notícias e vídeos — Eder Bublitz 1020",
-    description: "Acompanhe as notícias e os vídeos de Eder Bublitz.",
-  },
-};
+});
 
 export default async function NoticiasPage() {
   const youtubeVideos = await listYoutubeVideos();

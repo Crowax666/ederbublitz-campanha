@@ -25,9 +25,19 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = new FormData(event.currentTarget);
+
+    // Honeypot: campo invisível que só bots preenchem. Se vier preenchido,
+    // rejeita silenciosamente sem bater na API.
+    if (form.get("website")) {
+      setState("success");
+      setMessage("Cadastro recebido. Em breve entraremos em contato.");
+      formRef.current?.reset();
+      return;
+    }
+
     setState("sending");
     setMessage("");
-    const form = new FormData(event.currentTarget);
 
     const response = await fetch("/api/supporters", {
       method: "POST",
@@ -61,7 +71,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
     <form className="joinForm" id="contato" onSubmit={submit} ref={formRef}>
       <div className="joinFields">
         <label><span>Nome completo</span><input name="name" autoComplete="name" required minLength={3} /></label>
-        <label><span>Telefone com DDD</span><input name="phone" autoComplete="tel" inputMode="tel" required placeholder="(41) 99999-9999" /></label>
+        <label><span>Telefone com DDD</span><input name="phone" autoComplete="tel" inputMode="tel" required placeholder="(41) 99999-9999" pattern="\(?\d{2}\)?\s?9?\d{4}-?\d{4}" title="Informe um telefone com DDD, por exemplo: (41) 99999-9999" minLength={10} /></label>
         <label><span>Cidade</span><input name="city" autoComplete="address-level2" required /></label>
         <label><span>Bairro <small>opcional</small></span><input name="neighborhood" autoComplete="address-level3" /></label>
       </div>
@@ -74,6 +84,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
         </select>
       </label>
       <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
+      <div className="formTrap" aria-hidden="true"><label>Não preencha este campo<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-BR" /></div>}
       <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Enviando..." : "Quero fazer parte"}<span>→</span></button>
       {message && <p className={`joinMessage ${state}`} role="status">{message}</p>}

@@ -1,5 +1,6 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
+import { pageMetadata } from "../../db/seo";
 
 const pillars = [
   { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
@@ -7,14 +8,11 @@ const pillars = [
   { number: "03", title: "Representar os municípios", text: "Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região." },
 ];
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/propostas",
   title: "Propostas — Eder Bublitz 1020",
   description: "Conheça as propostas de Eder Bublitz para o Paraná.",
-  openGraph: {
-    title: "Propostas — Eder Bublitz 1020",
-    description: "Conheça as propostas de Eder Bublitz para o Paraná.",
-  },
-};
+});
 
 export default function PropostasPage() {
   return (
