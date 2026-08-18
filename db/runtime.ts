@@ -7,6 +7,7 @@ type DatabaseRuntime = {
   ZAPI_INSTANCE_ID?: string;
   ZAPI_INSTANCE_TOKEN?: string;
   ZAPI_CLIENT_TOKEN?: string;
+  RESEND_API_KEY?: string;
 };
 
 declare global {

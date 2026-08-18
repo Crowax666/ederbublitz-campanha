@@ -12,6 +12,7 @@ interface Env {
   ZAPI_INSTANCE_ID?: string;
   ZAPI_INSTANCE_TOKEN?: string;
   ZAPI_CLIENT_TOKEN?: string;
+  RESEND_API_KEY?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -43,6 +44,7 @@ const worker = {
       ZAPI_INSTANCE_ID: env.ZAPI_INSTANCE_ID,
       ZAPI_INSTANCE_TOKEN: env.ZAPI_INSTANCE_TOKEN,
       ZAPI_CLIENT_TOKEN: env.ZAPI_CLIENT_TOKEN,
+      RESEND_API_KEY: env.RESEND_API_KEY,
     };
     const url = new URL(request.url);
 

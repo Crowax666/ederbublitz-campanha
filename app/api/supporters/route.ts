@@ -1,6 +1,7 @@
 import { createSupporter } from "../../../db/supporters";
 import { getRuntimeConfig } from "../../../db/runtime";
 import { sendZapiMessage, welcomeMessage } from "../../../db/zapi";
+import { notifyNewSupporter } from "../../../db/email";
 
 const interests = new Set(["participar", "receber-noticias", "voluntariado", "propostas"]);
 
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
     // Best-effort: aguarda o envio (Workers pode encerrar chamadas em segundo
     // plano sem isso), mas uma falha aqui nao derruba o cadastro em si.
     await sendZapiMessage(phone, welcomeMessage(name)).catch(() => {});
+    await notifyNewSupporter({ name, phone, city, neighborhood, interest }).catch(() => {});
 
     return Response.json({ ok: true }, { status: 201 });
   } catch {
