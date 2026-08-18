@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FloatingActions from "../FloatingActions";
 import { pageMetadata } from "../../db/seo";
 
 export const metadata = pageMetadata({
@@ -20,5 +21,5 @@ export default function PrivacyPage() {
     <h2>6. Seus direitos</h2><p>Você pode solicitar confirmação, acesso, correção, revogação do consentimento ou exclusão dos dados, quando aplicável.</p>
     <h2>7. Contato</h2><p>Para exercer seus direitos, revogar o consentimento ou tirar dúvidas, escreva para <a href="mailto:contato@ederbublitz.com.br">contato@ederbublitz.com.br</a>.</p>
     <aside>Esta política poderá ser atualizada para refletir mudanças no site, na campanha ou nas regras aplicáveis. A versão vigente ficará sempre disponível nesta página.</aside>
-  </article></main>;
+  </article><FloatingActions /></main>;
 }

@@ -1,6 +1,7 @@
 import MobileMenu from "./MobileMenu";
 import LegalFooter from "./LegalFooter";
 import JinglePlayer from "./JinglePlayer";
+import FloatingActions from "./FloatingActions";
 import JoinForm from "./JoinForm";
 import { getRuntimeConfig } from "../db/runtime";
 
@@ -105,22 +106,7 @@ export default function Home() {
 
       <LegalFooter />
 
-      <div className="floatingActions" aria-label="Atalhos da página">
-        <a className="floatAction" href="/participe" aria-label="Participar da campanha">
-          <b>Participar</b><i aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="img">
-              <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" fill="none" />
-            </svg>
-          </i>
-        </a>
-        <a className="floatAction backToTop" href="#top" aria-label="Voltar ao topo">
-          <b>Voltar ao topo</b><i aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="img">
-              <path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/>
-            </svg>
-          </i>
-        </a>
-      </div>
+      <FloatingActions />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FloatingActions from "../FloatingActions";
 import { pageMetadata } from "../../db/seo";
 
 export const metadata = pageMetadata({
@@ -34,6 +35,7 @@ export default function TransparencyPage() {
         <p>Os dados enviados pelo formulário são tratados para contato e mobilização da campanha, mediante consentimento. Consulte as finalidades, os direitos do titular e as regras de conservação na <Link href="/privacidade">Política de Privacidade</Link>.</p>
         <aside>Conteúdo oficial da campanha de Eder Bublitz para Deputado Federal, número 1020, pelo Republicanos.</aside>
       </article>
+      <FloatingActions />
     </main>
   );
 }

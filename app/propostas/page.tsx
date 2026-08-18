@@ -1,6 +1,7 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { pageMetadata } from "../../db/seo";
+import FloatingActions from "../FloatingActions";
 
 const pillars = [
   { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
@@ -77,6 +78,7 @@ export default function PropostasPage() {
       </section>
 
       <LegalFooter />
+          <FloatingActions />
     </main>
   );
 }

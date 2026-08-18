@@ -1,6 +1,7 @@
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
 import { pageMetadata } from "../../../db/seo";
+import FloatingActions from "../../FloatingActions";
 
 const trajectory = [
   { number: "01", title: "Visão de Gestão", text: "Estruturou o modelo unindo eficiência logística, inovação e impacto social direto, garantindo que os produtos chegassem com rapidez e qualidade a quem mais precisa." },
@@ -130,6 +131,7 @@ export default function PropostaBancoDeAlimentos() {
         <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
       </footer>
       <LegalFooter biography />
+          <FloatingActions />
     </main>
   );
 }

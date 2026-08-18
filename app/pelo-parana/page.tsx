@@ -1,6 +1,7 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { pageMetadata } from "../../db/seo";
+import FloatingActions from "../FloatingActions";
 
 export const metadata = pageMetadata({
   path: "/pelo-parana",
@@ -55,6 +56,7 @@ export default function PeloParanaPage() {
       </section>
 
       <LegalFooter />
+          <FloatingActions />
     </main>
   );
 }

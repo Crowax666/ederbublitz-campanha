@@ -2,6 +2,7 @@ import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { listYoutubeVideos, formatVideoDate, compactDescription, CHANNEL_URL, CHANNEL_SUBSCRIBE_URL } from "../../db/youtube";
 import { pageMetadata } from "../../db/seo";
+import FloatingActions from "../FloatingActions";
 
 export const metadata = pageMetadata({
   path: "/noticias",
@@ -97,6 +98,7 @@ export default async function NoticiasPage() {
       </section>
 
       <LegalFooter />
+          <FloatingActions />
     </main>
   );
 }

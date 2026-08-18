@@ -1,6 +1,7 @@
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { pageMetadata } from "../../db/seo";
+import FloatingActions from "../FloatingActions";
 
 const timeline = [
   { year: "2006", title: "Formação", text: "Conclui Zootecnia na Universidade Estadual de Maringá — UEM." },
@@ -166,6 +167,7 @@ export default function QuemEEder() {
         <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
       </footer>
       <LegalFooter biography />
+          <FloatingActions />
     </main>
   );
 }

@@ -3,6 +3,7 @@ import LegalFooter from "../LegalFooter";
 import JoinForm from "../JoinForm";
 import { getRuntimeConfig } from "../../db/runtime";
 import { pageMetadata } from "../../db/seo";
+import FloatingActions from "../FloatingActions";
 
 export const metadata = pageMetadata({
   path: "/participe",
@@ -45,6 +46,7 @@ export default function ParticipePage() {
       </section>
 
       <LegalFooter />
+          <FloatingActions />
     </main>
   );
 }

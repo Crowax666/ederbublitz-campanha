@@ -1,6 +1,7 @@
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
 import { pageMetadata } from "../../../db/seo";
+import FloatingActions from "../../FloatingActions";
 
 const goals = [
   {
@@ -160,6 +161,7 @@ export default function PropostaAgricultura() {
       </section>
 
       <LegalFooter />
+          <FloatingActions />
     </main>
   );
 }
