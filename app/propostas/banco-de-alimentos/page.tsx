@@ -20,7 +20,7 @@ export default function PropostaBancoDeAlimentos() {
       <header className="siteHeader internalHeader">
         <a className="brand" href="/" aria-label="Eder Bublitz — início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
-          <span className="mobileHeaderNumber" aria-hidden="true"><img src="/brand-lockup-1-navy.png" alt="" /></span>
+          <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a href="/quem-e-eder">Quem é Eder</a>
@@ -34,7 +34,7 @@ export default function PropostaBancoDeAlimentos() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img
+          <img decoding="async"
             src="/eder-luta-fome.jpg"
             alt="Eder Bublitz com os punhos erguidos, em posição de luta"
             loading="eager"
@@ -76,7 +76,7 @@ export default function PropostaBancoDeAlimentos() {
       </section>
 
       <section className="bioRecognition">
-        <div className="recognitionPhoto"><img src="/eder-experiencia-retrato-v2.webp" alt="Eder Bublitz, retrato" loading="lazy" /></div>
+        <div className="recognitionPhoto"><img decoding="async" src="/eder-experiencia-retrato-v2.webp" alt="Eder Bublitz, retrato" loading="lazy" /></div>
         <div className="recognitionCopy">
           <p className="sectionLabel">Excelência reconhecida mundialmente</p>
           <span className="recognitionYear">2024</span>
@@ -113,14 +113,14 @@ export default function PropostaBancoDeAlimentos() {
           <a href="/#participe">Quero participar <span>→</span></a>
         </div>
         <div className="bioNextVisual">
-          <img className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
-          <img className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" loading="lazy" />
+          <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
+          <img decoding="async" className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" loading="lazy" />
         </div>
       </section>
 
       <footer className="bioFooter">
         <a href="/">← Voltar para a página inicial</a>
-        <img src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
+        <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
       </footer>
       <LegalFooter biography />
     </main>

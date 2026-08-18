@@ -13,7 +13,7 @@ const details = [
 
 export default function TransparencyPage() {
   return (
-    <main className="privacyPage transparencyPage">
+    <main className="privacyPage transparencyPage" id="top">
       <header><Link href="/">← Voltar ao site</Link><span>Eder Bublitz <small>1020</small></span></header>
       <article>
         <p className="privacyLabel">Informações oficiais da campanha</p>

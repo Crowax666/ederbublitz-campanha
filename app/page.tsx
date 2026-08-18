@@ -36,7 +36,7 @@ export default async function Home() {
         <div className="heroPattern" aria-hidden="true" />
         <div className="heroCopy">
           <p className="eyebrow"><span /> Uma nova voz para o Paraná</p>
-          <img className="desktopNumberLead" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
+          <img decoding="async" className="desktopNumberLead" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
           <h1 className="srOnly">Perto de quem produz. Junto de quem precisa.</h1>
           <p className="desktopSlogan">Perto de quem <b>produz.</b><br />Junto de quem <strong>precisa.</strong></p>
           <p className="heroText">Trabalho, experiência e presença para representar o Paraná na Câmara Federal.</p>
@@ -47,12 +47,12 @@ export default async function Home() {
         </div>
 
         <div className="photoStage">
-          <img src="/eder-hero-desktop-hq-v3.jpg" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+          <img decoding="async" src="/eder-hero-desktop-hq-v3.jpg" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
         </div>
 
         <div className="heroFooter">
           <span className="scrollCue">Role para conhecer <i>↓</i></span>
-          <img className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" />
+          <img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" />
         </div>
       </section>
 
@@ -63,9 +63,9 @@ export default async function Home() {
           <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
-        <img className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
-        <img className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
-        <div className="mobileHeroFooter"><img className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
+        <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+        <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
+        <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
 
       <section className="pillars" id="propostas">
@@ -101,7 +101,7 @@ export default async function Home() {
       </section>
 
       <section className="congress" id="congresso">
-        <img src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" loading="lazy" />
+        <img decoding="async" src="/eder-congresso.jpg" alt="Eder Bublitz em posição firme, preparado para defender o Paraná" loading="lazy" />
         <div className="congressCopy">
           <p className="sectionLabel">Compromisso em Brasília</p>
           <h2>Lutando por você<br /><span>no Congresso Nacional.</span></h2>
@@ -121,7 +121,7 @@ export default async function Home() {
           <a href="#propostas">Conheça as propostas <span>→</span></a>
         </div>
         <div className="visionPhoto">
-          <img src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
+          <img decoding="async" src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="lazy" />
           <span>PARANÁ<br /><strong>EM FRENTE</strong></span>
         </div>
       </section>
@@ -197,9 +197,9 @@ export default async function Home() {
           <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
         </div>
         <div className="joinPhoto">
-          <img src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" loading="lazy" />
+          <img decoding="async" src="/eder-final.jpg" alt="Eder Bublitz em pé, sorrindo e com os braços cruzados" loading="lazy" />
         </div>
-        <img className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" loading="lazy" />
+        <img decoding="async" className="joinBrand" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" loading="lazy" />
       </section>
 
       <LegalFooter />

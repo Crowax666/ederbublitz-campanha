@@ -13,15 +13,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eder Bublitz 1020",
+  title: "Eder Bublitz 1020 — Deputado Federal",
   description: "Eder Bublitz - Deputado Federal 1020. Perto de quem produz, junto de quem precisa.",
-  other: {
-    "codex-preview": "development",
-  },
+  robots: "index,follow",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    title: "Eder Bublitz 1020 — Deputado Federal",
+    description: "Perto de quem produz. Junto de quem precisa.",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+export const viewport = {
+  themeColor: "#071d33",
 };
 
 export default function RootLayout({
@@ -34,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <a className="skipLink" href="#top">Pular para o conteúdo</a>
         {children}
       </body>
     </html>

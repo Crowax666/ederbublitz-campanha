@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = { title: "Política de Privacidade | Eder Bublitz 1020" };
 
 export default function PrivacyPage() {
-  return <main className="privacyPage"><header><Link href="/">← Voltar ao site</Link><span>Eder Bublitz <small>1020</small></span></header><article>
+  return <main className="privacyPage" id="top"><header><Link href="/">← Voltar ao site</Link><span>Eder Bublitz <small>1020</small></span></header><article>
     <p className="privacyLabel">Transparência e respeito</p><h1>Política de Privacidade</h1><p className="privacyUpdated">Versão de 11 de agosto de 2026</p>
     <p>Esta política explica como os dados enviados voluntariamente pelo formulário “Junte-se a nós” são tratados.</p>
     <h2>Responsável pelo tratamento</h2><p>O controlador dos dados é <strong>ELEIÇÃO 2026 EDER EDUARDO BUBLITZ DEPUTADO FEDERAL</strong>, inscrito no CNPJ sob o nº <strong>68.455.145/0001-10</strong>.</p>

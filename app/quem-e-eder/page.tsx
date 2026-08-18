@@ -23,7 +23,7 @@ export default function QuemEEder() {
       <header className="siteHeader internalHeader">
         <a className="brand" href="/" aria-label="Eder Bublitz — início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
-          <span className="mobileHeaderNumber" aria-hidden="true"><img src="/brand-lockup-1-navy.png" alt="" /></span>
+          <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a className="active" href="/quem-e-eder">Quem é Eder</a>
@@ -37,7 +37,7 @@ export default function QuemEEder() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="eager" fetchPriority="high" />
+          <img decoding="async" src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="eager" fetchPriority="high" />
           <span className="bioPhotoTag">Cascavel • Paraná</span>
         </div>
         <div className="bioHeroCopy">
@@ -55,7 +55,7 @@ export default function QuemEEder() {
 
       <section className="bioExperience" id="experiencia">
         <div className="bioExperiencePhoto">
-          <img src="/eder-experiencia-retrato-v2.webp" alt="Retrato de Eder Bublitz sorrindo e com os braços cruzados" loading="lazy" />
+          <img decoding="async" src="/eder-experiencia-retrato-v2.webp" alt="Retrato de Eder Bublitz sorrindo e com os braços cruzados" loading="lazy" />
           <span aria-hidden="true">Experiência<br />que transforma</span>
         </div>
         <div className="bioExperienceCopy">
@@ -127,7 +127,7 @@ export default function QuemEEder() {
       </section>
 
       <section className="bioRecognition" id="reconhecimento">
-        <div className="recognitionPhoto"><img src="/eder-quem-e-portrait.jpg" alt="Retrato de Eder Bublitz sorrindo" loading="lazy" /></div>
+        <div className="recognitionPhoto"><img decoding="async" src="/eder-quem-e-portrait.jpg" alt="Retrato de Eder Bublitz sorrindo" loading="lazy" /></div>
         <div className="recognitionCopy">
           <p className="sectionLabel">Reconhecimento mundial • Bruxelas</p>
           <span className="recognitionYear">2025</span>
@@ -149,14 +149,14 @@ export default function QuemEEder() {
           <a href="/#propostas">Conheça as propostas <span>→</span></a>
         </div>
         <div className="bioNextVisual">
-          <img className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
-          <img className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" loading="lazy" />
+          <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
+          <img decoding="async" className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" loading="lazy" />
         </div>
       </section>
 
       <footer className="bioFooter">
         <a href="/">← Voltar para a página inicial</a>
-        <img src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
+        <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
       </footer>
       <LegalFooter biography />
     </main>
