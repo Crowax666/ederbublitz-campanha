@@ -15,8 +15,8 @@ export async function GET() {
   if (!auth.authorized) return new Response("Não autorizado", { status: 403 });
   const rows = await listSupporters(2000);
   const content = [
-    ["Nome", "Telefone", "Cidade", "Bairro", "Interesse", "Status", "Data"],
-    ...rows.map((r) => [r.name, r.phone, r.city, r.neighborhood, r.interest, r.status, new Date(r.created_at).toISOString()]),
+    ["Nome", "Telefone", "Cidade", "Bairro", "Interesse", "Status", "Origem", "Data"],
+    ...rows.map((r) => [r.name, r.phone, r.city, r.neighborhood, r.interest, r.status, r.utm_source || r.referrer || "Direto", new Date(r.created_at).toISOString()]),
   ].map((row) => row.map(csv).join(";")).join("\n");
   return new Response(`\uFEFF${content}`, { headers: { "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": "attachment; filename=cadastros-eder-1020.csv", "Cache-Control": "no-store" } });
 }

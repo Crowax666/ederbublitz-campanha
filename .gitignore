@@ -49,3 +49,4 @@ __MACOSX/
 # Arquivos do Windows
 Thumbs.db
 Desktop.ini
+tsconfig.tsbuildinfo

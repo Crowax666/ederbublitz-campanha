@@ -9,6 +9,10 @@ export const supporters = sqliteTable("supporters", {
   interest: text("interest").notNull().default("participar"),
   source: text("source").notNull().default("site-home"),
   status: text("status").notNull().default("novo"),
+  utmSource: text("utm_source"),
+  utmMedium: text("utm_medium"),
+  utmCampaign: text("utm_campaign"),
+  referrer: text("referrer"),
   createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp_ms" }).notNull(),
 }, (table) => [

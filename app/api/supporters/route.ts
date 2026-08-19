@@ -15,6 +15,11 @@ export async function POST(request: Request) {
     const interest = String(body.interest || "participar");
     const consent = body.consent === true;
     const turnstileToken = String(body.turnstileToken || "");
+    const clip = (value: unknown, max: number) => String(value || "").trim().slice(0, max) || undefined;
+    const utmSource = clip(body.utmSource, 60);
+    const utmMedium = clip(body.utmMedium, 60);
+    const utmCampaign = clip(body.utmCampaign, 100);
+    const referrer = clip(body.referrer, 200);
 
     if (name.length < 3 || name.length > 120) return Response.json({ error: "Informe seu nome completo." }, { status: 400 });
     if (!/^\d{10,11}$/.test(phone)) return Response.json({ error: "Informe um telefone válido com DDD." }, { status: 400 });
@@ -44,7 +49,7 @@ export async function POST(request: Request) {
       if (!verified.success) return Response.json({ error: "A verificação de segurança expirou. Tente novamente." }, { status: 400 });
     }
 
-    await createSupporter({ name, phone, city, neighborhood, interest, consent });
+    await createSupporter({ name, phone, city, neighborhood, interest, consent, utmSource, utmMedium, utmCampaign, referrer });
 
     // Best-effort: aguarda o envio (Workers pode encerrar chamadas em segundo
     // plano sem isso), mas uma falha aqui nao derruba o cadastro em si.

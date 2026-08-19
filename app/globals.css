@@ -1857,6 +1857,45 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .adminExportSecondary { background:var(--navy); border:1px solid rgba(255,255,255,.25); }
 .adminWhatsappLink { color:#25D366; font-weight:700; }
 .adminWhatsappLink:hover { text-decoration:underline; }
+
+/* Gráficos do painel admin */
+.adminCharts { margin:0 6vw 40px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.adminChartCard { padding:22px; color:#19362c; background:#f8f8f4; border-top:3px solid var(--orange); }
+.adminChartCard-wide { grid-column:1 / -1; }
+.adminChartCard h2 { margin:0 0 2px; font:850 16px var(--font-display); text-transform:uppercase; }
+.adminChartCard > span { display:block; margin-bottom:16px; color:#75817c; font-size:10px; text-transform:uppercase; letter-spacing:.5px; }
+.chartEmpty { padding:30px 0; color:#95a19c; font-size:12px; text-align:center; }
+
+.trendChart { width:100%; height:auto; }
+.trendArea { fill:rgba(240,109,44,.14); stroke:none; }
+.trendLine { fill:none; stroke:var(--orange); stroke-width:2.5; }
+.trendDot { fill:var(--orange); }
+.trendAxisLabel { fill:#8b968f; font-size:9px; text-transform:uppercase; }
+.trendAxisMax { fill:#b7bfba; font-size:9px; }
+
+.barList { display:flex; flex-direction:column; gap:11px; }
+.barRow { display:grid; grid-template-columns:88px 1fr 52px; align-items:center; gap:10px; }
+.barRowLabel { color:#4a564f; font-size:11px; text-transform:capitalize; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.barRowTrack { height:9px; background:#e7ebe8; border-radius:5px; overflow:hidden; }
+.barRowFill { height:100%; border-radius:5px; background:var(--orange); }
+.barList-yellow .barRowFill { background:var(--yellow); }
+.barList-green .barRowFill { background:#2f9e6b; }
+.barRowValue { display:flex; align-items:baseline; gap:5px; justify-content:flex-end; color:#19362c; font-weight:800; font-size:12px; }
+.barRowValue small { color:#95a19c; font-size:9px; font-weight:600; }
+
+.statusSelect { padding:6px 9px; color:#19362c; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.4px; background:#eef1ef; border:1px solid #dbe1de; border-radius:6px; }
+.statusSelect-novo { background:#fff3e6; border-color:#f0d9b8; color:#a8630b; }
+.statusSelect-contatado { background:#eaf1fb; border-color:#c7dbf5; color:#2b5faa; }
+.statusSelect-confirmado { background:#e7f7ee; border-color:#bfe6cf; color:#1f8552; }
+.statusSelect-descartado { background:#f7e8e8; border-color:#eec6c6; color:#a83d3d; }
+
+@media (max-width:960px) {
+  .adminCharts { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px) {
+  .adminCharts { margin:0 20px 30px; grid-template-columns:1fr; }
+  .barRow { grid-template-columns:78px 1fr 44px; }
+}
 .newsStatusBadge { display:inline-block; padding:4px 10px; border-radius:999px; font-size:9px; font-weight:900; text-transform:uppercase; letter-spacing:.5px; }
 .newsStatusBadge--publicado { color:#0d523d; background:#c9f0d8; }
 .newsStatusBadge--rascunho { color:#8a5a00; background:#ffe9bd; }

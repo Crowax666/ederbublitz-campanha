@@ -9,10 +9,46 @@ declare global {
   }
 }
 
+const ATTRIBUTION_KEY = "eder1020_attribution";
+
+type Attribution = { utmSource?: string; utmMedium?: string; utmCampaign?: string; referrer?: string };
+
+/** Captura utm_source/medium/campaign e referrer na primeira visita, e guarda em
+ * sessionStorage pra sobreviver até o envio do formulário mesmo que a pessoa
+ * navegue por outras páginas do site antes de se cadastrar. */
+function captureAttribution(): Attribution {
+  try {
+    const stored = sessionStorage.getItem(ATTRIBUTION_KEY);
+    if (stored) return JSON.parse(stored) as Attribution;
+  } catch {
+    // sessionStorage indisponível — segue sem persistência.
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const attribution: Attribution = {
+    utmSource: params.get("utm_source") || undefined,
+    utmMedium: params.get("utm_medium") || undefined,
+    utmCampaign: params.get("utm_campaign") || undefined,
+    referrer: document.referrer ? new URL(document.referrer).hostname : undefined,
+  };
+
+  try {
+    sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(attribution));
+  } catch {
+    // ignora se não conseguir persistir.
+  }
+  return attribution;
+}
+
 export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: string }) {
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const attributionRef = useRef<Attribution>({});
+
+  useEffect(() => {
+    attributionRef.current = captureAttribution();
+  }, []);
 
   useEffect(() => {
     if (!turnstileSiteKey || document.querySelector('script[data-turnstile-script]')) return;
@@ -51,6 +87,10 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
         interest: form.get("interest"),
         consent: form.get("consent") === "on",
         turnstileToken: form.get("cf-turnstile-response"),
+        utmSource: attributionRef.current.utmSource,
+        utmMedium: attributionRef.current.utmMedium,
+        utmCampaign: attributionRef.current.utmCampaign,
+        referrer: attributionRef.current.referrer,
       }),
     });
 
