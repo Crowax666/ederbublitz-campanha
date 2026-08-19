@@ -1,7 +1,12 @@
 import { getRuntimeConfig } from "./runtime";
 
 const NOTIFY_TO = "contato@ederbublitz.com.br";
-const NOTIFY_FROM = "Site Eder Bublitz <site@ederbublitz.com.br>";
+// Conta do Resend criada com login contato@ederbublitz.com.br, sem
+// domínio verificado ainda. Em modo de teste, o Resend só entrega pro
+// e-mail do dono da conta - que é exatamente esse, então funciona.
+// Se um dia verificar o domínio ederbublitz.com.br NESSA conta, trocar
+// para "Site Eder Bublitz <site@ederbublitz.com.br>".
+const NOTIFY_FROM = "Site Eder Bublitz <onboarding@resend.dev>";
 
 const interestLabels: Record<string, string> = {
   participar: "Quero fazer parte",
