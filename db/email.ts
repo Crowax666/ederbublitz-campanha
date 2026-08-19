@@ -1,10 +1,7 @@
 import { getRuntimeConfig } from "./runtime";
 
 const NOTIFY_TO = "contato@ederbublitz.com.br";
-// Domínio remetente padrão do Resend, funciona sem verificar domínio próprio.
-// Para usar um remetente @ederbublitz.com.br, é preciso verificar o domínio
-// no painel do Resend e trocar esse valor.
-const NOTIFY_FROM = "Site Eder Bublitz <onboarding@resend.dev>";
+const NOTIFY_FROM = "Site Eder Bublitz <site@ederbublitz.com.br>";
 
 const interestLabels: Record<string, string> = {
   participar: "Quero fazer parte",
