@@ -21,6 +21,31 @@ export const supporters = sqliteTable("supporters", {
   index("supporters_created_at_idx").on(table.createdAt),
 ]);
 
+export const pageViews = sqliteTable("page_views", {
+  id: text("id").primaryKey(),
+  visitorId: text("visitor_id").notNull(),
+  sessionId: text("session_id").notNull(),
+  supporterId: text("supporter_id").references(() => supporters.id, { onDelete: "set null" }),
+  path: text("path").notNull(),
+  referrer: text("referrer"),
+  utmSource: text("utm_source"),
+  utmMedium: text("utm_medium"),
+  utmCampaign: text("utm_campaign"),
+  deviceType: text("device_type").notNull().default("desconhecido"),
+  createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+}, (table) => [
+  index("page_views_visitor_idx").on(table.visitorId),
+  index("page_views_session_idx").on(table.sessionId),
+  index("page_views_supporter_idx").on(table.supporterId),
+  index("page_views_created_at_idx").on(table.createdAt),
+]);
+
+export const visitorLinks = sqliteTable("visitor_links", {
+  visitorId: text("visitor_id").primaryKey(),
+  supporterId: text("supporter_id").notNull().references(() => supporters.id, { onDelete: "cascade" }),
+  linkedAt: integer("linked_at", { mode: "timestamp_ms" }).notNull(),
+}, (table) => [index("visitor_links_supporter_idx").on(table.supporterId)]);
+
 export const consentEvents = sqliteTable("consent_events", {
   id: text("id").primaryKey(),
   supporterId: text("supporter_id").notNull().references(() => supporters.id, { onDelete: "cascade" }),

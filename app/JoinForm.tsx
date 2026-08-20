@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackMetaEvent } from "./MetaPixel";
+import { currentAccessIds } from "./AccessTracker";
 
 declare global {
   interface Window {
@@ -80,6 +81,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
     const timeout = window.setTimeout(() => controller.abort(), 15_000);
 
     try {
+      const accessIds = currentAccessIds();
       const response = await fetch("/api/supporters", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,6 +97,8 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
           utmMedium: attributionRef.current.utmMedium,
           utmCampaign: attributionRef.current.utmCampaign,
           referrer: attributionRef.current.referrer,
+          visitorId: accessIds.visitorId,
+          sessionId: accessIds.sessionId,
         }),
         signal: controller.signal,
       });
