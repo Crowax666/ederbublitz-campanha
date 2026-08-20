@@ -1165,7 +1165,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .galleryIntro > p:not(.sectionLabel) { font-size:15px; }
   .galleryGrid { display:flex; gap:14px; padding-right:22px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .galleryGrid::-webkit-scrollbar { display:none; }
-  .galleryGrid figure { flex:0 0 78%; scroll-snap-align:start; }
+  .galleryGrid figure { flex:0 0 78%; min-width:0; scroll-snap-align:start; box-shadow:0 10px 24px rgba(7,29,51,.12); transition:none; }
   .galleryGrid figure:hover { transform:none; }
 
   .bioResults { padding:70px 20px; }
