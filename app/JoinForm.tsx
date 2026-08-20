@@ -125,7 +125,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
           <option value="propostas">Contribuir com propostas</option>
         </select>
       </label>
-      <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
+      <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
       <div className="formTrap" aria-hidden="true"><label>Não preencha este campo<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-BR" /></div>}
       <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Enviando..." : "Quero fazer parte"}<span>→</span></button>

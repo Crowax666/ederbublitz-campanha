@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { chatGPTSignInPath, chatGPTSignOutPath } from "../chatgpt-auth";
-import { getAuthorizedAdmin } from "./auth";
+import { chatGPTSignInPath } from "../chatgpt-auth";
+import { getAuthorizedAdmin, adminSignOutPath } from "./auth";
 import {
   listSupporters,
   getDailySupporterCounts,
@@ -20,7 +20,7 @@ export default async function AdminPage() {
   const auth = await getAuthorizedAdmin();
   if (!auth.user && getRuntimeConfig().CLOUDFLARE_DEPLOYMENT !== "true") redirect(chatGPTSignInPath("/admin"));
   if (!auth.user) return <main className="adminGate"><div><span>ACESSO RESTRITO</span><h1>Autenticação necessária.</h1><p>O painel é protegido pelo Cloudflare Access.</p></div></main>;
-  if (!auth.authorized) return <main className="adminGate"><div><span>ACESSO RESTRITO</span><h1>Este e-mail não está autorizado.</h1><p>Entre com a conta <strong>contato@ederbublitz.com.br</strong>.</p><a href={chatGPTSignOutPath("/admin")}>Trocar de conta</a></div></main>;
+  if (!auth.authorized) return <main className="adminGate"><div><span>ACESSO RESTRITO</span><h1>Este e-mail não está autorizado.</h1><p>Entre com a conta <strong>contato@ederbublitz.com.br</strong>.</p><a href={adminSignOutPath("/admin")}>Trocar de conta</a></div></main>;
 
   const [supporters, daily, interestBreakdown, topCities, statusBreakdown, sourceBreakdown] = await Promise.all([
     listSupporters(),
@@ -35,7 +35,7 @@ export default async function AdminPage() {
   const last7Days = daily.slice(-7).reduce((sum, d) => sum + d.total, 0);
 
   return <main className="adminShell">
-    <header className="adminHeader"><Link href="/" className="adminBrand">Eder Bublitz <small>1020</small></Link><div><span>{auth.user.email}</span><a href={chatGPTSignOutPath("/")}>Sair</a></div></header>
+    <header className="adminHeader"><Link href="/" className="adminBrand">Eder Bublitz <small>1020</small></Link><div><span>{auth.user.email}</span><a href={adminSignOutPath("/")}>Sair</a></div></header>
     <section className="adminIntro"><div><p>Painel administrativo</p><h1>Cadastros do site</h1><span>Dados protegidos e centralizados para acompanhamento da equipe.</span></div><div className="adminIntroActions"><Link className="adminExport adminExportSecondary" href="/admin/news">Notícias →</Link><a className="adminExport" href="/api/admin/supporters.csv">Exportar CSV ↓</a></div></section>
 
     <section className="adminStats">

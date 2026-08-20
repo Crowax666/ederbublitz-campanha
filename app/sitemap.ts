@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/propostas/educacao",
     "/propostas/banco-de-alimentos",
     "/propostas/agricultura",
+    "/propostas/mulheres",
     "/privacidade",
     "/transparencia-eleitoral",
   ];
