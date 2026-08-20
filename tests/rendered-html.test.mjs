@@ -33,6 +33,7 @@ test("renders production metadata and security headers", async () => {
   const html = await response.text();
   assert.match(html, /<title>Eder Bublitz 1020 — Deputado Federal<\/title>/i);
   assert.match(html, /<link(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']https:\/\/ederbublitz\.com\.br\/["'])[^>]*>/i);
+  assert.doesNotMatch(html, /\/workspace\/sites\//i);
 });
 
 test("redirects insecure and workers.dev requests to the official HTTPS domain", async () => {
