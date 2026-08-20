@@ -76,37 +76,53 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
     setState("sending");
     setMessage("");
 
-    const response = await fetch("/api/supporters", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: form.get("name"),
-        phone: form.get("phone"),
-        city: form.get("city"),
-        neighborhood: form.get("neighborhood"),
-        interest: form.get("interest"),
-        consent: form.get("consent") === "on",
-        turnstileToken: form.get("cf-turnstile-response"),
-        utmSource: attributionRef.current.utmSource,
-        utmMedium: attributionRef.current.utmMedium,
-        utmCampaign: attributionRef.current.utmCampaign,
-        referrer: attributionRef.current.referrer,
-      }),
-    });
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
 
-    const result = await response.json() as { error?: string };
-    if (!response.ok) {
-      setState("error");
-      setMessage(result.error || "Não foi possível concluir o cadastro.");
+    try {
+      const response = await fetch("/api/supporters", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          phone: form.get("phone"),
+          city: form.get("city"),
+          neighborhood: form.get("neighborhood"),
+          interest: form.get("interest"),
+          consent: form.get("consent") === "on",
+          turnstileToken: form.get("cf-turnstile-response"),
+          utmSource: attributionRef.current.utmSource,
+          utmMedium: attributionRef.current.utmMedium,
+          utmCampaign: attributionRef.current.utmCampaign,
+          referrer: attributionRef.current.referrer,
+        }),
+        signal: controller.signal,
+      });
+
+      const result = await response.json().catch(() => ({})) as { error?: string };
+      if (!response.ok) {
+        setState("error");
+        setMessage(result.error || "Não foi possível concluir o cadastro.");
+        window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
+        return;
+      }
+
+      formRef.current?.reset();
       window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
-      return;
+      setState("success");
+      setMessage("Cadastro recebido. Em breve entraremos em contato.");
+      trackMetaEvent("Lead");
+    } catch (error) {
+      setState("error");
+      setMessage(
+        error instanceof DOMException && error.name === "AbortError"
+          ? "A conexão demorou mais que o esperado. Tente novamente."
+          : "Não foi possível conectar ao servidor. Verifique sua internet e tente novamente.",
+      );
+      window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
+    } finally {
+      window.clearTimeout(timeout);
     }
-
-    formRef.current?.reset();
-    window.turnstile?.reset(formRef.current?.querySelector(".cf-turnstile") as HTMLElement);
-    setState("success");
-    setMessage("Cadastro recebido. Em breve entraremos em contato.");
-    trackMetaEvent("Lead");
   }
 
   return (
@@ -127,7 +143,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
       </label>
       <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
       <div className="formTrap" aria-hidden="true"><label>Não preencha este campo<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-      {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-BR" /></div>}
+      {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-br" /></div>}
       <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Enviando..." : "Quero fazer parte"}<span>→</span></button>
       {message && <p className={`joinMessage ${state}`} role="status">{message}</p>}
     </form>
