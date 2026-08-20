@@ -84,7 +84,7 @@ export default function PropostaBancoDeAlimentos() {
       </section>
 
       <section className="bioRecognition">
-        <div className="recognitionPhoto"><img decoding="async" src="/eder-experiencia-retrato-v2.webp" alt="Eder Bublitz, retrato" loading="lazy" /></div>
+        <div className="recognitionPhoto"><img decoding="async" src="/eder-premio-istambul.webp" alt="Eder Bublitz sorrindo, segurando o troféu de ouro do Stevie Awards 2024 em Istambul" loading="lazy" /></div>
         <div className="recognitionCopy">
           <p className="sectionLabel">Excelência reconhecida mundialmente</p>
           <span className="recognitionYear">2024</span>
@@ -95,6 +95,28 @@ export default function PropostaBancoDeAlimentos() {
             <span><b>62</b>Países concorrentes</span>
           </div>
           <div className="recognitionSeal"><b>WUWM</b><span>Melhor Gestor do Ano 2025<br />Bruxelas • Bélgica</span></div>
+        </div>
+      </section>
+
+      <section className="bioGallery">
+        <div className="galleryIntro">
+          <p className="sectionLabel">Da colheita ao prato</p>
+          <h2>O processo que<br /><span>transforma vidas.</span></h2>
+          <p>Do descarte evitado à mesa de quem precisa: cada etapa da operação é feita com técnica, higiene e cuidado — antes de virar os números que você vê a seguir.</p>
+        </div>
+        <div className="galleryGrid">
+          <figure>
+            <img decoding="async" src="/eder-banco-alimentos-frutas.webp" alt="Embalagens de frutas selecionadas do Banco de Alimentos Comida Boa" loading="lazy" />
+            <figcaption><b>Seleção</b>Frutas e verduras resgatadas são higienizadas, porcionadas e embaladas com controle de qualidade.</figcaption>
+          </figure>
+          <figure>
+            <img decoding="async" src="/eder-banco-alimentos-processo.webp" alt="Equipe processando brócolis na cozinha do Banco de Alimentos" loading="lazy" />
+            <figcaption><b>Processamento</b>Equipe treinada transforma o excedente em porções prontas para consumo, com total rastreabilidade.</figcaption>
+          </figure>
+          <figure>
+            <img decoding="async" src="/eder-banco-alimentos-potes.webp" alt="Potes de sopa prontos do Banco de Alimentos Comida Boa, com informação nutricional" loading="lazy" />
+            <figcaption><b>Distribuição</b>Produto final rotulado e pronto para chegar às instituições parceiras em cinco cidades do Paraná.</figcaption>
+          </figure>
         </div>
       </section>
 

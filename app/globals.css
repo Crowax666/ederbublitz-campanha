@@ -1033,6 +1033,19 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .leadershipPillars h3 { margin:34px 0 10px; font-family:var(--font-display); font-size:22px; font-style:italic; text-transform:uppercase; }
 .leadershipPillars p { margin:0; color:rgba(255,255,255,.62); font-size:12px; line-height:1.55; }
 
+.bioGallery { padding:110px 8vw 30px; background:#fff; }
+.galleryIntro { max-width:640px; margin-bottom:48px; }
+.galleryIntro h2 { margin:20px 0 22px; color:var(--navy); font-family:var(--font-display); font-size:clamp(40px,4.4vw,64px); line-height:.9; letter-spacing:-3px; font-style:italic; font-weight:900; text-transform:uppercase; }
+.galleryIntro h2 span { color:var(--orange); }
+.galleryIntro > p:not(.sectionLabel) { margin:0; color:#65736b; font-size:17px; line-height:1.7; }
+.galleryGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.galleryGrid figure { margin:0; overflow:hidden; background:#fff; border-radius:16px; box-shadow:0 18px 45px rgba(7,29,51,.09); transition:.28s ease; }
+.galleryGrid figure:hover { transform:translateY(-7px); box-shadow:0 28px 55px rgba(7,29,51,.14); }
+.galleryGrid img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.galleryGrid figcaption { padding:18px 20px 22px; }
+.galleryGrid figcaption b { display:block; margin-bottom:6px; color:var(--orange); font-family:var(--font-display); font-size:15px; font-style:italic; text-transform:uppercase; }
+.galleryGrid figcaption { color:#65736b; font-size:13px; line-height:1.55; }
+
 .bioResults { padding:120px 8vw; }
 .resultsHeading { display:grid; grid-template-columns:1fr 1fr; gap:7vw; align-items:end; margin-bottom:60px; }
 .resultsHeading .sectionLabel { grid-column:1/-1; margin-bottom:-45px; }
@@ -1146,6 +1159,15 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .leadershipPillars { grid-template-columns:1fr; margin-top:32px; }
   .leadershipPillars article { min-height:145px; }
   .leadershipPillars h3 { margin-top:25px; }
+  .bioGallery { padding:56px 0 20px 22px; }
+  .galleryIntro { max-width:none; margin:0 22px 30px 0; }
+  .galleryIntro h2 { font-size:38px; }
+  .galleryIntro > p:not(.sectionLabel) { font-size:15px; }
+  .galleryGrid { display:flex; gap:14px; padding-right:22px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .galleryGrid::-webkit-scrollbar { display:none; }
+  .galleryGrid figure { flex:0 0 78%; scroll-snap-align:start; }
+  .galleryGrid figure:hover { transform:none; }
+
   .bioResults { padding:70px 20px; }
   .resultsHeading { display:block; margin-bottom:38px; }
   .resultsHeading .sectionLabel { margin:0 0 18px; }

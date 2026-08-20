@@ -78,7 +78,7 @@ export default function PropostaAgricultura() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img decoding="async" src="/eder-visao.jpg" alt="Eder Bublitz olhando para o horizonte" loading="eager" fetchPriority="high" />
+          <img decoding="async" src="/eder-banco-alimentos-hero.webp" alt="Eder Bublitz sorrindo, segurando uma caixa de alfaces do Banco de Alimentos Comida Boa" loading="eager" fetchPriority="high" />
           <span className="bioPhotoTag">Agricultura • Paraná</span>
         </div>
         <div className="bioHeroCopy">
