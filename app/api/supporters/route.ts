@@ -2,6 +2,7 @@ import { createSupporter } from "../../../db/supporters";
 import { getRuntimeConfig } from "../../../db/runtime";
 import { sendZapiMessage, welcomeMessage } from "../../../db/zapi";
 import { notifyNewSupporter } from "../../../db/email";
+import { linkVisitorToSupporter } from "../../../db/analytics";
 
 const interests = new Set(["participar", "receber-noticias", "voluntariado", "propostas"]);
 
@@ -20,6 +21,8 @@ export async function POST(request: Request) {
     const utmMedium = clip(body.utmMedium, 60);
     const utmCampaign = clip(body.utmCampaign, 100);
     const referrer = clip(body.referrer, 200);
+    const sessionId = clip(body.sessionId, 40);
+    const visitorId = clip(body.visitorId, 40);
 
     if (name.length < 3 || name.length > 120) return Response.json({ error: "Informe seu nome completo." }, { status: 400 });
     if (!/^\d{10,11}$/.test(phone)) return Response.json({ error: "Informe um telefone válido com DDD." }, { status: 400 });
@@ -49,7 +52,10 @@ export async function POST(request: Request) {
       if (!verified.success) return Response.json({ error: "A verificação de segurança expirou. Tente novamente." }, { status: 400 });
     }
 
-    await createSupporter({ name, phone, city, neighborhood, interest, consent, utmSource, utmMedium, utmCampaign, referrer });
+    const supporterId = await createSupporter({ name, phone, city, neighborhood, interest, consent, utmSource, utmMedium, utmCampaign, referrer });
+    if (visitorId && sessionId && /^[0-9a-f-]{20,40}$/i.test(visitorId) && /^[0-9a-f-]{20,40}$/i.test(sessionId)) {
+      await linkVisitorToSupporter(visitorId, sessionId, supporterId).catch(() => {});
+    }
 
     // Best-effort: aguarda o envio (Workers pode encerrar chamadas em segundo
     // plano sem isso), mas uma falha aqui nao derruba o cadastro em si.

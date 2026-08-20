@@ -16,6 +16,7 @@
     {
       "binding": "DB",
       "database_name": "eder-bublitz-campanha-db",
+      "database_id": "4f31921d-5b6b-49c2-b925-35e714f16642",
       "migrations_dir": "drizzle"
     }
   ],

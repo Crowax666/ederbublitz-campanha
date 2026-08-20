@@ -34,7 +34,7 @@ export async function createSupporter(input: NewSupporter) {
     db.prepare(`
       INSERT INTO consent_events
         (id, supporter_id, purpose, privacy_version, granted, created_at)
-      VALUES (?, ?, 'contato-e-mobilizacao', '2026-08-11', ?, ?)
+      VALUES (?, ?, 'contato-e-mobilizacao', '2026-08-20', ?, ?)
     `).bind(consentId, supporterId, input.consent ? 1 : 0, now),
   ]);
 
@@ -44,6 +44,8 @@ export async function createSupporter(input: NewSupporter) {
 export type SupporterRow = {
   id: string; name: string; phone: string; city: string; neighborhood: string | null;
   interest: string; status: string; utm_source: string | null; referrer: string | null; created_at: number;
+  access_count: number; session_count: number; first_access_at: number | null; last_access_at: number | null;
+  device_type: string | null; access_source: string | null;
 };
 
 export const SUPPORTER_STATUSES = ["novo", "contatado", "confirmado", "descartado"] as const;
@@ -52,8 +54,18 @@ export type SupporterStatus = (typeof SUPPORTER_STATUSES)[number];
 export async function listSupporters(limit = 500) {
   const db = getD1Binding();
   const result = await db.prepare(`
-    SELECT id, name, phone, city, neighborhood, interest, status, utm_source, referrer, created_at
-    FROM supporters ORDER BY created_at DESC LIMIT ?
+    SELECT s.id, s.name, s.phone, s.city, s.neighborhood, s.interest, s.status,
+      s.utm_source, s.referrer, s.created_at,
+      COUNT(p.id) AS access_count,
+      COUNT(DISTINCT p.session_id) AS session_count,
+      MIN(p.created_at) AS first_access_at,
+      MAX(p.created_at) AS last_access_at,
+      (SELECT p2.device_type FROM page_views p2 WHERE p2.supporter_id = s.id ORDER BY p2.created_at DESC LIMIT 1) AS device_type,
+      (SELECT coalesce(p3.utm_source, p3.referrer) FROM page_views p3 WHERE p3.supporter_id = s.id ORDER BY p3.created_at ASC LIMIT 1) AS access_source
+    FROM supporters s
+    LEFT JOIN page_views p ON p.supporter_id = s.id
+    GROUP BY s.id
+    ORDER BY s.created_at DESC LIMIT ?
   `).bind(Math.min(Math.max(limit, 1), 2000)).all<SupporterRow>();
   return result.results;
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
+import AccessTracker from "./AccessTracker";
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <MetaPixel />
+        <AccessTracker />
         <a className="skipLink" href="#top">Pular para o conteúdo</a>
         {children}
       </body>
