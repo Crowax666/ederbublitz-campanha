@@ -2069,9 +2069,9 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     margin:0 0 20px!important;
     max-width:none!important;
     color:#fff!important;
-    font-size:clamp(32px,9vw,42px)!important;
-    line-height:.96!important;
-    letter-spacing:-1.2px!important;
+    font-size:clamp(24px,6.4vw,30px)!important;
+    line-height:1.02!important;
+    letter-spacing:-.6px!important;
     text-shadow:none!important;
     text-align:left!important;
   }
@@ -2126,12 +2126,12 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     background:#08251c!important;
   }
   .homeOriginal .mobileHero .mobileHeroCaption .mobileNumber {
-    width:42%!important;
-    max-width:170px!important;
+    width:66%!important;
+    max-width:290px!important;
     height:auto!important;
   }
   .homeOriginal .mobileHero .mobileHeroCaption .partyLogo {
-    width:76px!important;
+    width:66px!important;
     height:auto!important;
   }
 }
