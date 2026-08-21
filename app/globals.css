@@ -2026,24 +2026,24 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
   .homeOriginal .mobileHero .mobilePortrait {
     position:absolute!important;
-    inset:auto 0 0 auto!important;
-    width:82%!important;
+    inset:0 0 0 auto!important;
+    width:100%!important;
     max-width:100%!important;
-    height:80%!important;
-    object-fit:contain!important;
-    object-position:right bottom!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:48% 18%!important;
     transform:none!important;
     clip-path:none!important;
-    filter:drop-shadow(-14px 16px 28px rgba(1,20,15,.2))!important;
-    -webkit-mask-image:none!important;
-    mask-image:none!important;
+    filter:none!important;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
+    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
   }
 }
 
 @media screen and (max-width:380px) {
   .homeOriginal .mobileHero .mobilePortrait {
     right:0!important;
-    width:86%!important;
-    height:78%!important;
+    width:100%!important;
+    height:100%!important;
   }
 }
