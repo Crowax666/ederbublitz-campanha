@@ -2014,3 +2014,36 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .letterPact{display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw;padding:120px 8vw;color:#fff;background:var(--green-deep)}.letterPactTitle h2{color:#fff}.letterPactItems article{display:grid;grid-template-columns:68px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid rgba(255,255,255,.16)}.letterPactItems article:first-child{padding-top:0}.letterPactItems b{color:var(--yellow);font:900 italic 38px/1 var(--font-display)}.letterPactItems h3{margin:0 0 8px;font:800 italic 28px/1 var(--font-display);text-transform:uppercase}.letterPactItems p{max-width:700px;margin:0;color:rgba(255,255,255,.68);line-height:1.6}.letterClosing{display:grid;grid-template-columns:1fr 1fr;min-height:750px;background:#e8edf1}.letterClosingPhoto{min-height:750px;overflow:hidden}.letterClosingPhoto img{width:100%;height:100%;object-fit:cover;object-position:54% 12%}.letterClosingCopy{display:flex;flex-direction:column;justify-content:center;padding:80px 8vw 80px 6vw;background:var(--navy);color:#fff}.letterClosingCopy blockquote{max-width:720px;margin:24px 0;font:900 italic clamp(38px,4.4vw,65px)/.98 var(--font-display);text-transform:uppercase}.letterClosingCopy>p:not(.sectionLabel){max-width:620px;color:rgba(255,255,255,.68);font-size:17px;line-height:1.65}.letterSignature{display:grid;margin-top:34px;padding-left:18px;border-left:4px solid var(--yellow)}.letterSignature strong{font:900 italic 28px/1 var(--font-display)}.letterSignature span{margin-top:7px;color:var(--yellow);font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase}.letterClosingActions{display:flex;align-items:center;gap:28px;margin-top:10px}.letterClosingActions a:last-child{margin-top:38px;color:#fff;font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid var(--yellow);padding-bottom:7px}
 @media(max-width:900px){.letterHero,.letterIntro,.letterSectionHead,.letterPact,.letterClosing{grid-template-columns:1fr}.letterHeroPhoto{min-height:clamp(480px,110vw,680px);order:2}.letterHeroPhoto:after{background:linear-gradient(0deg,rgba(7,29,51,.65),transparent 45%)}.letterHeroCopy{order:1;padding:64px 24px}.letterHeroCopy h1{font-size:clamp(43px,11.5vw,65px)}.letterIntro{gap:34px;padding:72px 24px}.letterIntro h2,.letterSectionHead h2,.letterPactTitle h2{font-size:clamp(41px,11vw,60px)}.letterPlayers{padding:72px 20px 80px}.letterSectionHead{gap:24px;margin-bottom:38px}.letterPlayerGrid{grid-template-columns:1fr}.letterPlayerCard{min-height:410px;padding:34px 28px}.letterPlayerCard>a{right:28px;bottom:30px;left:28px}.letterPact{gap:46px;padding:76px 24px}.letterClosingPhoto{min-height:clamp(520px,128vw,720px)}.letterClosingPhoto img{object-position:50% 10%}.letterClosingCopy{padding:70px 24px 84px}.letterClosingCopy blockquote{font-size:clamp(36px,10vw,55px)}.letterClosingActions{align-items:flex-start;flex-direction:column;gap:0}.letterClosingActions a:first-child{width:100%}.letterClosingActions a:last-child{margin-top:24px}.letterHeroPhoto>span{left:22px}}
 @media(max-width:479px){.letterHeroCopy{padding:50px 18px}.letterIntro{padding:62px 18px}.letterPlayers{padding-right:18px;padding-left:18px}.letterPlayerCard{min-height:430px;padding:30px 24px}.letterAudience{margin-top:38px}.letterPlayerCard>a{right:24px;left:24px}.letterPact{padding:66px 18px}.letterPactItems article{grid-template-columns:50px 1fr;gap:16px}.letterClosingCopy{padding-right:18px;padding-left:18px}}
+
+/* Auditoria 2026-08-20: regra final única para impedir cortes e vazamentos
+   causados pelas antigas variações experimentais da Hero mobile. */
+@media screen and (max-width:760px) {
+  .homeOriginal .mobileHero {
+    position:relative!important;
+    min-height:calc(100svh - 76px)!important;
+    overflow:hidden!important;
+  }
+
+  .homeOriginal .mobileHero .mobilePortrait {
+    position:absolute!important;
+    inset:auto 0 0 auto!important;
+    width:82%!important;
+    max-width:100%!important;
+    height:80%!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+    transform:none!important;
+    clip-path:none!important;
+    filter:drop-shadow(-14px 16px 28px rgba(1,20,15,.2))!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+  }
+}
+
+@media screen and (max-width:380px) {
+  .homeOriginal .mobileHero .mobilePortrait {
+    right:0!important;
+    width:86%!important;
+    height:78%!important;
+  }
+}

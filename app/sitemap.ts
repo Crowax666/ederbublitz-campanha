@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "../db/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastContentUpdate = new Date("2026-08-20T00:00:00.000Z");
   const paths = [
     "/",
     "/quem-e-eder",
@@ -19,6 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return paths.map((path) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
+    lastModified: lastContentUpdate,
   }));
 }
