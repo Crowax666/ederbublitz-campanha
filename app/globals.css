@@ -2051,31 +2051,48 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     z-index:2!important;
     top:auto!important; right:auto!important; left:auto!important;
     width:auto!important; max-width:none!important;
-    padding:36px 22px 26px!important;
+    padding:34px 22px 28px!important;
     background:transparent!important;
     text-align:left!important;
   }
-  .homeOriginal .mobileHero .mobileHeroCopy p {
+  .homeOriginal .mobileHero .mobileHeroCopy .eyebrow {
+    display:flex!important;
+    align-items:center!important;
+    gap:10px!important;
     justify-content:flex-start!important;
-    margin:0 0 12px!important;
-    color:var(--yellow)!important;
-    font-size:11px!important;
+    margin:0 0 18px!important;
+    color:#fff!important;
+    font-size:10px!important;
     font-weight:900!important;
     letter-spacing:1.6px!important;
     text-transform:uppercase!important;
-    white-space:normal!important;
   }
-  .homeOriginal .mobileHero .mobileHeroCopy h1 {
-    margin:0 0 20px!important;
+  .homeOriginal .mobileHero .mobileHeroCopy .eyebrow span {
+    width:26px!important; height:3px!important; background:var(--orange)!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileNumberLead {
+    display:block!important;
+    width:min(90%,360px)!important;
+    height:auto!important;
+    margin:0 0 18px!important;
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,.28))!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileSlogan {
+    margin:0 0 22px!important;
     max-width:none!important;
     color:#fff!important;
-    font-size:clamp(24px,6.4vw,30px)!important;
-    line-height:1.02!important;
-    letter-spacing:-.6px!important;
+    font-family:var(--font-display)!important;
+    font-size:clamp(18px,5vw,22px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.3px!important;
+    font-style:italic!important;
+    font-weight:850!important;
+    text-transform:uppercase!important;
     text-shadow:none!important;
     text-align:left!important;
   }
-  .homeOriginal .mobileHero .mobileHeroCopy h1 strong { color:var(--orange)!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileSlogan b,
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileSlogan strong { font:inherit!important; color:var(--orange)!important; }
   .homeOriginal .mobileHero .mobileHeroCopy a {
     justify-content:flex-start!important;
     min-width:0!important;
@@ -2115,29 +2132,21 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     mask-image:none!important;
   }
 
-  .homeOriginal .mobileHero .mobileHeroCaption {
+  .homeOriginal .mobileHero .mobileHeroFooter {
     position:relative!important;
     z-index:2!important;
+    left:auto!important; right:auto!important; bottom:auto!important;
     display:flex!important;
-    align-items:center!important;
-    justify-content:space-between!important;
-    gap:16px!important;
-    padding:16px 22px!important;
+    justify-content:flex-end!important;
+    padding:14px 22px!important;
     background:#08251c!important;
   }
-  .homeOriginal .mobileHero .mobileHeroCaption .mobileNumber {
-    width:66%!important;
-    max-width:290px!important;
-    height:auto!important;
-  }
-  .homeOriginal .mobileHero .mobileHeroCaption .partyLogo {
-    width:66px!important;
-    height:auto!important;
-  }
+  .homeOriginal .mobileHero .mobileHeroFooter .partyLogo { width:92px!important; height:auto!important; }
 }
 
 @media screen and (max-width:380px) {
-  .homeOriginal .mobileHero .mobileHeroCopy { padding:28px 18px 20px!important; }
-  .homeOriginal .mobileHero .mobileHeroCopy h1 { font-size:clamp(28px,9.5vw,36px)!important; }
-  .homeOriginal .mobileHero .mobileHeroCaption { padding:14px 18px!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy { padding:26px 18px 22px!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileNumberLead { width:94%!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy .mobileSlogan { font-size:clamp(17px,5.2vw,20px)!important; }
+  .homeOriginal .mobileHero .mobileHeroFooter { padding:12px 18px!important; }
 }

@@ -51,17 +51,16 @@ export default function Home() {
       <section className="mobileHero" aria-label="Eder Bublitz 1020">
         <div className="mobileHeroPattern" aria-hidden="true" />
         <div className="mobileHeroCopy">
-          <p>Uma nova voz para o Paraná</p>
-          <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
+          <p className="eyebrow"><span /> Uma nova voz para o Paraná</p>
+          <img decoding="async" className="mobileNumberLead" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" fetchPriority="high" loading="eager" />
+          <h1 className="srOnly">Perto de quem produz. Junto de quem precisa.</h1>
+          <p className="mobileSlogan">Perto de quem <b>produz.</b><br />Junto de quem <strong>precisa.</strong></p>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
         <div className="mobileHeroVisual">
-          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" loading="lazy" />
         </div>
-        <div className="mobileHeroCaption">
-          <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
-          <img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" />
-        </div>
+        <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
 
       <section className="congress" id="congresso">
