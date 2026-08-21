@@ -1697,20 +1697,20 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
 @media screen and (max-width:760px) {
   main .mobileHero .mobilePortrait {
-    inset:0 -14% 0 auto!important;
-    width:92%!important;
+    inset:0 0 0 auto!important;
+    width:100%!important;
     height:100%!important;
     max-width:none!important;
     object-fit:cover!important;
     object-position:48% 18%!important;
     filter:none!important;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 18%,#000 36%)!important;
-    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 18%,#000 36%)!important;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
+    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
   }
 }
 
 @media screen and (max-width:380px) {
-  main .mobileHero .mobilePortrait { right:-18%!important; width:100%!important; }
+  main .mobileHero .mobilePortrait { right:0!important; width:100%!important; }
 }
 
 /* Hero desktop HQ — paleta oficial da marca, sem azul */
