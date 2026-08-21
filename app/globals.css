@@ -2018,14 +2018,13 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 /* Auditoria 2026-08-20: regra final única para impedir cortes e vazamentos
    causados pelas antigas variações experimentais da Hero mobile. */
 /* ============================================================
-   Hero mobile da home — redesenho 2026-08-21.
-   Substitui de vez as ~15 variações experimentais anteriores
-   (histórico de patches conflitantes já removido do fluxo de
-   renderização, mantido só como comentário aqui pra contexto).
-   Abordagem: texto em fluxo normal (nunca sobre a foto, sempre
-   legível), foto com altura previsível via aspect-ratio (nunca
-   mais 100svh + cover brigando por espaço), separação visual
-   clara antes da próxima seção.
+   Hero mobile da home — redesenho 2026-08-21 (v2, sem
+   aspect-ratio forçado brigando com object-fit — a causa raiz
+   de toda a instabilidade anterior). A foto usa a altura
+   natural dela (width:100%, height:auto), sem cropping via CSS.
+   Número "1020" e logo do partido saem de cima da foto (onde
+   colidiam com o braço) e viram uma barra própria, sólida,
+   abaixo — sem sobreposição.
    ============================================================ */
 @media screen and (max-width:760px) {
   .homeOriginal .mobileHero {
@@ -2089,27 +2088,26 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     position:relative!important;
     z-index:1!important;
     width:100%!important;
-    aspect-ratio:4 / 5!important;
-    overflow:hidden!important;
+    line-height:0!important;
   }
-  .homeOriginal .mobileHero .mobileHeroVisual:after {
+  .homeOriginal .mobileHero .mobileHeroVisual:before {
     content:""!important;
     position:absolute!important;
-    inset:0!important;
+    top:0!important; left:0!important; right:0!important;
+    height:90px!important;
     z-index:1!important;
     pointer-events:none!important;
-    background:linear-gradient(180deg,rgba(6,42,31,.5) 0%,transparent 24%),linear-gradient(0deg,rgba(6,42,31,.92) 0%,transparent 32%)!important;
+    background:linear-gradient(180deg,#0a2930 0%,transparent 100%)!important;
   }
-
   .homeOriginal .mobileHero .mobilePortrait {
-    position:absolute!important;
-    inset:0!important;
+    position:relative!important;
     z-index:0!important;
+    display:block!important;
     width:100%!important;
-    height:100%!important;
+    height:auto!important;
     max-width:none!important;
-    object-fit:cover!important;
-    object-position:50% 15%!important;
+    object-fit:unset!important;
+    object-position:unset!important;
     transform:none!important;
     clip-path:none!important;
     filter:none!important;
@@ -2117,30 +2115,29 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     mask-image:none!important;
   }
 
-  .homeOriginal .mobileHero .mobileNumber {
-    position:absolute!important;
+  .homeOriginal .mobileHero .mobileHeroCaption {
+    position:relative!important;
     z-index:2!important;
-    left:22px!important; right:auto!important; bottom:58px!important;
-    width:min(58%,240px)!important;
-    max-width:none!important;
-    height:auto!important;
-    filter:drop-shadow(0 10px 20px rgba(0,0,0,.35))!important;
-  }
-
-  .homeOriginal .mobileHero .mobileHeroFooter {
-    position:absolute!important;
-    z-index:2!important;
-    left:22px!important; right:22px!important; bottom:16px!important;
     display:flex!important;
-    justify-content:flex-end!important;
-    padding-top:0!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:16px!important;
+    padding:16px 22px!important;
+    background:#08251c!important;
   }
-  .homeOriginal .mobileHero .mobileHeroFooter .partyLogo { width:90px!important; height:auto!important; }
+  .homeOriginal .mobileHero .mobileHeroCaption .mobileNumber {
+    width:42%!important;
+    max-width:170px!important;
+    height:auto!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCaption .partyLogo {
+    width:76px!important;
+    height:auto!important;
+  }
 }
 
 @media screen and (max-width:380px) {
   .homeOriginal .mobileHero .mobileHeroCopy { padding:28px 18px 20px!important; }
   .homeOriginal .mobileHero .mobileHeroCopy h1 { font-size:clamp(28px,9.5vw,36px)!important; }
-  .homeOriginal .mobileHero .mobileNumber { left:18px!important; }
-  .homeOriginal .mobileHero .mobileHeroFooter { left:18px!important; right:18px!important; }
+  .homeOriginal .mobileHero .mobileHeroCaption { padding:14px 18px!important; }
 }
