@@ -55,9 +55,11 @@ export default function Home() {
           <h1>Perto de quem produz.<br /><strong>Junto de quem precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
-        <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
-        <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
-        <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
+        <div className="mobileHeroVisual">
+          <img decoding="async" className="mobilePortrait" src="/eder-hero-campanha37-integral-v2.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+          <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
+          <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
+        </div>
       </section>
 
       <section className="congress" id="congresso">

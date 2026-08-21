@@ -2017,33 +2017,130 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
 /* Auditoria 2026-08-20: regra final única para impedir cortes e vazamentos
    causados pelas antigas variações experimentais da Hero mobile. */
+/* ============================================================
+   Hero mobile da home — redesenho 2026-08-21.
+   Substitui de vez as ~15 variações experimentais anteriores
+   (histórico de patches conflitantes já removido do fluxo de
+   renderização, mantido só como comentário aqui pra contexto).
+   Abordagem: texto em fluxo normal (nunca sobre a foto, sempre
+   legível), foto com altura previsível via aspect-ratio (nunca
+   mais 100svh + cover brigando por espaço), separação visual
+   clara antes da próxima seção.
+   ============================================================ */
 @media screen and (max-width:760px) {
   .homeOriginal .mobileHero {
     position:relative!important;
-    min-height:calc(100svh - 76px)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:auto!important;
     overflow:hidden!important;
+    background:linear-gradient(165deg,var(--green-deep) 0%,#0a2930 100%)!important;
+    color:#fff!important;
+  }
+
+  .homeOriginal .mobileHero .mobileHeroPattern {
+    position:absolute!important;
+    inset:0!important;
+    z-index:0!important;
+    opacity:.08!important;
+    background-image:radial-gradient(circle,#fff 1px,transparent 1px)!important;
+    background-size:20px 20px!important;
+  }
+
+  .homeOriginal .mobileHero .mobileHeroCopy {
+    position:relative!important;
+    z-index:2!important;
+    top:auto!important; right:auto!important; left:auto!important;
+    width:auto!important; max-width:none!important;
+    padding:36px 22px 26px!important;
+    background:transparent!important;
+    text-align:left!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCopy p {
+    justify-content:flex-start!important;
+    margin:0 0 12px!important;
+    color:var(--yellow)!important;
+    font-size:11px!important;
+    font-weight:900!important;
+    letter-spacing:1.6px!important;
+    text-transform:uppercase!important;
+    white-space:normal!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCopy h1 {
+    margin:0 0 20px!important;
+    max-width:none!important;
+    color:#fff!important;
+    font-size:clamp(32px,9vw,42px)!important;
+    line-height:.96!important;
+    letter-spacing:-1.2px!important;
+    text-shadow:none!important;
+    text-align:left!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroCopy h1 strong { color:var(--orange)!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy a {
+    justify-content:flex-start!important;
+    min-width:0!important;
+    margin-top:0!important;
+    padding:13px 18px!important;
+    border-radius:8px!important;
+  }
+
+  .homeOriginal .mobileHero .mobileHeroVisual {
+    position:relative!important;
+    z-index:1!important;
+    width:100%!important;
+    aspect-ratio:4 / 5!important;
+    overflow:hidden!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroVisual:after {
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    background:linear-gradient(180deg,rgba(6,42,31,.5) 0%,transparent 24%),linear-gradient(0deg,rgba(6,42,31,.92) 0%,transparent 32%)!important;
   }
 
   .homeOriginal .mobileHero .mobilePortrait {
     position:absolute!important;
-    inset:0 0 0 auto!important;
+    inset:0!important;
+    z-index:0!important;
     width:100%!important;
-    max-width:100%!important;
     height:100%!important;
+    max-width:none!important;
     object-fit:cover!important;
-    object-position:48% 18%!important;
+    object-position:50% 15%!important;
     transform:none!important;
     clip-path:none!important;
     filter:none!important;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
-    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.88) 8%,#000 18%)!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
   }
+
+  .homeOriginal .mobileHero .mobileNumber {
+    position:absolute!important;
+    z-index:2!important;
+    left:22px!important; right:auto!important; bottom:58px!important;
+    width:min(58%,240px)!important;
+    max-width:none!important;
+    height:auto!important;
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.35))!important;
+  }
+
+  .homeOriginal .mobileHero .mobileHeroFooter {
+    position:absolute!important;
+    z-index:2!important;
+    left:22px!important; right:22px!important; bottom:16px!important;
+    display:flex!important;
+    justify-content:flex-end!important;
+    padding-top:0!important;
+  }
+  .homeOriginal .mobileHero .mobileHeroFooter .partyLogo { width:90px!important; height:auto!important; }
 }
 
 @media screen and (max-width:380px) {
-  .homeOriginal .mobileHero .mobilePortrait {
-    right:0!important;
-    width:100%!important;
-    height:100%!important;
-  }
+  .homeOriginal .mobileHero .mobileHeroCopy { padding:28px 18px 20px!important; }
+  .homeOriginal .mobileHero .mobileHeroCopy h1 { font-size:clamp(28px,9.5vw,36px)!important; }
+  .homeOriginal .mobileHero .mobileNumber { left:18px!important; }
+  .homeOriginal .mobileHero .mobileHeroFooter { left:18px!important; right:18px!important; }
 }
