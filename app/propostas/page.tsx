@@ -11,8 +11,8 @@ const pillars = [
 
 export const metadata = pageMetadata({
   path: "/propostas",
-  title: "Propostas — Eder Bublitz 1020",
-  description: "Conheça as propostas de Eder Bublitz para o Paraná.",
+  title: "Propostas de Eder Bublitz para Deputado Federal pelo Paraná | 1020",
+  description: "Conheça as propostas de Eder Bublitz 1020 para representar o Paraná em Brasília, com prioridades em agricultura, educação, segurança alimentar, mulheres e municípios.",
 });
 
 export default function PropostasPage() {
