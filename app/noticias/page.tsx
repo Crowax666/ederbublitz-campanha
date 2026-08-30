@@ -7,8 +7,8 @@ import FloatingActions from "../FloatingActions";
 
 export const metadata = pageMetadata({
   path: "/noticias",
-  title: "Notícias e vídeos — Eder Bublitz 1020",
-  description: "Acompanhe as notícias e os vídeos de Eder Bublitz.",
+  title: "Notícias de Eder Bublitz 1020 — Deputado Federal pelo Paraná",
+  description: "Acompanhe notícias, vídeos, agenda pública e conteúdos oficiais de Eder Bublitz 1020, candidato a Deputado Federal pelo Paraná.",
 });
 
 export default async function NoticiasPage() {
@@ -91,7 +91,6 @@ export default async function NoticiasPage() {
         )}
 
         <div className="canalCta">
-          {/* sub_confirmation=1 faz o YouTube já sugerir a inscrição automaticamente ao abrir o canal */}
           <a className="btnYoutube" href={CHANNEL_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" />
@@ -120,7 +119,7 @@ export default async function NoticiasPage() {
       )}
 
       <LegalFooter />
-          <FloatingActions />
+      <FloatingActions />
     </main>
   );
 }
