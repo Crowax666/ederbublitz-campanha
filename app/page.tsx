@@ -58,7 +58,7 @@ export default function Home() {
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
         <div className="mobileHeroVisual">
-          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" loading="lazy" />
+          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" loading="eager" fetchPriority="high" />
         </div>
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
