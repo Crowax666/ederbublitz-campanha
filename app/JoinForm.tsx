@@ -52,13 +52,34 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
   }, []);
 
   useEffect(() => {
-    if (!turnstileSiteKey || document.querySelector('script[data-turnstile-script]')) return;
-    const script = document.createElement("script");
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-    script.async = true;
-    script.defer = true;
-    script.dataset.turnstileScript = "true";
-    document.head.appendChild(script);
+    if (!turnstileSiteKey || !formRef.current) return;
+
+    const loadTurnstile = () => {
+      if (document.querySelector('script[data-turnstile-script]')) return;
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      script.async = true;
+      script.defer = true;
+      script.dataset.turnstileScript = "true";
+      document.head.appendChild(script);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      loadTurnstile();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        loadTurnstile();
+        observer.disconnect();
+      },
+      { rootMargin: "700px 0px" },
+    );
+
+    observer.observe(formRef.current);
+    return () => observer.disconnect();
   }, [turnstileSiteKey]);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -147,7 +168,7 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
       </label>
       <label className="joinConsent"><input type="checkbox" name="consent" required /><span>Autorizo o uso dos meus dados para contato e mobilização desta campanha, conforme a <a href="/privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>. Posso revogar a autorização e solicitar a exclusão.</span></label>
       <div className="formTrap" aria-hidden="true"><label>Não preencha este campo<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-      {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-br" /></div>}
+      {turnstileSiteKey && <div className="turnstileWrap"><div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="dark" data-language="pt-br" data-appearance="interaction-only" /></div>}
       <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Enviando..." : "Quero fazer parte"}<span>→</span></button>
       {message && <p className={`joinMessage ${state}`} role="status">{message}</p>}
     </form>
