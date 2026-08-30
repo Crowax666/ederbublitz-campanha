@@ -1,0 +1,41 @@
+/* Performance-only enhancements. Keep visual styling in globals.css. */
+
+/* Skip layout/paint for substantial below-the-fold sections until they approach the viewport. */
+.homeOriginal > .congress,
+.homeOriginal > .pillars,
+.homeOriginal > .vision,
+.homeOriginal > .join,
+.internalPage > .bioStory,
+.internalPage > .bioTimeline,
+.internalPage > .bioLeadership,
+.internalPage > .bioResults,
+.internalPage > .bioRecognition,
+.internalPage > .bioGallery,
+.internalPage > .goalsSection,
+.internalPage > .bioNext,
+.internalPage > .topicProposals,
+.internalPage > .newsListSection {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Reduce off-screen paint work for dense grids/cards while preserving layout. */
+.newsListGrid,
+.goalsGrid,
+.resultGrid,
+.galleryGrid,
+.topicProposalsList {
+  contain: layout paint style;
+}
+
+/* Avoid expensive animation/transition work for users who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
