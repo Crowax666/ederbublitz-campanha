@@ -3,6 +3,7 @@ import "./globals.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
+import StructuredData from "./StructuredData";
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
+        <StructuredData />
         <MetaPixel />
         <AccessTracker />
         <a className="skipLink" href="#top">Pular para o conteúdo</a>
