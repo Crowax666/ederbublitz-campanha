@@ -21,8 +21,8 @@ const results = [
 
 export const metadata = pageMetadata({
   path: "/quem-e-eder",
-  title: "Quem é Eder — Eder Bublitz 1020",
-  description: "Conheça a trajetória de Eder Bublitz: origem, experiência e resultados.",
+  title: "Quem é Eder Bublitz — trajetória, gestão e experiência | 1020",
+  description: "Conheça Eder Bublitz, candidato a Deputado Federal pelo Paraná, número 1020: formação, atuação na Ceasa Paraná, segurança alimentar, gestão pública e trajetória.",
 });
 
 export default function QuemEEder() {
