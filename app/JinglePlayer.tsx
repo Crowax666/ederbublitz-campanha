@@ -62,7 +62,7 @@ export default function JinglePlayer() {
     />
     <audio
       ref={audioRef}
-      preload="auto"
+      preload="none"
       playsInline
       src="/jingle-eder-1020-integral-80k.mp3"
       onCanPlay={() => setAudioError(false)}

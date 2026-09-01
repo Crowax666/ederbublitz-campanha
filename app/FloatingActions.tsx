@@ -9,7 +9,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 export default function FloatingActions() {
   return (
     <>
-      <div className="floatingBackTop" aria-label="Voltar ao topo da página">
+      <div className="floatingBackTop">
         <a className="floatAction backToTop" href="#top" aria-label="Voltar ao topo">
           <b>Voltar ao topo</b>
           <i aria-hidden="true">
@@ -20,7 +20,7 @@ export default function FloatingActions() {
         </a>
       </div>
 
-      <div className="floatingWhatsapp" aria-label="Fale conosco pelo WhatsApp">
+      <div className="floatingWhatsapp">
         <a
           className="floatAction whatsappReal"
           href={WHATSAPP_URL}
