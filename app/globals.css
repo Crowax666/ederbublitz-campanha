@@ -1532,6 +1532,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     text-transform:uppercase;
     text-wrap:balance;
   }
+  main .mobileHero .mobileHeroCopy h1 b { color:var(--orange); font:inherit; }
   main .mobileHero .mobileHeroCopy h1 strong { color:var(--lime); font:inherit; }
   main .mobileHero .mobileHeroCopy a {
     display:inline-flex;
@@ -1551,16 +1552,16 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   main .mobileHero .mobileNumber {
     position:absolute;
     z-index:3;
-    top:50%;
+    top:64%;
     left:50%;
     right:auto;
     bottom:auto;
     transform:translate(-50%,-50%);
-    width:82%;
-    max-width:380px;
+    width:76%;
+    max-width:340px;
     height:auto;
     object-fit:contain;
-    filter:drop-shadow(0 14px 26px rgba(0,0,0,.45));
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.38));
     animation:campaignNumberCenter .78s .2s cubic-bezier(.16,1,.3,1) both;
   }
 

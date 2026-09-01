@@ -58,7 +58,7 @@ export default function Home() {
         <div className="mobileHeroPattern" aria-hidden="true" />
         <div className="mobileHeroCopy">
           <p>Uma nova voz para o Paraná</p>
-          <h1>Junto de quem <strong>precisa.</strong></h1>
+          <h1>Perto de quem <b>produz.</b><br />Junto de quem <strong>precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
         <picture>
