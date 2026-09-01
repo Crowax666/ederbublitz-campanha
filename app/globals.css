@@ -279,6 +279,10 @@ a { color: inherit; text-decoration: none; }
   from { opacity:0; transform:translate3d(0,18px,0) scale(.93); filter:drop-shadow(0 4px 6px rgba(0,0,0,.1)); }
   to { opacity:1; transform:translate3d(0,0,0) scale(1); }
 }
+@keyframes campaignNumberCenter {
+  from { opacity:0; transform:translate(-50%,-50%) translate3d(0,18px,0) scale(.93); filter:drop-shadow(0 4px 6px rgba(0,0,0,.1)); }
+  to { opacity:1; transform:translate(-50%,-50%) translate3d(0,0,0) scale(1); }
+}
 @keyframes campaignPhoto {
   from { opacity:.45; transform:scale(1.055); clip-path:inset(0 10% 0 0); }
   to { opacity:1; transform:scale(1); clip-path:inset(0); }
@@ -1456,18 +1460,28 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     background:linear-gradient(145deg,#0d5b42,#0a4836 56%,#072d2b);
   }
   main .mobileHero::before,
-  main .mobileHero::after,
   main .mobileHero .mobileHeroPattern { content:none; display:none; }
+
+  main .mobileHero::after {
+    content:"";
+    position:absolute;
+    z-index:2;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(7,45,34,.6) 0%, rgba(7,45,34,0) 26%, rgba(7,45,34,0) 62%, rgba(7,45,34,.68) 100%),
+      linear-gradient(90deg, rgba(7,45,34,.22) 0%, transparent 32%);
+    pointer-events:none;
+  }
 
   main .mobileHero .mobilePortrait {
     position:absolute;
     z-index:1;
-    inset:auto 0 0 auto;
-    width:82%;
+    inset:0;
+    width:100%;
     max-width:100%;
-    height:80%;
+    height:100%;
     object-fit:cover;
-    object-position:center bottom;
+    object-position:51% 19%;
     opacity:1;
     mix-blend-mode:normal;
     transform:none;
@@ -1481,8 +1495,8 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     position:absolute;
     z-index:4;
     top:10%;
-    right:auto;
-    left:20px;
+    right:20px;
+    left:auto;
     width:59%;
     max-width:238px;
     padding:0;
@@ -1490,11 +1504,11 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     background:transparent;
     border:0;
     border-radius:0;
-    text-align:left;
+    text-align:right;
     backdrop-filter:none;
   }
   main .mobileHero .mobileHeroCopy p {
-    justify-content:flex-start;
+    justify-content:flex-end;
     margin:0 0 13px;
     color:var(--yellow);
     font-size:7px;
@@ -1502,22 +1516,23 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     letter-spacing:1.45px;
     white-space:nowrap;
     text-transform:uppercase;
+    text-shadow:0 2px 10px rgba(2,22,17,.5);
   }
   main .mobileHero .mobileHeroCopy h1 {
     max-width:230px;
-    margin:0;
+    margin:0 0 0 auto;
     color:#fff;
     font-size:clamp(23px,7.2vw,32px);
     line-height:.94;
     letter-spacing:-1px;
-    text-align:left;
-    text-shadow:0 4px 20px rgba(2,22,17,.34);
+    text-align:right;
+    text-shadow:0 4px 20px rgba(2,22,17,.5);
     font-style:italic;
     font-weight:900;
     text-transform:uppercase;
     text-wrap:balance;
   }
-  main .mobileHero .mobileHeroCopy h1 strong { color:var(--orange); font:inherit; }
+  main .mobileHero .mobileHeroCopy h1 strong { color:var(--lime); font:inherit; }
   main .mobileHero .mobileHeroCopy a {
     display:inline-flex;
     justify-content:space-between;
@@ -1535,14 +1550,18 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
   main .mobileHero .mobileNumber {
     position:absolute;
-    z-index:5;
-    right:4%;
-    bottom:82px;
-    width:76%;
-    max-width:330px;
+    z-index:3;
+    top:50%;
+    left:50%;
+    right:auto;
+    bottom:auto;
+    transform:translate(-50%,-50%);
+    width:82%;
+    max-width:380px;
     height:auto;
     object-fit:contain;
-    filter:drop-shadow(0 12px 18px rgba(0,0,0,.38));
+    filter:drop-shadow(0 14px 26px rgba(0,0,0,.45));
+    animation:campaignNumberCenter .78s .2s cubic-bezier(.16,1,.3,1) both;
   }
 
   main .mobileHero .mobileHeroFooter {
@@ -1565,6 +1584,5 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 }
 
 @media screen and (max-width:380px) {
-  main .mobileHero .mobileHeroCopy { left:16px; width:61%; }
-  main .mobileHero .mobilePortrait { width:86%; height:78%; }
+  main .mobileHero .mobileHeroCopy { right:16px; width:61%; }
 }
