@@ -5,6 +5,9 @@ import FloatingActions from "./FloatingActions";
 import JoinForm from "./JoinForm";
 import { getRuntimeConfig } from "../db/runtime";
 
+const TRANSPARENT_PIXEL =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7";
+
 export default function Home() {
   const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
   return (
@@ -39,7 +42,10 @@ export default function Home() {
         </div>
 
         <div className="photoStage">
-          <img decoding="async" src="/eder-hero-desktop-hq-v3.jpg" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+          <picture>
+            <source media="(max-width: 800px)" srcSet={TRANSPARENT_PIXEL} />
+            <img decoding="async" className="heroPortrait" src="/eder-hero-desktop-hq-v3.jpg" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+          </picture>
         </div>
 
         <div className="heroFooter">
@@ -51,15 +57,15 @@ export default function Home() {
       <section className="mobileHero" aria-label="Eder Bublitz 1020">
         <div className="mobileHeroPattern" aria-hidden="true" />
         <div className="mobileHeroCopy">
-          <p className="eyebrow"><span /> Uma nova voz para o Paraná</p>
-          <img decoding="async" className="mobileNumberLead" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" fetchPriority="high" loading="eager" />
-          <h1 className="srOnly">Perto de quem produz. Junto de quem precisa.</h1>
-          <p className="mobileSlogan">Perto de quem <b>produz.</b><br />Junto de quem <strong>precisa.</strong></p>
+          <p>Uma nova voz para o Paraná</p>
+          <h1>Junto de quem <strong>precisa.</strong></h1>
           <a href="/quem-e-eder">Conheça o Eder <span>→</span></a>
         </div>
-        <div className="mobileHeroVisual">
-          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" loading="eager" fetchPriority="high" />
-        </div>
+        <picture>
+          <source media="(min-width: 761px)" srcSet={TRANSPARENT_PIXEL} />
+          <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
+        </picture>
+        <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
 
@@ -74,9 +80,9 @@ export default function Home() {
       </section>
 
       <section className="pillars" id="propostas">
-        <article><span>01</span><h3>Fortalecer quem produz</h3><p>Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.</p><a href="/propostas">↗</a></article>
-        <article><span>02</span><h3>Cuidar de quem precisa</h3><p>Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.</p><a href="/propostas">↗</a></article>
-        <article><span>03</span><h3>Representar os municípios</h3><p>Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.</p><a href="/propostas">↗</a></article>
+        <article><span>01</span><h3>Fortalecer quem produz</h3><p>Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.</p><a href="/propostas" aria-label="Ver propostas: Fortalecer quem produz">↗</a></article>
+        <article><span>02</span><h3>Cuidar de quem precisa</h3><p>Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.</p><a href="/propostas" aria-label="Ver propostas: Cuidar de quem precisa">↗</a></article>
+        <article><span>03</span><h3>Representar os municípios</h3><p>Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.</p><a href="/propostas" aria-label="Ver propostas: Representar os municípios">↗</a></article>
       </section>
 
       <section className="vision" id="parana">
