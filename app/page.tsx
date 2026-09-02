@@ -65,7 +65,7 @@ export default function Home() {
           <source media="(min-width: 761px)" srcSet={TRANSPARENT_PIXEL} />
           <img decoding="async" className="mobilePortrait" src="/eder-hero-mobile-tight.webp" alt="Eder Bublitz sorrindo e com os braços cruzados" fetchPriority="high" loading="eager" />
         </picture>
-        <img decoding="async" className="mobileNumber" src="/brand-lockup-1-navy.png" alt="1020 - Eder Bublitz - Deputado Federal" />
+        <img decoding="async" className="mobileNumber" src="/brand-lockup-hero-mobile.png" alt="1020 - Eder Bublitz - Deputado Federal" />
         <div className="mobileHeroFooter"><img decoding="async" className="partyLogo" src="/republicanos-logo-transparent.png" alt="Republicanos 10" /></div>
       </section>
 
