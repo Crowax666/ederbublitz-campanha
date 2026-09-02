@@ -1590,3 +1590,75 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 @media screen and (max-width:380px) {
   main .mobileHero .mobileHeroCopy { right:16px; width:61%; }
 }
+
+/* Congresso no mobile: mensagem primeiro, foto depois, com passagem suave
+   entre o verde da Hero, o azul institucional e o fundo claro das propostas. */
+@keyframes mobileCongressReveal {
+  from { opacity:.72; transform:translate3d(0,18px,0); }
+  to { opacity:1; transform:translate3d(0,0,0); }
+}
+
+@media screen and (max-width:760px) {
+  .homeOriginal .mobileHero + .congress {
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:auto!important;
+    overflow:hidden!important;
+    background:var(--navy)!important;
+  }
+
+  .homeOriginal .mobileHero + .congress .congressCopy {
+    position:relative!important;
+    z-index:3!important;
+    inset:auto!important;
+    order:1!important;
+    width:100%!important;
+    padding:72px 20px 66px!important;
+    background:linear-gradient(180deg,#072d2b 0,#071d33 92px,#071d33 100%)!important;
+    text-align:left!important;
+  }
+
+  .homeOriginal .mobileHero + .congress > img {
+    position:relative!important;
+    z-index:0!important;
+    inset:auto!important;
+    order:2!important;
+    width:100%!important;
+    height:clamp(430px,116vw,620px)!important;
+    object-fit:cover!important;
+    object-position:62% 20%!important;
+  }
+
+  .homeOriginal .mobileHero + .congress::after {
+    content:""!important;
+    position:absolute!important;
+    z-index:1!important;
+    inset:auto 0 0!important;
+    height:clamp(430px,116vw,620px)!important;
+    background:
+      linear-gradient(180deg,#071d33 0,rgba(7,29,51,.72) 8%,transparent 27%),
+      linear-gradient(0deg,#f4f3ee 0,rgba(244,243,238,.68) 5%,transparent 22%)!important;
+    pointer-events:none!important;
+  }
+
+  .homeOriginal .mobileHero + .congress .congressCopy h2 {
+    font-size:clamp(39px,11vw,56px)!important;
+  }
+}
+
+@supports (animation-timeline:view()) {
+  @media screen and (max-width:760px) {
+    .homeOriginal .mobileHero + .congress .congressCopy,
+    .homeOriginal .mobileHero + .congress > img {
+      animation:mobileCongressReveal .6s cubic-bezier(.22,.8,.32,1) both;
+      animation-timeline:view();
+      animation-range:entry 6% cover 28%;
+    }
+  }
+}
+
+@media screen and (max-width:479px) {
+  .homeOriginal .mobileHero + .congress .congressCopy {
+    padding:64px 18px 58px!important;
+  }
+}
