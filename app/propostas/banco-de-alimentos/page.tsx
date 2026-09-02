@@ -25,10 +25,11 @@ export const metadata = pageMetadata({
 export default function PropostaBancoDeAlimentos() {
   return (
     <main className="internalPage" id="top">
+      <link rel="preload" as="image" href="/eder-luta-fome-v2.webp" type="image/webp" />
       <header className="siteHeader internalHeader">
         <a className="brand" href="/" aria-label="Eder Bublitz — início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
-          <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" /></span>
+          <span className="mobileHeaderNumber" aria-hidden="true"><img decoding="async" src="/brand-lockup-1-navy.png" alt="" width="967" height="421" /></span>
         </a>
         <nav className="desktopNav" aria-label="Navegação principal">
           <a href="/pelo-parana">Pelo Paraná</a>
@@ -43,8 +44,10 @@ export default function PropostaBancoDeAlimentos() {
       <section className="bioHero">
         <div className="bioHeroPhoto">
           <img decoding="async"
-            src="/eder-luta-fome.jpg"
+            src="/eder-luta-fome-v2.webp"
             alt="Eder Bublitz com os punhos erguidos, em posição de luta"
+            width="1400"
+            height="933"
             loading="eager"
             fetchPriority="high"
             style={{ objectPosition: "32% 24%" }}
@@ -84,7 +87,7 @@ export default function PropostaBancoDeAlimentos() {
       </section>
 
       <section className="bioRecognition">
-        <div className="recognitionPhoto"><img decoding="async" src="/eder-premio-istambul.webp" alt="Eder Bublitz sorrindo, segurando o troféu de ouro do Stevie Awards 2024 em Istambul" loading="lazy" /></div>
+        <div className="recognitionPhoto"><img decoding="async" src="/eder-premio-istambul.webp" alt="Eder Bublitz sorrindo, segurando o troféu de ouro do Stevie Awards 2024 em Istambul" width="900" height="1264" loading="lazy" /></div>
         <div className="recognitionCopy">
           <p className="sectionLabel">Excelência reconhecida mundialmente</p>
           <span className="recognitionYear">2024</span>
@@ -106,15 +109,15 @@ export default function PropostaBancoDeAlimentos() {
         </div>
         <div className="galleryGrid">
           <figure>
-            <img decoding="async" src="/eder-banco-alimentos-frutas.webp" alt="Embalagens de frutas selecionadas do Banco de Alimentos Comida Boa" loading="lazy" />
+            <img decoding="async" src="/eder-banco-alimentos-frutas.webp" alt="Embalagens de frutas selecionadas do Banco de Alimentos Comida Boa" width="900" height="600" loading="lazy" />
             <figcaption><b>Seleção</b>Frutas e verduras resgatadas são higienizadas, porcionadas e embaladas com controle de qualidade.</figcaption>
           </figure>
           <figure>
-            <img decoding="async" src="/eder-banco-alimentos-processo.webp" alt="Equipe processando brócolis na cozinha do Banco de Alimentos" loading="lazy" />
+            <img decoding="async" src="/eder-banco-alimentos-processo.webp" alt="Equipe processando brócolis na cozinha do Banco de Alimentos" width="900" height="600" loading="lazy" />
             <figcaption><b>Processamento</b>Equipe treinada transforma o excedente em porções prontas para consumo, com total rastreabilidade.</figcaption>
           </figure>
           <figure>
-            <img decoding="async" src="/eder-banco-alimentos-potes.webp" alt="Potes de sopa prontos do Banco de Alimentos Comida Boa, com informação nutricional" loading="lazy" />
+            <img decoding="async" src="/eder-banco-alimentos-potes.webp" alt="Potes de sopa prontos do Banco de Alimentos Comida Boa, com informação nutricional" width="900" height="600" loading="lazy" />
             <figcaption><b>Distribuição</b>Produto final rotulado e pronto para chegar às instituições parceiras em cinco cidades do Paraná.</figcaption>
           </figure>
         </div>
@@ -143,14 +146,14 @@ export default function PropostaBancoDeAlimentos() {
           <a href="/participe">Quero participar <span>→</span></a>
         </div>
         <div className="bioNextVisual">
-          <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" loading="lazy" />
-          <img decoding="async" className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" loading="lazy" />
+          <img decoding="async" className="bioNextPhoto" src="/eder-proximo-passo-v2.webp" alt="Eder Bublitz sorrindo e apontando para o convite à participação" width="1400" height="933" loading="lazy" />
+          <img decoding="async" className="bioNextBrand" src="/brand-lockup-1-navy.png" alt="1020 — Eder Bublitz — Deputado Federal" width="967" height="421" loading="lazy" />
         </div>
       </section>
 
       <footer className="bioFooter">
         <a href="/">← Voltar para a página inicial</a>
-        <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" loading="lazy" />
+        <img decoding="async" src="/republicanos-logo-transparent.png" alt="Republicanos 10" width="1719" height="593" loading="lazy" />
       </footer>
       <LegalFooter />
           <FloatingActions />
