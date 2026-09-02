@@ -1662,3 +1662,49 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     padding:64px 18px 58px!important;
   }
 }
+
+/* Revelação editorial: um único movimento leve por elemento.
+   O conteúdo permanece visível sem JavaScript e com reduzir movimento. */
+.homeOriginal .congressCopy,
+.homeOriginal .visionCopy,
+.homeOriginal .joinCopy,
+.homeOriginal .pillars > article,
+.homeOriginal .congress > img,
+.homeOriginal .visionPhoto,
+.homeOriginal .visionPhoto img,
+.homeOriginal .joinPhoto,
+.homeOriginal .joinPhoto img {
+  animation:none!important;
+  animation-timeline:auto!important;
+}
+
+html.editorial-reveal-ready [data-editorial-reveal] {
+  opacity:0;
+  transform:translate3d(0,14px,0);
+  transition:
+    opacity .48s ease var(--reveal-delay,0ms),
+    transform .62s cubic-bezier(.22,.8,.32,1) var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+
+html.editorial-reveal-ready [data-editorial-reveal="card"] {
+  transform:translate3d(0,16px,0);
+}
+
+html.editorial-reveal-ready [data-editorial-reveal="photo"] {
+  transform:translate3d(0,12px,0) scale(1.015);
+  transform-origin:center;
+}
+
+html.editorial-reveal-ready [data-editorial-reveal].is-visible {
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  will-change:auto;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html.editorial-reveal-ready [data-editorial-reveal] {
+    opacity:1!important;
+    transform:none!important;
+  }
+}

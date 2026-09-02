@@ -3,6 +3,7 @@ import LegalFooter from "./LegalFooter";
 import JinglePlayer from "./JinglePlayer";
 import FloatingActions from "./FloatingActions";
 import JoinForm from "./JoinForm";
+import EditorialReveal from "./EditorialReveal";
 import { getRuntimeConfig } from "../db/runtime";
 
 const TRANSPARENT_PIXEL =
@@ -12,6 +13,7 @@ export default function Home() {
   const { TURNSTILE_SITE_KEY: turnstileSiteKey } = getRuntimeConfig();
   return (
     <main id="top" className="homeOriginal">
+      <EditorialReveal />
       <header className="siteHeader">
         <a className="brand" href="#inicio" aria-label="Eder Bublitz 1020 - início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
