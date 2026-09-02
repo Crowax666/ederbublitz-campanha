@@ -48,7 +48,9 @@ export type SupporterRow = {
   device_type: string | null; access_source: string | null;
 };
 
-export const SUPPORTER_STATUSES = ["novo", "contatado", "confirmado", "descartado"] as const;
+export const REGULAR_SUPPORTER_STATUSES = ["novo", "contatado", "confirmado", "descartado"] as const;
+export const MATERIAL_REQUEST_STATUSES = ["novo", "contatado", "separado", "entregue", "descartado"] as const;
+export const SUPPORTER_STATUSES = ["novo", "contatado", "confirmado", "separado", "entregue", "descartado"] as const;
 export type SupporterStatus = (typeof SUPPORTER_STATUSES)[number];
 
 export async function listSupporters(limit = 500) {
@@ -96,8 +98,10 @@ export type LabelCount = { label: string; total: number };
 export async function getInterestBreakdown(): Promise<LabelCount[]> {
   const db = getD1Binding();
   const result = await db.prepare(`
-    SELECT interest AS label, COUNT(*) AS total FROM supporters
-    GROUP BY interest ORDER BY total DESC
+    SELECT CASE WHEN interest LIKE 'material:%' THEN 'material-campanha' ELSE interest END AS label, COUNT(*) AS total
+    FROM supporters
+    GROUP BY CASE WHEN interest LIKE 'material:%' THEN 'material-campanha' ELSE interest END
+    ORDER BY total DESC
   `).all<LabelCount>();
   return result.results;
 }

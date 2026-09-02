@@ -1,4 +1,12 @@
 import { getRuntimeConfig } from "./runtime";
+import {
+  FULFILLMENT_OPTIONS,
+  HELP_OPTIONS,
+  MATERIAL_OPTIONS,
+  QUANTITY_OPTIONS,
+  optionLabel,
+  type MaterialRequestDetails,
+} from "../lib/material-requests";
 
 const NOTIFY_TO = "contato@ederbublitz.com.br";
 // Conta do Resend criada com login contato@ederbublitz.com.br, sem
@@ -21,6 +29,7 @@ export type SupporterNotification = {
   city: string;
   neighborhood?: string;
   interest: string;
+  materialRequest?: MaterialRequestDetails;
 };
 
 /**
@@ -36,7 +45,12 @@ export async function notifyNewSupporter(input: SupporterNotification): Promise<
     return false;
   }
 
-  const interestLabel = interestLabels[input.interest] || input.interest;
+  const interestLabel = input.materialRequest ? "Solicitação de material" : interestLabels[input.interest] || input.interest;
+  const materialRows = input.materialRequest ? `
+        <tr><td><strong>Materiais</strong></td><td>${escapeHtml(input.materialRequest.items.map((id) => optionLabel(MATERIAL_OPTIONS, id)).join(", "))}</td></tr>
+        <tr><td><strong>Quantidade</strong></td><td>${escapeHtml(optionLabel(QUANTITY_OPTIONS, input.materialRequest.quantity))}</td></tr>
+        <tr><td><strong>Como vai ajudar</strong></td><td>${escapeHtml(optionLabel(HELP_OPTIONS, input.materialRequest.help))}</td></tr>
+        <tr><td><strong>Recebimento</strong></td><td>${escapeHtml(optionLabel(FULFILLMENT_OPTIONS, input.materialRequest.fulfillment))}</td></tr>` : "";
   const html = `
     <div style="font-family:Arial,sans-serif;color:#15362a;">
       <h2 style="color:#071d33;">Novo cadastro no site — Eder Bublitz 1020</h2>
@@ -46,6 +60,7 @@ export async function notifyNewSupporter(input: SupporterNotification): Promise<
         <tr><td><strong>Cidade</strong></td><td>${escapeHtml(input.city)}</td></tr>
         <tr><td><strong>Bairro</strong></td><td>${escapeHtml(input.neighborhood || "—")}</td></tr>
         <tr><td><strong>Interesse</strong></td><td>${escapeHtml(interestLabel)}</td></tr>
+        ${materialRows}
       </table>
       <p style="color:#65736b;font-size:12px;margin-top:20px;">Enviado automaticamente pelo site ederbublitz.com.br</p>
     </div>
@@ -61,7 +76,7 @@ export async function notifyNewSupporter(input: SupporterNotification): Promise<
       body: JSON.stringify({
         from: NOTIFY_FROM,
         to: [NOTIFY_TO],
-        subject: `Novo cadastro: ${input.name} (${input.city})`,
+        subject: `${input.materialRequest ? "Nova solicitação de material" : "Novo cadastro"}: ${input.name} (${input.city})`,
         html,
       }),
       signal: AbortSignal.timeout(8_000),

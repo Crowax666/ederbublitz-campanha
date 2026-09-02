@@ -2,13 +2,14 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { SUPPORTER_STATUSES } from "../../db/supporters";
+import { MATERIAL_REQUEST_STATUSES, REGULAR_SUPPORTER_STATUSES } from "../../db/supporters";
 import { statusLabels } from "./Charts";
 
-export default function StatusSelect({ id, status }: { id: string; status: string }) {
+export default function StatusSelect({ id, status, materialRequest = false }: { id: string; status: string; materialRequest?: boolean }) {
   const [current, setCurrent] = useState(status);
   const [pending, startTransition] = useTransition();
   const router = useRouter();
+  const options = materialRequest ? MATERIAL_REQUEST_STATUSES : REGULAR_SUPPORTER_STATUSES;
 
   async function onChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const next = event.target.value;
@@ -31,7 +32,7 @@ export default function StatusSelect({ id, status }: { id: string; status: strin
 
   return (
     <select className={`statusSelect statusSelect-${current}`} value={current} onChange={onChange} disabled={pending}>
-      {SUPPORTER_STATUSES.map((option) => (
+      {options.map((option) => (
         <option key={option} value={option}>{statusLabels[option] || option}</option>
       ))}
     </select>

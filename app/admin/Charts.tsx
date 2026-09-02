@@ -5,12 +5,15 @@ const interestLabels: Record<string, string> = {
   "receber-noticias": "Receber notícias",
   voluntariado: "Voluntariado",
   propostas: "Contribuir com propostas",
+  "material-campanha": "Material de campanha",
 };
 
 const statusLabels: Record<string, string> = {
   novo: "Novo",
   contatado: "Contatado",
   confirmado: "Confirmado",
+  separado: "Separado",
+  entregue: "Entregue",
   descartado: "Descartado",
 };
 

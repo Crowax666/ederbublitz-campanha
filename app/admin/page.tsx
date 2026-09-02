@@ -14,6 +14,14 @@ import { getRuntimeConfig } from "../../db/runtime";
 import { TrendChart, BarList, interestLabels, statusLabels } from "./Charts";
 import StatusSelect from "./StatusSelect";
 import { getAnalyticsSummary, getAccessSourceBreakdown, getTopPages } from "../../db/analytics";
+import {
+  decodeMaterialRequest,
+  FULFILLMENT_OPTIONS,
+  HELP_OPTIONS,
+  MATERIAL_OPTIONS,
+  QUANTITY_OPTIONS,
+  optionLabel,
+} from "../../lib/material-requests";
 
 export const dynamic = "force-dynamic";
 
@@ -85,7 +93,10 @@ export default async function AdminPage() {
     </section>
 
     <section className="adminTableWrap"><div className="adminTableHead"><h2>Contatos mais recentes</h2><span>Até 500 registros</span></div>
-      {supporters.length ? <div className="adminTableScroll"><table><thead><tr><th>Nome</th><th>Telefone</th><th>Localidade</th><th>Interesse</th><th>Origem</th><th>Acessos</th><th>Status</th><th>Cadastro</th></tr></thead><tbody>{supporters.map((item) => <tr key={item.id}><td><strong>{item.name}</strong></td><td><a href={`https://wa.me/${item.phone}`} target="_blank" rel="noopener noreferrer" className="adminWhatsappLink">{item.phone}</a></td><td>{item.city}<small>{item.neighborhood || "—"}</small></td><td>{interestLabels[item.interest] || item.interest}</td><td>{item.access_source || item.utm_source || item.referrer || "Direto"}<small>{item.device_type || "—"}</small></td><td><strong>{item.access_count}</strong><small>{item.session_count} {item.session_count === 1 ? "sessão" : "sessões"}{item.last_access_at ? ` · último ${new Date(item.last_access_at).toLocaleDateString("pt-BR")}` : ""}</small></td><td><StatusSelect id={item.id} status={item.status} /></td><td>{new Date(item.created_at).toLocaleDateString("pt-BR")}</td></tr>)}</tbody></table></div> : <div className="adminEmpty"><strong>Nenhum cadastro ainda.</strong><p>Os novos contatos aparecerão aqui depois do envio do formulário.</p></div>}
+      {supporters.length ? <div className="adminTableScroll"><table><thead><tr><th>Nome</th><th>Telefone</th><th>Localidade</th><th>Interesse</th><th>Origem</th><th>Acessos</th><th>Status</th><th>Cadastro</th></tr></thead><tbody>{supporters.map((item) => {
+        const material = decodeMaterialRequest(item.interest);
+        return <tr key={item.id}><td><strong>{item.name}</strong></td><td><a href={`https://wa.me/${item.phone}`} target="_blank" rel="noopener noreferrer" className="adminWhatsappLink">{item.phone}</a></td><td>{item.city}<small>{item.neighborhood || "—"}</small></td><td>{material ? <div className="adminMaterialDetail"><strong>Material de campanha</strong><small>{material.items.map((id) => optionLabel(MATERIAL_OPTIONS, id)).join(", ")}</small><small>{optionLabel(QUANTITY_OPTIONS, material.quantity)} · {optionLabel(HELP_OPTIONS, material.help)}</small><small>{optionLabel(FULFILLMENT_OPTIONS, material.fulfillment)}</small></div> : interestLabels[item.interest] || item.interest}</td><td>{item.access_source || item.utm_source || item.referrer || "Direto"}<small>{item.device_type || "—"}</small></td><td><strong>{item.access_count}</strong><small>{item.session_count} {item.session_count === 1 ? "sessão" : "sessões"}{item.last_access_at ? ` · último ${new Date(item.last_access_at).toLocaleDateString("pt-BR")}` : ""}</small></td><td><StatusSelect id={item.id} status={item.status} materialRequest={Boolean(material)} /></td><td>{new Date(item.created_at).toLocaleDateString("pt-BR")}</td></tr>;
+      })}</tbody></table></div> : <div className="adminEmpty"><strong>Nenhum cadastro ainda.</strong><p>Os novos contatos aparecerão aqui depois do envio do formulário.</p></div>}
     </section>
   </main>;
 }

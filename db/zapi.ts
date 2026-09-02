@@ -48,3 +48,8 @@ export function welcomeMessage(name: string) {
   const firstName = name.trim().split(/\s+/)[0] || name.trim();
   return `Olá, ${firstName}! 👋 Aqui é da equipe do Eder Bublitz (1020).\n\nRecebemos seu cadastro e em breve entraremos em contato. Obrigado por caminhar com a gente pelo Paraná! 🌾`;
 }
+
+export function materialRequestMessage(name: string) {
+  const firstName = name.trim().split(/\s+/)[0] || name.trim();
+  return `Olá, ${firstName}! 👋 Aqui é da equipe do Eder Bublitz (1020).\n\nRecebemos sua solicitação de material de campanha. Em breve entraremos em contato para confirmar a disponibilidade e combinar a retirada ou entrega. Obrigado por caminhar com a gente pelo Paraná! 🌾`;
+}

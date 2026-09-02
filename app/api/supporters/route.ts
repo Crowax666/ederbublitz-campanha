@@ -1,8 +1,16 @@
 import { createSupporter } from "../../../db/supporters";
 import { getRuntimeConfig } from "../../../db/runtime";
-import { sendZapiMessage, welcomeMessage } from "../../../db/zapi";
+import { materialRequestMessage, sendZapiMessage, welcomeMessage } from "../../../db/zapi";
 import { notifyNewSupporter } from "../../../db/email";
 import { linkVisitorToSupporter } from "../../../db/analytics";
+import {
+  encodeMaterialRequest,
+  isValidFulfillment,
+  isValidHelp,
+  isValidMaterialId,
+  isValidQuantity,
+  type MaterialRequestDetails,
+} from "../../../lib/material-requests";
 
 const interests = new Set(["participar", "receber-noticias", "voluntariado", "propostas"]);
 
@@ -13,7 +21,8 @@ export async function POST(request: Request) {
     const phone = String(body.phone || "").replace(/\D/g, "");
     const city = String(body.city || "").trim().replace(/\s+/g, " ");
     const neighborhood = String(body.neighborhood || "").trim().replace(/\s+/g, " ");
-    const interest = String(body.interest || "participar");
+    const requestType = body.requestType === "material" ? "material" : "participation";
+    let interest = String(body.interest || "participar");
     const consent = body.consent === true;
     const turnstileToken = String(body.turnstileToken || "");
     const clip = (value: unknown, max: number) => String(value || "").trim().slice(0, max) || undefined;
@@ -28,7 +37,23 @@ export async function POST(request: Request) {
     if (!/^\d{10,11}$/.test(phone)) return Response.json({ error: "Informe um telefone válido com DDD." }, { status: 400 });
     if (city.length < 2 || city.length > 100) return Response.json({ error: "Informe sua cidade." }, { status: 400 });
     if (neighborhood.length > 100) return Response.json({ error: "Bairro inválido." }, { status: 400 });
-    if (!interests.has(interest)) return Response.json({ error: "Interesse inválido." }, { status: 400 });
+    let materialRequest: MaterialRequestDetails | undefined;
+    if (requestType === "material") {
+      const materials = Array.isArray(body.materials)
+        ? [...new Set(body.materials.map((item) => String(item)).filter(isValidMaterialId))].slice(0, 6)
+        : [];
+      const quantity = String(body.quantity || "");
+      const help = String(body.helpType || "");
+      const fulfillment = String(body.fulfillment || "");
+      if (!materials.length) return Response.json({ error: "Escolha pelo menos um material." }, { status: 400 });
+      if (!isValidQuantity(quantity)) return Response.json({ error: "Quantidade inválida." }, { status: 400 });
+      if (!isValidHelp(help)) return Response.json({ error: "Informe como pretende ajudar." }, { status: 400 });
+      if (!isValidFulfillment(fulfillment)) return Response.json({ error: "Escolha como prefere receber." }, { status: 400 });
+      materialRequest = { items: materials, quantity, help, fulfillment };
+      interest = encodeMaterialRequest(materialRequest);
+    } else if (!interests.has(interest)) {
+      return Response.json({ error: "Interesse inválido." }, { status: 400 });
+    }
     if (!consent) return Response.json({ error: "É necessário autorizar o contato para continuar." }, { status: 400 });
 
     const { TURNSTILE_SITE_KEY: siteKey, TURNSTILE_SECRET_KEY: secret } = getRuntimeConfig();
@@ -59,8 +84,8 @@ export async function POST(request: Request) {
 
     // Best-effort: aguarda o envio (Workers pode encerrar chamadas em segundo
     // plano sem isso), mas uma falha aqui nao derruba o cadastro em si.
-    await sendZapiMessage(phone, welcomeMessage(name)).catch(() => {});
-    await notifyNewSupporter({ name, phone, city, neighborhood, interest }).catch(() => {});
+    await sendZapiMessage(phone, materialRequest ? materialRequestMessage(name) : welcomeMessage(name)).catch(() => {});
+    await notifyNewSupporter({ name, phone, city, neighborhood, interest, materialRequest }).catch(() => {});
 
     return Response.json({ ok: true }, { status: 201 });
   } catch {
