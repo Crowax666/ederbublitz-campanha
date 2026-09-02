@@ -31,7 +31,7 @@ export default function MobileMenu() {
           </a>
         ))}
         <a className="mobileMenuCta" href="/participe" onClick={() => setOpen(false)}>
-          <span>Junte-se a nós</span><b>↗</b>
+          <span>Receba nosso material de campanha</span><b>↗</b>
         </a>
       </nav>
     </div>

@@ -49,7 +49,7 @@ function captureAttribution(): Attribution {
 }
 
 export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: string }) {
-  const [mode, setMode] = useState<"participation" | "material">("participation");
+  const [mode, setMode] = useState<"participation" | "material">("material");
   const [materials, setMaterials] = useState<MaterialId[]>([]);
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -184,10 +184,10 @@ export default function JoinForm({ turnstileSiteKey }: { turnstileSiteKey: strin
   }
 
   return (
-    <form className={`joinForm joinForm--${mode}`} data-form-title={mode === "material" ? "MATERIAL DE CAMPANHA" : "JUNTE-SE AO TIME 1020"} id="contato" onSubmit={submit} ref={formRef}>
+    <form className={`joinForm joinForm--${mode}`} data-form-title={mode === "material" ? "RECEBA NOSSO MATERIAL DE CAMPANHA" : "QUERO PARTICIPAR DO TIME 1020"} id="contato" onSubmit={submit} ref={formRef}>
       <div className="participationTabs" role="tablist" aria-label="Formas de participação">
-        <button type="button" role="tab" aria-selected={mode === "participation"} className={mode === "participation" ? "active" : ""} onClick={() => changeMode("participation")}>Quero participar</button>
         <button type="button" role="tab" aria-selected={mode === "material"} className={mode === "material" ? "active" : ""} onClick={() => changeMode("material")}>Solicitar material</button>
+        <button type="button" role="tab" aria-selected={mode === "participation"} className={mode === "participation" ? "active" : ""} onClick={() => changeMode("participation")}>Quero participar</button>
       </div>
       {mode === "material" && <div className="materialIntro" role="tabpanel">
         <strong>Leve essa campanha com você.</strong>

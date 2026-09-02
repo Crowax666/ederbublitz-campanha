@@ -25,7 +25,7 @@ export default function Home() {
           <a href="/noticias">Notícias</a>
         </nav>
         <JinglePlayer />
-        <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta headerMaterialCta" href="/participe">Receba nosso material de campanha <span>↗</span></a>
         <MobileMenu />
       </header>
 
@@ -105,8 +105,8 @@ export default function Home() {
 
       <section className="join" id="participe">
         <div className="joinCopy">
-          <p>Essa caminhada também é sua.</p>
-          <h2>Vamos juntos<br />pelo Paraná.</h2>
+          <p>Materiais para caminhar com o 1020.</p>
+          <h2>Receba nosso material<br />de campanha.</h2>
           <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
         </div>
         <div className="joinPhoto">

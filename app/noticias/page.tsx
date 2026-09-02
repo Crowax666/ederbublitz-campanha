@@ -31,7 +31,7 @@ export default async function NoticiasPage() {
           <a href="/propostas">Propostas</a>
           <a className="active" href="/noticias">Notícias</a>
         </nav>
-        <a className="headerCta" href="/participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta headerMaterialCta" href="/participe">Receba nosso material de campanha <span>↗</span></a>
         <MobileMenu />
       </header>
 

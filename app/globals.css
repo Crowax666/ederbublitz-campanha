@@ -596,7 +596,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .joinPhoto:after { background:linear-gradient(0deg,rgba(7,29,51,.42),transparent 48%); }
   .joinBrand { width:min(78%,330px); right:18px; bottom:22px; }
   .joinForm { position:relative; padding:51px 17px 18px; overflow:hidden; border:1px solid rgba(255,181,27,.3); border-radius:16px; background:linear-gradient(145deg,#071d33 0%,#132a42 100%); box-shadow:0 20px 46px rgba(7,29,51,.34); }
-  .joinForm:before { content:"JUNTE-SE AO TIME 1020"; position:absolute; top:0; left:0; right:0; padding:13px 17px; color:var(--navy); background:var(--yellow); font-size:9px; font-weight:950; letter-spacing:1.4px; }
+  .joinForm:before { content:"RECEBA NOSSO MATERIAL DE CAMPANHA"; position:absolute; top:0; left:0; right:0; padding:13px 17px; color:var(--navy); background:var(--yellow); font-size:9px; font-weight:950; letter-spacing:1.4px; }
   .joinFields { grid-template-columns:1fr; gap:11px; }
   .joinForm label > span { margin-bottom:7px; color:rgba(255,255,255,.78); font-size:9px; letter-spacing:1.15px; }
   .joinForm input,.joinForm select { min-height:47px; padding:11px 13px; border:1px solid rgba(255,255,255,.18); border-radius:9px; background:rgba(255,255,255,.08); transition:border-color .2s ease,background .2s ease,box-shadow .2s ease; }
@@ -944,7 +944,7 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
     backdrop-filter:blur(10px);
   }
   .joinForm:before {
-    content:"JUNTE-SE AO TIME 1020";
+    content:"RECEBA NOSSO MATERIAL DE CAMPANHA";
     position:absolute;
     top:0;
     left:0;
@@ -1711,6 +1711,14 @@ html.editorial-reveal-ready [data-editorial-reveal].is-visible {
 
 /* Participação e solicitação de material */
 .joinForm:before { content:attr(data-form-title); }
+.headerCta.headerMaterialCta {
+  max-width:230px;
+  padding:12px 16px;
+  font-size:9.5px;
+  line-height:1.2;
+  letter-spacing:.25px;
+  text-align:center;
+}
 
 .participationTabs {
   display:grid;
@@ -1843,6 +1851,16 @@ html.editorial-reveal-ready [data-editorial-reveal].is-visible {
   .materialGrid button > span { font-size:9px!important; }
   .materialSelects { grid-template-columns:1fr; gap:11px; }
   .fulfillmentPicker > div { grid-template-columns:1fr; gap:7px; }
+}
+
+@media (min-width:801px) and (max-width:1100px) {
+  .siteHeader { padding-right:3vw; padding-left:3vw; }
+  .siteHeader .brand { width:180px; }
+  .siteHeader .headerWordmark { font-size:26px; }
+  .siteHeader .desktopNav { gap:16px; font-size:9px; letter-spacing:.65px; }
+  .siteHeader > .jinglePlayer { width:174px!important; }
+  .siteHeader > .jinglePlayer .jingleTrigger { width:174px!important; grid-template-columns:32px minmax(82px,1fr) 16px!important; }
+  .headerCta.headerMaterialCta { max-width:158px; padding:10px 11px; font-size:8px; }
 }
 
 @media (prefers-reduced-motion:reduce) {

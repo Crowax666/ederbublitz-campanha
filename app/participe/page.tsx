@@ -7,8 +7,8 @@ import FloatingActions from "../FloatingActions";
 
 export const metadata = pageMetadata({
   path: "/participe",
-  title: "Junte-se a nós — Eder Bublitz 1020",
-  description: "Participe da caminhada de Eder Bublitz pelo Paraná.",
+  title: "Receba nosso material de campanha — Eder Bublitz 1020",
+  description: "Solicite materiais da campanha de Eder Bublitz 1020 ou participe da caminhada pelo Paraná.",
 });
 
 export default function ParticipePage() {
@@ -27,16 +27,16 @@ export default function ParticipePage() {
           <a href="/propostas">Propostas</a>
           <a href="/noticias">Notícias</a>
         </nav>
-        <a className="headerCta active" href="/participe">Junte-se a nós <span>↗</span></a>
+        <a className="headerCta headerMaterialCta active" href="/participe">Receba nosso material de campanha <span>↗</span></a>
         <MobileMenu />
       </header>
 
-      <h1 className="srOnly">Junte-se a nós</h1>
+      <h1 className="srOnly">Receba nosso material de campanha</h1>
 
       <section className="join" id="participe">
         <div className="joinCopy">
-          <p>Essa caminhada também é sua.</p>
-          <h2>Vamos juntos<br />pelo Paraná.</h2>
+          <p>Materiais para caminhar com o 1020.</p>
+          <h2>Receba nosso material<br />de campanha.</h2>
           <JoinForm turnstileSiteKey={turnstileSiteKey || ""} />
         </div>
         <div className="joinPhoto">
