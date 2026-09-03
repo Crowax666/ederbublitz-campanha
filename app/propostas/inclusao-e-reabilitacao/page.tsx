@@ -95,7 +95,15 @@ export default function PropostaInclusaoEReabilitacao() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img decoding="async" src="/eder-inclusao-aquarela-v1.webp" alt="Eder Bublitz acolhendo uma senhora, em pintura aquarela" loading="eager" fetchPriority="high" />
+          <img
+            decoding="async"
+            src="/eder-inclusao-educacao-aquarela-v2.webp"
+            alt="Eder Bublitz com uma criança com síndrome de Down, em pintura aquarela"
+            width="1123"
+            height="1401"
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
         <div className="bioHeroCopy">
           <ViewTransition name="proposta-tag-inclusao-reabilitacao" share="proposal-label-morph" default="none">

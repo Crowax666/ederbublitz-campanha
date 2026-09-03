@@ -1322,9 +1322,13 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 /* Inclusão e reabilitação: variação sóbria dentro da identidade da campanha */
 .inclusionCard { background:linear-gradient(135deg,#071d33,#0d5145) !important; border-left-color:var(--lime) !important; }
 .inclusionCard .topicProposalTag { color:#c8ef76; }
+.inclusionProposal { max-width:100%; overflow-x:clip; }
+.inclusionProposal .bioHero,
+.inclusionProposal .bioHeroPhoto,
+.inclusionProposal .bioHeroCopy { min-width:0; max-width:100%; }
 .inclusionProposal .bioHeroPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(7,29,51,.52)); pointer-events:none; }
 .inclusionProposal .bioHeroPhoto { background:#f4efe4; }
-.inclusionProposal .bioHeroPhoto img { object-position:center 24%; }
+.inclusionProposal .bioHeroPhoto img { display:block; object-position:center 24%; }
 .inclusionGoals .goalCard:nth-child(odd) { border-top-color:var(--lime); }
 
 /* Campo honeypot (anti-spam) - invisivel visualmente, mas presente no DOM
@@ -1441,6 +1445,10 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .internalPage .bioHeroPhoto img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:var(--mobile-photo-position,50% 18%)!important}
   .internalPage .bioHeroCopy{order:2!important;width:100%!important;margin:0!important;padding:50px 22px 64px!important}
   .internalPage .bioHeroCopy h1{font-size:clamp(40px,11.5vw,58px)!important;line-height:.9!important;overflow-wrap:normal!important;word-break:normal!important}
+  .inclusionProposal .bioHero{width:100%!important;overflow:hidden!important}
+  .inclusionProposal .bioHeroPhoto{overflow:hidden!important}
+  .inclusionProposal .bioHeroCopy{box-sizing:border-box!important;overflow:hidden!important}
+  .inclusionProposal .bioHeroPhoto img{max-width:100%!important;transform:none!important;object-position:50% 18%!important}
 
   /* Final de cada proposta: sem caixa ou moldura branca */
   .internalPage .bioNext{display:flex!important;flex-direction:column!important;min-height:auto!important;padding:62px 22px 0!important;overflow:hidden!important;background:linear-gradient(155deg,var(--green-deep),#0a2930)!important}
