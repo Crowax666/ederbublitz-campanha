@@ -3,7 +3,7 @@ import { SITE_URL } from "../db/seo";
 import { listNews } from "../db/news";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastContentUpdate = new Date("2026-08-30T00:00:00.000Z");
+  const lastContentUpdate = new Date("2026-09-03T00:00:00.000Z");
   const paths = [
     "/",
     "/quem-e-eder",
@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/propostas/banco-de-alimentos",
     "/propostas/agricultura",
     "/propostas/mulheres",
+    "/propostas/inclusao-e-reabilitacao",
     "/privacidade",
     "/transparencia-eleitoral",
   ];

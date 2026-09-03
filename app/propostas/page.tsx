@@ -14,7 +14,7 @@ const pillars = [
 export const metadata = pageMetadata({
   path: "/propostas",
   title: "Propostas de Eder Bublitz para Deputado Federal pelo Paraná | 1020",
-  description: "Conheça as propostas de Eder Bublitz 1020 para representar o Paraná em Brasília, com prioridades em agricultura, educação, segurança alimentar, mulheres e municípios.",
+  description: "Conheça as propostas de Eder Bublitz 1020 para representar o Paraná em Brasília, com prioridades em agricultura, educação, inclusão, reabilitação, segurança alimentar, mulheres e municípios.",
 });
 
 export default function PropostasPage() {
@@ -65,7 +65,7 @@ export default function PropostasPage() {
             <ViewTransition name="proposta-titulo-educacao" share="proposal-title-morph" default="none">
               <h3>Educação de qualidade é direito, não privilégio.</h3>
             </ViewTransition>
-            <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
+            <p>7 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar, inclusão e mais.</p>
             <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
           </Link>
           <Link className="topicProposalCard" href="/propostas/banco-de-alimentos">
@@ -96,6 +96,16 @@ export default function PropostasPage() {
               <h3>A força da mulher: protagonismo, capacitação e voz.</h3>
             </ViewTransition>
             <p>Comitê de Mulheres da Ceasa, Embaixadoras, Selo ABNT de Igualdade e apoio às mulheres do campo.</p>
+            <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
+          </Link>
+          <Link className="topicProposalCard inclusionCard" href="/propostas/inclusao-e-reabilitacao">
+            <ViewTransition name="proposta-tag-inclusao-reabilitacao" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Pessoas com deficiência</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-inclusao-reabilitacao" share="proposal-title-morph" default="none">
+              <h3>Inclusão, reabilitação e autonomia para quem mais precisa.</h3>
+            </ViewTransition>
+            <p>Educação especializada, transporte acessível, reabilitação pelo SUS, paradesporto e mais CERs no Paraná.</p>
             <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
           </Link>
         </div>

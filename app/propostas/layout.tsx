@@ -20,6 +20,7 @@ export default function PropostasLayout({ children }: { children: React.ReactNod
           { "@id": `${SITE_URL}/propostas/banco-de-alimentos#webpage` },
           { "@id": `${SITE_URL}/propostas/agricultura#webpage` },
           { "@id": `${SITE_URL}/propostas/mulheres#webpage` },
+          { "@id": `${SITE_URL}/propostas/inclusao-e-reabilitacao#webpage` },
         ],
       },
       {

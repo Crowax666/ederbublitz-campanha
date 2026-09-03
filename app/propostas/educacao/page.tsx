@@ -71,12 +71,22 @@ const goals = [
       "Garantir transparência na aplicação dos recursos.",
     ],
   },
+  {
+    number: "07",
+    title: "Educação Especializada e Inclusiva",
+    objective: "Ampliar o apoio às escolas especializadas e garantir que os estudantes tenham condições de chegar, permanecer e aprender.",
+    metas: [
+      "Fortalecer a Conab e articular programas federais de abastecimento e segurança alimentar para ampliar o apoio às escolas especializadas.",
+      "Articular recursos federais para viabilizar transporte escolar acessível aos estudantes de escolas especializadas no Paraná.",
+      "Promover inclusão, acessibilidade e respeito às necessidades de cada estudante.",
+    ],
+  },
 ];
 
 export const metadata = pageMetadata({
   path: "/propostas/educacao",
   title: "Educação — Propostas de Eder Bublitz 1020",
-  description: "Plano de metas de Eder Bublitz para a educação: cooperativas, valorização dos profissionais, alimentação escolar e mais.",
+  description: "Plano de metas de Eder Bublitz para a educação: cooperativas, valorização dos profissionais, alimentação escolar, inclusão e apoio às escolas especializadas.",
 });
 
 export default function PropostaEducacao() {
@@ -110,10 +120,10 @@ export default function PropostaEducacao() {
           </ViewTransition>
           <p>Minha trajetória como gestor público me ensinou: educação é o alicerce de qualquer sociedade que almeja progresso. Viajei por continentes e observei uma verdade cristalina — cidades que investem em educação prosperam.</p>
           <div className="bioFacts">
-            <span><b>6</b>Frentes de atuação</span>
+            <span><b>7</b>Frentes de atuação</span>
             <span><b>Brasília</b>Onde as metas viram lei</span>
           </div>
-          <a href="#metas">Conheça as 6 metas <span>↓</span></a>
+          <a href="#metas">Conheça as 7 metas <span>↓</span></a>
         </div>
       </section>
 
@@ -123,7 +133,7 @@ export default function PropostaEducacao() {
           <h2>Experiência que<br /><span>vira política pública.</span></h2>
         </div>
         <div className="bioStoryText">
-          <p className="bioLead">Os seis compromissos que apresento não são promessas vazias — são ações fundamentadas em experiência. Porém, para materializá-los em políticas públicas concretas, é necessário estar em Brasília.</p>
+          <p className="bioLead">Os sete compromissos que apresento não são promessas vazias — são ações fundamentadas em experiência. Porém, para materializá-los em políticas públicas concretas, é necessário estar em Brasília.</p>
           <p>Um deputado federal possui ferramentas legislativas que permitem influenciar políticas educacionais em escala nacional. Não venho oferecer soluções mágicas. Venho oferecer experiência comprovada e compromisso inabalável com transparência. Serei um parceiro de verdade — um deputado que age.</p>
           <p>Curitiba pode ser referência nacional em educação. Seus educadores merecem reconhecimento. Seus estudantes merecem oportunidades reais. Mas isso exige decisão política e representação competente em Brasília.</p>
           <blockquote>"Convido-vos a acreditar em uma educação melhor e a apoiar essa jornada. Juntos, construiremos uma educação que forme cidadãos conscientes e preparados para prosperar."</blockquote>
@@ -144,7 +154,7 @@ export default function PropostaEducacao() {
         <div className="goalsHeading">
           <p className="sectionLabel">Plano de metas para a educação</p>
           <h2>Gestão, valorização<br />e <span>inclusão.</span></h2>
-          <p>Seis frentes concretas, cada uma com metas objetivas para levar a Brasília.</p>
+          <p>Sete frentes concretas, cada uma com metas objetivas para levar a Brasília.</p>
         </div>
         <div className="goalsGrid">
           {goals.map((goal) => (

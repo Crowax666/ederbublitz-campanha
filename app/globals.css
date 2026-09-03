@@ -1319,6 +1319,13 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .agricultureGoals .goalCard:nth-child(1), .agricultureGoals .goalCard:nth-child(4) { border-top-color:var(--lime); }
 .agricultureGoals .goalCard:nth-child(2), .agricultureGoals .goalCard:nth-child(3) { border-top-color:var(--yellow); }
 
+/* Inclusão e reabilitação: variação sóbria dentro da identidade da campanha */
+.inclusionCard { background:linear-gradient(135deg,#071d33,#0d5145) !important; border-left-color:var(--lime) !important; }
+.inclusionCard .topicProposalTag { color:#c8ef76; }
+.inclusionProposal .bioHeroPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(7,29,51,.52)); pointer-events:none; }
+.inclusionProposal .bioPhotoTag { z-index:2; }
+.inclusionGoals .goalCard:nth-child(odd) { border-top-color:var(--lime); }
+
 /* Campo honeypot (anti-spam) - invisivel visualmente, mas presente no DOM
    pra bots preencherem (usuarios reais nunca veem nem preenchem) */
 .formTrap { position:absolute !important; width:1px !important; height:1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; }
