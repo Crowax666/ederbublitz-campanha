@@ -1,3 +1,5 @@
+import EditorialReveal from "../EditorialReveal";
+
 const SITE_URL = "https://ederbublitz.com.br";
 
 export default function PropostasLayout({ children }: { children: React.ReactNode }) {
@@ -33,6 +35,7 @@ export default function PropostasLayout({ children }: { children: React.ReactNod
 
   return (
     <>
+      <EditorialReveal />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
       {children}
     </>

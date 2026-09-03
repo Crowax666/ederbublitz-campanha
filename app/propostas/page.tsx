@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ViewTransition } from "react";
 import MobileMenu from "../MobileMenu";
 import LegalFooter from "../LegalFooter";
 import { pageMetadata } from "../../db/seo";
@@ -56,30 +58,46 @@ export default function PropostasPage() {
           <h2>Compromissos<br /><span>detalhados.</span></h2>
         </div>
         <div className="topicProposalsList">
-          <a className="topicProposalCard" href="/propostas/educacao">
-            <span className="topicProposalTag">Educação</span>
-            <h3>Educação de qualidade é direito, não privilégio.</h3>
+          <Link className="topicProposalCard" href="/propostas/educacao">
+            <ViewTransition name="proposta-tag-educacao" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Educação</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-educacao" share="proposal-title-morph" default="none">
+              <h3>Educação de qualidade é direito, não privilégio.</h3>
+            </ViewTransition>
             <p>6 metas concretas: cooperativas da educação, valorização dos profissionais, alimentação escolar e mais.</p>
             <span className="topicProposalCta">Conheça o plano completo <span>→</span></span>
-          </a>
-          <a className="topicProposalCard" href="/propostas/banco-de-alimentos">
-            <span className="topicProposalTag">Banco de Alimentos</span>
-            <h3>Luta contra o desperdício: 7,3 milhões de quilos por ano.</h3>
+          </Link>
+          <Link className="topicProposalCard" href="/propostas/banco-de-alimentos">
+            <ViewTransition name="proposta-tag-banco-alimentos" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Banco de Alimentos</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-banco-alimentos" share="proposal-title-morph" default="none">
+              <h3>Luta contra o desperdício: 7,3 milhões de quilos por ano.</h3>
+            </ViewTransition>
             <p>Ouro no Stevie Awards, Melhor Gestor do Ano pela WUWM e 160 mil pessoas atendidas todo mês no Paraná.</p>
             <span className="topicProposalCta">Conheça o programa <span>→</span></span>
-          </a>
-          <a className="topicProposalCard agricultureCard" href="/propostas/agricultura">
-            <span className="topicProposalTag">Agricultura</span>
-            <h3>Valorização e dignidade para o pequeno produtor.</h3>
+          </Link>
+          <Link className="topicProposalCard agricultureCard" href="/propostas/agricultura">
+            <ViewTransition name="proposta-tag-agricultura" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Agricultura</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-agricultura" share="proposal-title-morph" default="none">
+              <h3>Valorização e dignidade para o pequeno produtor.</h3>
+            </ViewTransition>
             <p>Tecnologia, crédito justo, seguro rural e cooperativas para fortalecer quem produz.</p>
             <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
-          </a>
-          <a className="topicProposalCard" href="/propostas/mulheres">
-            <span className="topicProposalTag">Mulheres</span>
-            <h3>A força da mulher: protagonismo, capacitação e voz.</h3>
+          </Link>
+          <Link className="topicProposalCard" href="/propostas/mulheres">
+            <ViewTransition name="proposta-tag-mulheres" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Mulheres</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-mulheres" share="proposal-title-morph" default="none">
+              <h3>A força da mulher: protagonismo, capacitação e voz.</h3>
+            </ViewTransition>
             <p>Comitê de Mulheres da Ceasa, Embaixadoras, Selo ABNT de Igualdade e apoio às mulheres do campo.</p>
             <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
-          </a>
+          </Link>
         </div>
       </section>
 

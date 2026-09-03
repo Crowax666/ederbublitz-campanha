@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
 import FloatingActions from "../../FloatingActions";
@@ -76,8 +77,12 @@ export default function PropostaMulheres() {
           <span className="bioPhotoTag">Protagonismo Feminino</span>
         </div>
         <div className="bioHeroCopy">
-          <p className="sectionLabel">Proposta • Mulheres</p>
-          <h1>A força<br /><span>da mulher.</span></h1>
+          <ViewTransition name="proposta-tag-mulheres" share="proposal-label-morph" default="none">
+            <p className="sectionLabel">Proposta • Mulheres</p>
+          </ViewTransition>
+          <ViewTransition name="proposta-titulo-mulheres" share="proposal-title-morph" default="none">
+            <h1>A força<br /><span>da mulher.</span></h1>
+          </ViewTransition>
           <p>Quando olhamos para a Ceasa Paraná, vemos muito mais do que números e movimentação de mercadorias. Vemos mulheres que acordam cedo, que trabalham duro, que alimentam suas famílias e ajudam a alimentar o estado inteiro. Essas mulheres merecem ter sua força reconhecida e celebrada.</p>
           <div className="bioFacts">
             <span><b>4</b>Frentes de atuação</span>

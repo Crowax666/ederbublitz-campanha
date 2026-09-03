@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 type RevealGroup = {
   selector: string;
@@ -14,9 +15,19 @@ const revealGroups: RevealGroup[] = [
   { selector: ".homeOriginal .visionCopy > *", variant: "text", step: 70 },
   { selector: ".homeOriginal .joinCopy > p, .homeOriginal .joinCopy > h2, .homeOriginal .joinCopy > .joinForm", variant: "text", step: 70 },
   { selector: ".homeOriginal .congress > img, .homeOriginal .visionPhoto, .homeOriginal .joinPhoto", variant: "photo", step: 0 },
+  { selector: ".internalPage .pageIntro > *", variant: "text", step: 65 },
+  { selector: ".internalPage .pillars > article", variant: "card", step: 75 },
+  { selector: ".internalPage .topicProposalsHeading > *", variant: "text", step: 65 },
+  { selector: ".internalPage .topicProposalCard", variant: "card", step: 75 },
+  { selector: ".internalPage .bioHeroPhoto", variant: "photo", step: 0 },
+  { selector: ".internalPage .bioHeroCopy > *", variant: "text", step: 55 },
+  { selector: ".internalPage .goalsHeading > *", variant: "text", step: 55 },
+  { selector: ".internalPage .goalCard", variant: "card", step: 60 },
 ];
 
 export default function EditorialReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -61,7 +72,7 @@ export default function EditorialReveal() {
         element.style.removeProperty("--reveal-delay");
       });
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

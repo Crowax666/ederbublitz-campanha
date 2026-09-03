@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
 import { pageMetadata } from "../../../db/seo";
@@ -82,8 +83,12 @@ export default function PropostaAgricultura() {
           <span className="bioPhotoTag">Agricultura • Paraná</span>
         </div>
         <div className="bioHeroCopy">
-          <p className="sectionLabel">Proposta • Agricultura</p>
-          <h1>Valorização e dignidade<br /><span>para o pequeno produtor.</span></h1>
+          <ViewTransition name="proposta-tag-agricultura" share="proposal-label-morph" default="none">
+            <p className="sectionLabel">Proposta • Agricultura</p>
+          </ViewTransition>
+          <ViewTransition name="proposta-titulo-agricultura" share="proposal-title-morph" default="none">
+            <h1>Valorização e dignidade<br /><span>para o pequeno produtor.</span></h1>
+          </ViewTransition>
           <p>Segurança alimentar começa com quem produz comida de verdade. O pequeno produtor não quer favor: precisa de condições para produzir e vender com dignidade e autonomia.</p>
           <div className="bioFacts">
             <span><b>4</b>Pilares de transformação</span>

@@ -1276,6 +1276,22 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .topicProposalCard p { margin:0 0 18px; color:rgba(255,255,255,.68); font-size:14px; line-height:1.6; max-width:600px; }
 .topicProposalCta { display:inline-flex; align-items:center; gap:10px; color:var(--yellow); font-size:11px; font-weight:900; letter-spacing:.5px; text-transform:uppercase; }
 
+/* Continuidade visual ao abrir uma proposta: somente rótulo e título se
+   deslocam entre as rotas, mantendo a navegação leve e legível. */
+::view-transition-group(.proposal-title-morph) {
+  animation-duration:.42s;
+  animation-timing-function:cubic-bezier(.22,.8,.32,1);
+}
+::view-transition-group(.proposal-label-morph) {
+  animation-duration:.34s;
+  animation-timing-function:cubic-bezier(.22,.8,.32,1);
+}
+::view-transition-image-pair(.proposal-title-morph),
+::view-transition-image-pair(.proposal-label-morph) {
+  isolation:auto;
+}
+::view-transition { pointer-events:none; }
+
 @media (max-width:900px) {
   .topicProposals { padding:0 6vw 70px; }
   .topicProposalsList { grid-template-columns:1fr; }
@@ -1706,6 +1722,12 @@ html.editorial-reveal-ready [data-editorial-reveal].is-visible {
   html.editorial-reveal-ready [data-editorial-reveal] {
     opacity:1!important;
     transform:none!important;
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration:0s!important;
+    animation-delay:0s!important;
   }
 }
 

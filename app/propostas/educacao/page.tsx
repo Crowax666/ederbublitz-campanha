@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import MobileMenu from "../../MobileMenu";
 import LegalFooter from "../../LegalFooter";
 import { pageMetadata } from "../../../db/seo";
@@ -101,8 +102,12 @@ export default function PropostaEducacao() {
           <img decoding="async" src="/eder-campanha.jpg" alt="Eder Bublitz sorrindo, de braços cruzados" loading="eager" fetchPriority="high" />
         </div>
         <div className="bioHeroCopy">
-          <p className="sectionLabel">Proposta • Educação</p>
-          <h1>Educação de qualidade<br /><span>é direito, não privilégio.</span></h1>
+          <ViewTransition name="proposta-tag-educacao" share="proposal-label-morph" default="none">
+            <p className="sectionLabel">Proposta • Educação</p>
+          </ViewTransition>
+          <ViewTransition name="proposta-titulo-educacao" share="proposal-title-morph" default="none">
+            <h1>Educação de qualidade<br /><span>é direito, não privilégio.</span></h1>
+          </ViewTransition>
           <p>Minha trajetória como gestor público me ensinou: educação é o alicerce de qualquer sociedade que almeja progresso. Viajei por continentes e observei uma verdade cristalina — cidades que investem em educação prosperam.</p>
           <div className="bioFacts">
             <span><b>6</b>Frentes de atuação</span>
