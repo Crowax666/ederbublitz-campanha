@@ -1326,8 +1326,18 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .inclusionProposal .bioHero,
 .inclusionProposal .bioHeroPhoto,
 .inclusionProposal .bioHeroCopy { min-width:0; max-width:100%; }
-.inclusionProposal .bioHeroPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(7,29,51,.52)); pointer-events:none; }
-.inclusionProposal .bioHeroPhoto { background:#f4efe4; }
+.inclusionProposal .bioHero { background:linear-gradient(135deg,#0d5145 0%,#082f35 42%,#071d33 74%); }
+.inclusionProposal .bioHeroPhoto { isolation:isolate; background:#f4efe4; }
+.inclusionProposal .bioHeroPhoto:after {
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(7,29,51,.08) 0%,transparent 18%,transparent 54%,rgba(7,29,51,.34) 76%,#071d33 100%),
+    linear-gradient(0deg,#071d33 0%,rgba(13,81,69,.72) 9%,rgba(13,81,69,.24) 27%,transparent 52%);
+  pointer-events:none;
+}
 .inclusionProposal .bioHeroPhoto img { display:block; object-position:center 24%; }
 .inclusionGoals .goalCard:nth-child(odd) { border-top-color:var(--lime); }
 
@@ -1449,6 +1459,12 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
   .inclusionProposal .bioHeroPhoto{overflow:hidden!important}
   .inclusionProposal .bioHeroCopy{box-sizing:border-box!important;overflow:hidden!important}
   .inclusionProposal .bioHeroPhoto img{max-width:100%!important;transform:none!important;object-position:50% 18%!important}
+  .inclusionProposal .bioHeroPhoto:after{
+    background:
+      linear-gradient(90deg,rgba(7,29,51,.16) 0%,transparent 16%,transparent 84%,rgba(7,29,51,.16) 100%),
+      linear-gradient(0deg,#071d33 0%,rgba(13,81,69,.88) 10%,rgba(13,81,69,.38) 27%,transparent 54%)!important;
+  }
+  .inclusionProposal .bioHeroCopy{background:linear-gradient(180deg,#071d33 0%,#082f35 58%,#071d33 100%)!important}
 
   /* Final de cada proposta: sem caixa ou moldura branca */
   .internalPage .bioNext{display:flex!important;flex-direction:column!important;min-height:auto!important;padding:62px 22px 0!important;overflow:hidden!important;background:linear-gradient(155deg,var(--green-deep),#0a2930)!important}
