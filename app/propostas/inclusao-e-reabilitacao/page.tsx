@@ -95,8 +95,7 @@ export default function PropostaInclusaoEReabilitacao() {
 
       <section className="bioHero">
         <div className="bioHeroPhoto">
-          <img decoding="async" src="/eder-quem-e-portrait.jpg" alt="Eder Bublitz sorrindo" loading="eager" fetchPriority="high" />
-          <span className="bioPhotoTag">Cuidado • Inclusão • Autonomia</span>
+          <img decoding="async" src="/eder-inclusao-aquarela-v1.webp" alt="Eder Bublitz acolhendo uma senhora, em pintura aquarela" loading="eager" fetchPriority="high" />
         </div>
         <div className="bioHeroCopy">
           <ViewTransition name="proposta-tag-inclusao-reabilitacao" share="proposal-label-morph" default="none">

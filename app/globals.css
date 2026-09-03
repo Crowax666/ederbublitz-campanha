@@ -1323,7 +1323,8 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 .inclusionCard { background:linear-gradient(135deg,#071d33,#0d5145) !important; border-left-color:var(--lime) !important; }
 .inclusionCard .topicProposalTag { color:#c8ef76; }
 .inclusionProposal .bioHeroPhoto:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(7,29,51,.52)); pointer-events:none; }
-.inclusionProposal .bioPhotoTag { z-index:2; }
+.inclusionProposal .bioHeroPhoto { background:#f4efe4; }
+.inclusionProposal .bioHeroPhoto img { object-position:center 24%; }
 .inclusionGoals .goalCard:nth-child(odd) { border-top-color:var(--lime); }
 
 /* Campo honeypot (anti-spam) - invisivel visualmente, mas presente no DOM
