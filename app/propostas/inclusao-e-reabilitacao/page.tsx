@@ -97,7 +97,7 @@ export default function PropostaInclusaoEReabilitacao() {
         <div className="bioHeroPhoto">
           <img
             decoding="async"
-            src="/eder-inclusao-educacao-aquarela-v2.webp"
+            src="/eder-inclusao-educacao-aquarela-sem-logo.webp"
             alt="Eder Bublitz com uma criança com síndrome de Down, em pintura aquarela"
             width="1123"
             height="1401"
