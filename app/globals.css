@@ -1260,8 +1260,66 @@ a:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
 
 @media (max-width:900px) {
   .propostaQuote { padding:80px 6vw; }
-  .goalsSection { padding:70px 6vw 90px; }
-  .goalsGrid { grid-template-columns:1fr; }
+  .goalsSection {
+    padding:70px 6vw 90px;
+    background:linear-gradient(180deg,#eef2ef 0%,#f7f8f5 48%,#e9efeb 100%);
+  }
+  .goalsGrid { grid-template-columns:1fr; gap:20px; }
+  .goalCard {
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    padding:27px 22px 24px;
+    opacity:1;
+    background:linear-gradient(145deg,#fff 0%,#f8faf8 100%);
+    border:1px solid rgba(7,29,51,.15);
+    border-top:6px solid var(--orange);
+    border-radius:16px;
+    box-shadow:0 18px 38px rgba(7,29,51,.14),0 2px 0 rgba(255,255,255,.9) inset;
+    filter:none;
+  }
+  .goalCard:after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:-72px;
+    right:-66px;
+    width:150px;
+    height:150px;
+    border:1px solid rgba(243,107,33,.16);
+    border-radius:50%;
+    box-shadow:0 0 0 24px rgba(243,107,33,.025),0 0 0 48px rgba(13,81,69,.02);
+    pointer-events:none;
+  }
+  .goalCard:hover { transform:none; box-shadow:0 18px 38px rgba(7,29,51,.14),0 2px 0 rgba(255,255,255,.9) inset; }
+  .goalCard > span {
+    display:inline-flex;
+    align-items:center;
+    min-height:28px;
+    padding:0 11px;
+    color:var(--yellow);
+    background:var(--navy);
+    border-radius:999px;
+    font-size:11px;
+    letter-spacing:.7px;
+  }
+  .goalCard h3 { margin:18px 0 11px; color:var(--navy); font-size:24px; line-height:1.04; }
+  .goalCard .goalObjective { margin-bottom:17px; color:#35483f; font-size:14px; line-height:1.58; }
+  .goalCard ul {
+    gap:10px;
+    margin:0;
+    padding:17px 16px;
+    background:rgba(13,81,69,.055);
+    border:1px solid rgba(13,81,69,.1);
+    border-radius:11px;
+  }
+  .goalCard li { padding-left:18px; color:#2f4138; font-size:13px; line-height:1.52; }
+  .goalCard li:before { top:7px; width:7px; height:7px; background:var(--orange); border-radius:50%; }
+  .agricultureGoals .goalCard:nth-child(1),
+  .agricultureGoals .goalCard:nth-child(4),
+  .inclusionGoals .goalCard:nth-child(odd) { border-top-color:var(--lime); }
+  .agricultureGoals .goalCard:nth-child(2),
+  .agricultureGoals .goalCard:nth-child(3) { border-top-color:var(--yellow); }
 }
 
 .topicProposals { padding:0 7vw 110px; }
