@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
 
 export default function PropostasPage() {
   return (
-    <main className="internalPage" id="top">
+    <main className="internalPage proposalsPage" id="top">
       <header className="siteHeader internalHeader">
         <a className="brand" href="/" aria-label="Eder Bublitz — início">
           <span className="headerWordmark">Eder Bublitz<small>Deputado Federal</small></span>
