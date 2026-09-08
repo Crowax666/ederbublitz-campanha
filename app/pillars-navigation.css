@@ -1,0 +1,113 @@
+/* Commitment cards — make the promise functional, not decorative. */
+
+.pillars article {
+  position: relative;
+}
+
+.pillars article > a {
+  position: absolute !important;
+  z-index: 8 !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  font-size: 0 !important;
+  transform: none !important;
+}
+
+.pillars article > a::before {
+  content: "→" !important;
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--navy);
+  background: var(--yellow);
+  border: 1px solid rgba(7,29,51,.08);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(7,29,51,.10);
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.pillars article > a::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 34px;
+  bottom: 39px;
+  color: currentColor;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .85px;
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: .58;
+}
+
+.pillars article:nth-child(2) > a::after {
+  color: #fff;
+  opacity: .68;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .pillars article:has(> a:hover) {
+    transform: translateY(-5px);
+  }
+
+  .pillars article > a:hover::before {
+    transform: translate(2px,-2px);
+    background: #ffc743;
+    box-shadow: 0 14px 28px rgba(7,29,51,.15);
+  }
+}
+
+.pillars article > a:focus-visible {
+  outline: 3px solid var(--yellow) !important;
+  outline-offset: 5px !important;
+}
+
+#frentes-sociais {
+  scroll-margin-top: 92px;
+}
+
+@media (max-width:800px) {
+  .pillars article {
+    padding-bottom: 64px !important;
+  }
+
+  .pillars article > a::before {
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .pillars article > a::after {
+    left: 25px;
+    bottom: 31px;
+    max-width: calc(100% - 98px);
+    overflow: hidden;
+    font-size: 8px;
+    letter-spacing: .7px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width:380px) {
+  .pillars article > a::after {
+    left: 22px;
+  }
+}
