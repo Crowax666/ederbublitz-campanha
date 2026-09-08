@@ -1,0 +1,211 @@
+/* Home pillars polish — editorial, lighter, consistent with the campaign design system. */
+
+.homeOriginal .pillars {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(89,186,71,.08), transparent 30%),
+    linear-gradient(180deg, #f5f4ef 0%, #eef1ec 100%);
+}
+
+.homeOriginal .pillars::before {
+  content: "TRÊS COMPROMISSOS. UMA SÓ DIREÇÃO.";
+  position: absolute;
+  top: 42px;
+  left: 7vw;
+  color: var(--green-deep);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
+  opacity: .74;
+}
+
+.homeOriginal .pillars article {
+  min-height: 330px;
+  padding: 34px 78px 34px 34px;
+  color: var(--navy);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(7,29,51,.08);
+  border-radius: 24px;
+  box-shadow: 0 16px 42px rgba(7,29,51,.08);
+  backdrop-filter: blur(10px);
+}
+
+.homeOriginal .pillars article:nth-child(2) {
+  color: #fff;
+  background: linear-gradient(145deg, #0c2b3e 0%, var(--green-deep) 100%);
+  border-color: rgba(255,255,255,.08);
+  box-shadow: 0 20px 48px rgba(7,29,51,.16);
+}
+
+.homeOriginal .pillars article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--orange), var(--yellow));
+}
+
+.homeOriginal .pillars article::after {
+  width: 168px;
+  height: 168px;
+  top: -98px;
+  right: -94px;
+  border-color: rgba(25,75,54,.10);
+  box-shadow: 0 0 0 28px rgba(25,75,54,.025), 0 0 0 56px rgba(25,75,54,.014);
+}
+
+.homeOriginal .pillars article:nth-child(2)::after {
+  border-color: rgba(255,181,27,.20);
+  box-shadow: 0 0 0 28px rgba(255,181,27,.035), 0 0 0 56px rgba(255,181,27,.018);
+}
+
+.homeOriginal .pillars article > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 30px;
+  padding: 0 11px;
+  color: var(--green-deep);
+  background: rgba(25,75,54,.08);
+  border: 1px solid rgba(25,75,54,.10);
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+
+.homeOriginal .pillars article:nth-child(2) > span {
+  color: var(--navy);
+  background: var(--yellow);
+  border-color: transparent;
+}
+
+.homeOriginal .pillars h3 {
+  max-width: 285px;
+  margin: 62px 0 18px;
+  color: inherit;
+  font-size: clamp(28px, 2.25vw, 36px);
+  line-height: .96;
+  letter-spacing: -1.25px;
+}
+
+.homeOriginal .pillars p {
+  max-width: 300px;
+  color: #53655c;
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+.homeOriginal .pillars article:nth-child(2) p {
+  color: rgba(255,255,255,.72);
+}
+
+.homeOriginal .pillars article a {
+  right: 26px;
+  bottom: 28px;
+  width: 48px;
+  height: 48px;
+  color: var(--navy);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(7,29,51,.12);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+.homeOriginal .pillars article:nth-child(2) a {
+  background: var(--yellow);
+  border-color: transparent;
+}
+
+.homeOriginal .pillars article a::before {
+  content: "→";
+  font-size: 21px;
+  font-weight: 900;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .homeOriginal .pillars article:hover {
+    transform: translateY(-6px);
+    border-color: rgba(7,29,51,.14);
+    box-shadow: 0 24px 54px rgba(7,29,51,.12);
+  }
+  .homeOriginal .pillars article:nth-child(2):hover {
+    box-shadow: 0 28px 60px rgba(7,29,51,.22);
+  }
+  .homeOriginal .pillars article a:hover {
+    transform: translate(2px,-2px);
+    background: var(--yellow);
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 800px) {
+  .homeOriginal .pillars {
+    padding: 86px 18px 64px;
+    gap: 16px;
+    background: linear-gradient(180deg, #f6f5f0 0%, #edf0eb 100%);
+  }
+
+  .homeOriginal .pillars::before {
+    top: 38px;
+    left: 20px;
+    right: 20px;
+    font-size: 9px;
+    letter-spacing: 1.45px;
+  }
+
+  .homeOriginal .pillars article {
+    min-height: 0;
+    padding: 25px 72px 26px 25px;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(7,29,51,.08);
+  }
+
+  .homeOriginal .pillars article:nth-child(2) {
+    box-shadow: 0 16px 34px rgba(7,29,51,.16);
+  }
+
+  .homeOriginal .pillars article::before {
+    width: 4px;
+  }
+
+  .homeOriginal .pillars article > span {
+    min-width: 38px;
+    height: 26px;
+    padding: 0 9px;
+    font-size: 9px;
+  }
+
+  .homeOriginal .pillars h3 {
+    max-width: 245px;
+    margin: 28px 0 13px;
+    font-size: 27px;
+    line-height: .98;
+  }
+
+  .homeOriginal .pillars p {
+    max-width: 270px;
+    margin-bottom: 2px;
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  .homeOriginal .pillars article a {
+    right: 18px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .homeOriginal .pillars {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+  .homeOriginal .pillars::before { left: 16px; right: 16px; }
+  .homeOriginal .pillars article { padding-left: 22px; }
+  .homeOriginal .pillars h3 { font-size: 25px; }
+}
