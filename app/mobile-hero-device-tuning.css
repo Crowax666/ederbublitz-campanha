@@ -131,34 +131,34 @@
     text-transform:uppercase !important;
   }
 
-  /* Campaign number closes the image near the lower edge. */
+  /* 1020 is the primary electoral signature on mobile. */
   .homeOriginal .mobileNumber {
     position:absolute !important;
     z-index:6 !important;
     top:auto !important;
     left:18px !important;
     right:auto !important;
-    bottom:20px !important;
-    width:min(51vw,225px) !important;
+    bottom:17px !important;
+    width:min(58vw,258px) !important;
     max-width:none !important;
     height:auto !important;
     transform:none !important;
     filter:drop-shadow(0 8px 17px rgba(0,0,0,.14)) !important;
   }
 
-  /* Party logo stays on the right, clear of the floating WhatsApp button. */
+  /* Party mark becomes a discreet institutional seal. */
   .homeOriginal .mobileHeroFooter {
     position:absolute !important;
     z-index:7 !important;
     right:92px !important;
     left:auto !important;
-    bottom:23px !important;
+    bottom:22px !important;
   }
 
   .homeOriginal .mobileHeroFooter .partyLogo {
-    width:82px !important;
+    width:58px !important;
     height:auto !important;
-    opacity:.96 !important;
+    opacity:.92 !important;
   }
 }
 
@@ -173,9 +173,9 @@
   .homeOriginal .mobileHeroCopy > p { font-size:6.8px !important; letter-spacing:1px !important; }
   .homeOriginal .mobileHeroCopy > a { min-height:37px !important; padding:0 11px !important; font-size:7.6px !important; }
   .homeOriginal .mobilePortrait { object-position:23% center !important; }
-  .homeOriginal .mobileNumber { top:auto !important; left:13px !important; bottom:17px !important; width:min(53vw,184px) !important; transform:none !important; }
-  .homeOriginal .mobileHeroFooter { right:82px !important; bottom:20px !important; }
-  .homeOriginal .mobileHeroFooter .partyLogo { width:72px !important; }
+  .homeOriginal .mobileNumber { top:auto !important; left:13px !important; bottom:15px !important; width:min(60vw,210px) !important; transform:none !important; }
+  .homeOriginal .mobileHeroFooter { right:82px !important; bottom:19px !important; }
+  .homeOriginal .mobileHeroFooter .partyLogo { width:50px !important; }
 }
 
 /* Standard iPhones: 361–390 px. */
@@ -187,9 +187,9 @@
   }
   .homeOriginal .mobileHeroCopy h1 { font-size:clamp(23px,7.1vw,31px) !important; }
   .homeOriginal .mobilePortrait { object-position:24% center !important; }
-  .homeOriginal .mobileNumber { top:auto !important; left:15px !important; bottom:18px !important; width:min(52vw,202px) !important; transform:none !important; }
-  .homeOriginal .mobileHeroFooter { right:87px !important; bottom:21px !important; }
-  .homeOriginal .mobileHeroFooter .partyLogo { width:77px !important; }
+  .homeOriginal .mobileNumber { top:auto !important; left:15px !important; bottom:16px !important; width:min(58vw,226px) !important; transform:none !important; }
+  .homeOriginal .mobileHeroFooter { right:87px !important; bottom:20px !important; }
+  .homeOriginal .mobileHeroFooter .partyLogo { width:52px !important; }
 }
 
 /* 391–430 px: iPhone Pro/Pro Max and tall Androids. */
@@ -201,9 +201,9 @@
   }
   .homeOriginal .mobileHeroCopy h1 { font-size:clamp(25px,6.9vw,33px) !important; }
   .homeOriginal .mobilePortrait { object-position:26% center !important; }
-  .homeOriginal .mobileNumber { top:auto !important; left:18px !important; bottom:20px !important; width:min(49vw,216px) !important; transform:none !important; }
-  .homeOriginal .mobileHeroFooter { right:94px !important; bottom:23px !important; }
-  .homeOriginal .mobileHeroFooter .partyLogo { width:82px !important; }
+  .homeOriginal .mobileNumber { top:auto !important; left:18px !important; bottom:17px !important; width:min(60vw,258px) !important; transform:none !important; }
+  .homeOriginal .mobileHeroFooter { right:94px !important; bottom:21px !important; }
+  .homeOriginal .mobileHeroFooter .partyLogo { width:56px !important; }
 }
 
 /* Wider mobile screens / large Androids. */
@@ -217,9 +217,9 @@
   .homeOriginal .mobileHeroCopy h1 { font-size:clamp(28px,6vw,38px) !important; }
   .homeOriginal .mobileHeroCopy > a { min-height:42px !important; font-size:8.8px !important; }
   .homeOriginal .mobilePortrait { object-position:28% center !important; }
-  .homeOriginal .mobileNumber { top:auto !important; left:23px !important; bottom:23px !important; width:min(44vw,240px) !important; transform:none !important; }
-  .homeOriginal .mobileHeroFooter { right:102px !important; bottom:26px !important; }
-  .homeOriginal .mobileHeroFooter .partyLogo { width:90px !important; }
+  .homeOriginal .mobileNumber { top:auto !important; left:23px !important; bottom:20px !important; width:min(54vw,280px) !important; transform:none !important; }
+  .homeOriginal .mobileHeroFooter { right:102px !important; bottom:24px !important; }
+  .homeOriginal .mobileHeroFooter .partyLogo { width:62px !important; }
 }
 
 @media (prefers-reduced-motion:reduce) {
