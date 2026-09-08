@@ -1,0 +1,320 @@
+/* Paraná em frente — editorial full-bleed treatment for the home. */
+
+.homeOriginal .vision {
+  position: relative;
+  isolation: isolate;
+  min-height: 780px;
+  display: grid;
+  grid-template-columns: minmax(0,58%) minmax(360px,42%);
+  overflow: hidden;
+  color: #fff;
+  background: var(--navy) !important;
+}
+
+.homeOriginal .vision::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(89,186,71,.10), transparent 28%),
+    linear-gradient(180deg, rgba(255,181,27,.035), transparent 26%);
+  pointer-events: none;
+}
+
+.homeOriginal .visionPhoto {
+  position: relative;
+  order: 0;
+  min-height: 780px;
+  overflow: hidden;
+}
+
+.homeOriginal .visionPhoto::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,29,51,.34) 0%, rgba(7,29,51,0) 22%, rgba(7,29,51,0) 64%, rgba(7,29,51,.54) 100%);
+  pointer-events: none;
+}
+
+.homeOriginal .visionPhoto::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7,29,51,.02) 0%, rgba(7,29,51,.02) 48%, rgba(7,29,51,.58) 76%, var(--navy) 100%),
+    linear-gradient(0deg, rgba(7,29,51,.44) 0%, transparent 36%);
+  pointer-events: none;
+}
+
+.homeOriginal .visionPhoto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 780px;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: saturate(.88) contrast(1.045) brightness(.98);
+  transform: scale(1.012);
+}
+
+.homeOriginal .visionPhoto > span {
+  position: absolute;
+  z-index: 4;
+  right: auto;
+  left: 5vw;
+  bottom: 58px;
+  text-align: left;
+  color: rgba(255,255,255,.88);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+  text-shadow: 0 8px 28px rgba(0,0,0,.22);
+}
+
+.homeOriginal .visionPhoto > span strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--yellow);
+  font-family: var(--font-display);
+  font-size: clamp(54px,6.2vw,90px);
+  font-style: italic;
+  font-weight: 900;
+  line-height: .78;
+  letter-spacing: -3.2px;
+}
+
+.homeOriginal .visionCopy {
+  position: relative;
+  z-index: 5;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -86px;
+  padding: 108px 7vw 104px 112px;
+  background: linear-gradient(90deg, rgba(7,29,51,0) 0%, rgba(7,29,51,.82) 16%, rgba(7,29,51,.97) 34%, var(--navy) 55%);
+}
+
+.homeOriginal .visionCopy .sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 10px;
+  letter-spacing: 1.8px;
+}
+
+.homeOriginal .visionCopy .sectionLabel::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  flex: 0 0 34px;
+  background: var(--orange);
+  border-radius: 99px;
+}
+
+.homeOriginal .visionCopy h2 {
+  max-width: 620px;
+  margin: 22px 0 28px;
+  color: #fff;
+  font-size: clamp(52px,5vw,78px);
+  line-height: .86;
+  letter-spacing: -2.9px;
+}
+
+.homeOriginal .visionCopy h2 span {
+  color: var(--yellow);
+}
+
+.homeOriginal .visionCopy > p:not(.sectionLabel) {
+  max-width: 520px;
+  margin: 0;
+  color: rgba(255,255,255,.70);
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+.homeOriginal .visionValues {
+  display: flex;
+  gap: 9px;
+  margin: 32px 0 34px;
+  flex-wrap: wrap;
+}
+
+.homeOriginal .visionValues span {
+  padding: 10px 15px;
+  color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  box-shadow: none;
+  backdrop-filter: blur(8px);
+}
+
+.homeOriginal .visionCopy > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  width: max-content;
+  min-height: 50px;
+  padding: 0 19px;
+  color: #fff;
+  background: var(--orange);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(0,0,0,.14);
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .homeOriginal .visionCopy > a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px rgba(0,0,0,.22);
+  }
+}
+
+@media (max-width: 800px) {
+  .homeOriginal .vision {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    background: var(--navy) !important;
+  }
+
+  .homeOriginal .visionPhoto {
+    order: 1;
+    min-height: 520px;
+    height: min(66svh,620px);
+  }
+
+  .homeOriginal .visionPhoto::before {
+    background: linear-gradient(180deg, var(--navy) 0%, rgba(7,29,51,.44) 8%, rgba(7,29,51,0) 26%, rgba(7,29,51,0) 58%, rgba(7,29,51,.82) 92%, var(--navy) 100%);
+  }
+
+  .homeOriginal .visionPhoto::after {
+    background:
+      linear-gradient(90deg, rgba(7,29,51,.16) 0%, rgba(7,29,51,0) 62%),
+      linear-gradient(0deg, var(--navy) 0%, rgba(7,29,51,.58) 22%, rgba(7,29,51,0) 48%);
+  }
+
+  .homeOriginal .visionPhoto img {
+    min-height: 520px;
+    height: 100%;
+    object-position: 56% 18%;
+    filter: saturate(.92) contrast(1.035) brightness(.99);
+    transform: scale(1.01);
+  }
+
+  .homeOriginal .visionPhoto > span {
+    left: 20px;
+    bottom: 34px;
+    font-size: 9px;
+    letter-spacing: 2.4px;
+  }
+
+  .homeOriginal .visionPhoto > span strong {
+    margin-top: 7px;
+    font-size: clamp(48px,14.5vw,68px);
+    letter-spacing: -2.5px;
+  }
+
+  .homeOriginal .visionCopy {
+    order: 2;
+    margin: -1px 0 0;
+    padding: 48px 22px 62px;
+    background:
+      radial-gradient(circle at 92% 10%, rgba(89,186,71,.08), transparent 30%),
+      linear-gradient(180deg, var(--navy) 0%, #082238 100%);
+  }
+
+  .homeOriginal .visionCopy .sectionLabel {
+    justify-content: flex-start;
+    font-size: 9px;
+    letter-spacing: 1.45px;
+  }
+
+  .homeOriginal .visionCopy .sectionLabel::before {
+    width: 28px;
+    height: 2px;
+    flex-basis: 28px;
+  }
+
+  .homeOriginal .visionCopy h2 {
+    max-width: 430px;
+    margin: 18px 0 22px;
+    font-size: clamp(38px,10.5vw,52px);
+    line-height: .88;
+    letter-spacing: -2.4px;
+    text-align: left;
+  }
+
+  .homeOriginal .visionCopy > p:not(.sectionLabel) {
+    max-width: 470px;
+    color: rgba(255,255,255,.69);
+    font-size: 14px;
+    line-height: 1.62;
+    text-align: left;
+  }
+
+  .homeOriginal .visionValues {
+    justify-content: flex-start;
+    gap: 8px;
+    margin: 28px 0 30px;
+  }
+
+  .homeOriginal .visionValues span {
+    padding: 9px 13px;
+    font-size: 9px;
+  }
+
+  .homeOriginal .visionCopy > a {
+    width: min(100%,320px);
+    min-height: 48px;
+    margin: 0;
+    padding: 0 17px;
+  }
+}
+
+@media (max-width: 380px) {
+  .homeOriginal .visionPhoto {
+    min-height: 490px;
+    height: min(64svh,560px);
+  }
+
+  .homeOriginal .visionPhoto img {
+    min-height: 490px;
+    object-position: 55% 18%;
+  }
+
+  .homeOriginal .visionPhoto > span {
+    left: 17px;
+    bottom: 30px;
+  }
+
+  .homeOriginal .visionPhoto > span strong {
+    font-size: clamp(44px,14vw,58px);
+  }
+
+  .homeOriginal .visionCopy {
+    padding: 44px 18px 56px;
+  }
+
+  .homeOriginal .visionCopy h2 {
+    font-size: clamp(36px,10.4vw,46px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeOriginal .visionPhoto img,
+  .homeOriginal .visionCopy,
+  .homeOriginal .visionCopy > a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
