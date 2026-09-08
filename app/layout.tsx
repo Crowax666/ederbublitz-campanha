@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./perf.css";
 import "./hero-polish.css";
+import "./cards-polish.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
