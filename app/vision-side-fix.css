@@ -1,0 +1,12 @@
+/* Desktop-only correction for "Olhar adiante. Trabalhar agora.".
+   Keep the photograph untouched; only invert the grid placement. */
+
+@media screen and (min-width: 801px) {
+  .homeOriginal .visionPhoto {
+    order: -1 !important;
+  }
+
+  .homeOriginal .visionCopy {
+    order: 0 !important;
+  }
+}
