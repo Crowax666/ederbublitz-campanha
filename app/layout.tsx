@@ -3,6 +3,7 @@ import "./globals.css";
 import "./perf.css";
 import "./hero-polish.css";
 import "./cards-polish.css";
+import "./mobile-hero-fix.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
