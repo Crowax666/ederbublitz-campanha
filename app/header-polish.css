@@ -1,0 +1,172 @@
+/* Mobile header polish — compact, premium and independent from desktop. */
+
+@media screen and (max-width:760px) {
+  .siteHeader {
+    grid-template-columns: 96px minmax(142px,1fr) 44px !important;
+    gap: 10px !important;
+    height: 78px !important;
+    padding: 0 12px !important;
+    background: linear-gradient(180deg,#071d33 0%,#08253d 100%) !important;
+    border-bottom: 2px solid rgba(255,181,27,.92) !important;
+    box-shadow: 0 10px 28px rgba(3,17,31,.18) !important;
+  }
+
+  .siteHeader .brand {
+    width: 96px !important;
+    height: 56px !important;
+  }
+
+  .siteHeader .headerWordmark {
+    max-width: 96px !important;
+    font-size: 15px !important;
+    line-height: .9 !important;
+    letter-spacing: -.4px !important;
+  }
+
+  .siteHeader .headerWordmark small {
+    margin-top: 5px !important;
+    font-size: 4.8px !important;
+    letter-spacing: .82px !important;
+  }
+
+  .siteHeader > .jinglePlayer {
+    width: min(100%,160px) !important;
+    max-width: 160px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleTrigger {
+    grid-template-columns: 30px minmax(0,1fr) 15px !important;
+    gap: 6px !important;
+    height: 40px !important;
+    padding: 4px 8px 4px 4px !important;
+    background: rgba(255,255,255,.045) !important;
+    border: 1px solid rgba(255,181,27,.40) !important;
+    box-shadow: inset 0 0 0 1px rgba(89,186,71,.05), 0 6px 18px rgba(2,18,29,.12) !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleRoundButton {
+    width: 30px !important;
+    height: 30px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,.16) !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleRoundButton svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleTriggerText small {
+    font-size: 6.4px !important;
+    letter-spacing: .9px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleTriggerText strong {
+    font-size: 8.2px !important;
+    letter-spacing: .18px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleBars {
+    gap: 1.5px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleBars i {
+    width: 1.7px !important;
+  }
+
+  .siteHeader > .jinglePlayer .jingleHeaderProgress {
+    left: 40px !important;
+    right: 10px !important;
+    bottom: 2px !important;
+    width: calc(100% - 50px) !important;
+    height: 2px !important;
+  }
+
+  .siteHeader .mobileMenuToggle {
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(255,255,255,.045) !important;
+    border-color: rgba(255,255,255,.20) !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.025) !important;
+  }
+
+  .siteHeader .mobileMenuToggle i {
+    width: 16px !important;
+    gap: 4px !important;
+  }
+
+  .siteHeader .mobileMenuToggle span {
+    height: 1.8px !important;
+  }
+
+  .siteHeader .mobileMenuPanel {
+    top: 78px !important;
+    padding: 12px 14px 18px !important;
+    background: rgba(7,29,51,.985) !important;
+    border-bottom: 2px solid var(--yellow) !important;
+    border-radius: 0 0 22px 22px !important;
+    box-shadow: 0 24px 48px rgba(3,17,31,.28) !important;
+  }
+
+  .siteHeader .mobileMenuPanel a {
+    min-height: 54px !important;
+    padding: 0 4px !important;
+    border-bottom-color: rgba(255,255,255,.10) !important;
+    font-size: 13px !important;
+    letter-spacing: .3px !important;
+  }
+
+  .siteHeader .mobileMenuPanel a:last-child {
+    margin-top: 10px;
+    padding: 0 14px !important;
+    border: 1px solid rgba(255,181,27,.32) !important;
+    border-radius: 14px;
+    background: rgba(255,181,27,.08);
+  }
+
+  /* Internal pages do not use the jingle player; keep the menu aligned without a fake middle control. */
+  .internalPage .siteHeader:not(:has(> .jinglePlayer)) {
+    grid-template-columns: 1fr 44px !important;
+  }
+
+  .internalPage .siteHeader:not(:has(> .jinglePlayer)) .brand {
+    grid-column: 1 !important;
+  }
+
+  .internalPage .siteHeader:not(:has(> .jinglePlayer)) .mobileMenu {
+    grid-column: 2 !important;
+  }
+}
+
+@media screen and (max-width:380px) {
+  .siteHeader {
+    grid-template-columns: 88px minmax(132px,1fr) 42px !important;
+    gap: 7px !important;
+    padding: 0 9px !important;
+  }
+
+  .siteHeader .brand {
+    width: 88px !important;
+  }
+
+  .siteHeader .headerWordmark {
+    max-width: 88px !important;
+    font-size: 14px !important;
+  }
+
+  .siteHeader > .jinglePlayer {
+    width: min(100%,148px) !important;
+    max-width: 148px !important;
+  }
+
+  .siteHeader .mobileMenuToggle {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .siteHeader .mobileMenuPanel,
+  .siteHeader .mobileMenuToggle span {
+    transition: none !important;
+  }
+}
