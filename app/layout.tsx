@@ -8,6 +8,7 @@ import "./mobile-hero-device-tuning.css";
 import "./home-flow.css";
 import "./pillars-navigation.css";
 import "./header-polish.css";
+import "./vision-polish.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
