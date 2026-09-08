@@ -4,6 +4,7 @@ import "./perf.css";
 import "./hero-polish.css";
 import "./cards-polish.css";
 import "./mobile-hero-fix.css";
+import "./mobile-hero-device-tuning.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
