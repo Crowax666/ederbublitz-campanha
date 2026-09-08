@@ -82,9 +82,9 @@ export default function Home() {
       </section>
 
       <section className="pillars" id="propostas">
-        <article><span>01</span><h3>Fortalecer quem produz</h3><p>Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.</p><a href="/propostas" aria-label="Ver propostas: Fortalecer quem produz">↗</a></article>
-        <article><span>02</span><h3>Cuidar de quem precisa</h3><p>Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.</p><a href="/propostas" aria-label="Ver propostas: Cuidar de quem precisa">↗</a></article>
-        <article><span>03</span><h3>Representar os municípios</h3><p>Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.</p><a href="/propostas" aria-label="Ver propostas: Representar os municípios">↗</a></article>
+        <article><span>01</span><h3>Fortalecer quem produz</h3><p>Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.</p><a href="/propostas/agricultura" data-label="Ver agricultura" aria-label="Conhecer as propostas para fortalecer quem produz">↗</a></article>
+        <article><span>02</span><h3>Cuidar de quem precisa</h3><p>Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.</p><a href="/propostas#frentes-sociais" data-label="Ver frentes sociais" aria-label="Conhecer as propostas para cuidar de quem precisa">↗</a></article>
+        <article><span>03</span><h3>Representar os municípios</h3><p>Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.</p><a href="/pelo-parana" data-label="Ver pelo Paraná" aria-label="Conhecer a atuação de Eder pelos municípios do Paraná">↗</a></article>
       </section>
 
       <section className="vision" id="parana">
