@@ -6,9 +6,9 @@ import { pageMetadata } from "../../db/seo";
 import FloatingActions from "../FloatingActions";
 
 const pillars = [
-  { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias." },
-  { number: "02", title: "Cuidar de quem precisa", text: "Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado." },
-  { number: "03", title: "Representar os municípios", text: "Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região." },
+  { number: "01", title: "Fortalecer quem produz", text: "Mais estrutura, oportunidades e respeito para quem movimenta o Paraná todos os dias.", href: "/propostas/agricultura", label: "Ver agricultura" },
+  { number: "02", title: "Cuidar de quem precisa", text: "Políticas públicas que cheguem às pessoas, com trabalho, sensibilidade e resultado.", href: "#frentes-sociais", label: "Ver frentes sociais" },
+  { number: "03", title: "Representar os municípios", text: "Uma voz presente em Brasília, conectada às cidades e às necessidades de cada região.", href: "/pelo-parana", label: "Ver pelo Paraná" },
 ];
 
 export const metadata = pageMetadata({
@@ -47,12 +47,12 @@ export default function PropostasPage() {
             <span>{pillar.number}</span>
             <h3>{pillar.title}</h3>
             <p>{pillar.text}</p>
-            <a href="/participe" aria-label={`Saiba mais sobre ${pillar.title}`}>↗</a>
+            <a href={pillar.href} data-label={pillar.label} aria-label={`Saiba mais sobre ${pillar.title}`}>↗</a>
           </article>
         ))}
       </section>
 
-      <section className="topicProposals">
+      <section className="topicProposals" id="frentes-sociais">
         <div className="topicProposalsHeading">
           <p className="sectionLabel">Propostas por tema</p>
           <h2>Compromissos<br /><span>detalhados.</span></h2>
@@ -112,7 +112,7 @@ export default function PropostasPage() {
       </section>
 
       <LegalFooter />
-          <FloatingActions />
+      <FloatingActions />
     </main>
   );
 }
