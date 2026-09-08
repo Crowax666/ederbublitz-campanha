@@ -1,0 +1,137 @@
+/* Narrative flow polish for the home: Congress -> commitments -> Paraná. */
+
+.homeOriginal .congress {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.homeOriginal .congress::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 112px;
+  background: linear-gradient(180deg, rgba(7,29,51,0) 0%, rgba(7,29,51,.58) 54%, var(--navy) 100%);
+  pointer-events: none;
+}
+
+.homeOriginal .congressCopy {
+  z-index: 2;
+}
+
+.homeOriginal .congressCopy a,
+.homeOriginal .visionCopy a {
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(7,29,51,.14);
+}
+
+.homeOriginal .pillars {
+  margin: 0;
+  padding: 138px 7vw 142px !important;
+  background:
+    radial-gradient(circle at 12% 26%, rgba(89,186,71,.08), transparent 28%),
+    linear-gradient(
+      180deg,
+      var(--navy) 0%,
+      #16384a 34px,
+      #edf1ec 118px,
+      #edf1ec calc(100% - 132px),
+      #123343 calc(100% - 46px),
+      var(--navy) 100%
+    ) !important;
+}
+
+.homeOriginal .pillars::before {
+  top: 46px !important;
+  left: 7vw !important;
+  right: auto !important;
+  padding-left: 13px;
+  color: rgba(255,255,255,.86) !important;
+  border-left: 3px solid var(--orange);
+  line-height: 1.35;
+  opacity: 1 !important;
+}
+
+.homeOriginal .pillars article {
+  position: relative;
+  z-index: 2;
+}
+
+.homeOriginal .vision {
+  position: relative;
+  margin-top: -1px;
+  background:
+    radial-gradient(circle at 88% 16%, rgba(89,186,71,.09), transparent 26%),
+    linear-gradient(180deg, #071d33 0%, #082238 56%, #071d33 100%) !important;
+}
+
+.homeOriginal .visionValues span {
+  border-radius: 999px;
+  background: rgba(255,255,255,.045);
+  border-color: rgba(255,255,255,.20);
+}
+
+@media (max-width: 800px) {
+  .homeOriginal .congress::before {
+    height: 92px;
+    background: linear-gradient(180deg, rgba(7,29,51,0) 0%, rgba(7,29,51,.72) 56%, var(--navy) 100%);
+  }
+
+  .homeOriginal .pillars {
+    padding: 108px 18px 100px !important;
+    background:
+      radial-gradient(circle at 10% 24%, rgba(89,186,71,.07), transparent 30%),
+      linear-gradient(
+        180deg,
+        var(--navy) 0%,
+        #16394a 28px,
+        #f3f4ef 88px,
+        #eef1ec calc(100% - 86px),
+        #133445 calc(100% - 28px),
+        var(--navy) 100%
+      ) !important;
+  }
+
+  .homeOriginal .pillars::before {
+    top: 31px !important;
+    left: 20px !important;
+    right: 20px !important;
+    padding-left: 11px;
+    color: rgba(255,255,255,.88) !important;
+    border-left-width: 2px;
+  }
+
+  .homeOriginal .vision {
+    margin-top: -1px;
+    background:
+      radial-gradient(circle at 92% 12%, rgba(89,186,71,.08), transparent 28%),
+      linear-gradient(180deg, var(--navy) 0%, #082238 48%, var(--navy) 100%) !important;
+  }
+
+  .homeOriginal .visionCopy a {
+    border-radius: 14px;
+  }
+
+  .homeOriginal .visionValues {
+    gap: 8px;
+  }
+
+  .homeOriginal .visionValues span {
+    padding: 9px 13px;
+    border-radius: 999px;
+  }
+}
+
+@media (max-width: 380px) {
+  .homeOriginal .pillars {
+    padding-right: 14px !important;
+    padding-left: 14px !important;
+  }
+
+  .homeOriginal .pillars::before {
+    left: 16px !important;
+    right: 16px !important;
+  }
+}
