@@ -10,6 +10,7 @@ import "./pillars-navigation.css";
 import "./header-polish.css";
 import "./vision-polish.css";
 import "./vision-side-fix.css";
+import "./proposals-desktop-polish.css";
 import { pageMetadata } from "../db/seo";
 import MetaPixel from "./MetaPixel";
 import AccessTracker from "./AccessTracker";
