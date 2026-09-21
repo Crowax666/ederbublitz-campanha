@@ -43,7 +43,8 @@ export async function createSupporter(input: NewSupporter) {
 
 export type SupporterRow = {
   id: string; name: string; phone: string; city: string; neighborhood: string | null;
-  interest: string; status: string; utm_source: string | null; referrer: string | null; created_at: number;
+  interest: string; status: string; utm_source: string | null; utm_campaign: string | null;
+  referrer: string | null; created_at: number;
   access_count: number; session_count: number; first_access_at: number | null; last_access_at: number | null;
   device_type: string | null; access_source: string | null;
 };
@@ -57,7 +58,7 @@ export async function listSupporters(limit = 500) {
   const db = getD1Binding();
   const result = await db.prepare(`
     SELECT s.id, s.name, s.phone, s.city, s.neighborhood, s.interest, s.status,
-      s.utm_source, s.referrer, s.created_at,
+      s.utm_source, s.utm_campaign, s.referrer, s.created_at,
       COUNT(p.id) AS access_count,
       COUNT(DISTINCT p.session_id) AS session_count,
       MIN(p.created_at) AS first_access_at,
@@ -67,7 +68,9 @@ export async function listSupporters(limit = 500) {
     FROM supporters s
     LEFT JOIN page_views p ON p.supporter_id = s.id
     GROUP BY s.id
-    ORDER BY s.created_at DESC LIMIT ?
+    ORDER BY CASE s.status WHEN 'novo' THEN 0 WHEN 'contatado' THEN 1 WHEN 'separado' THEN 2 ELSE 3 END,
+      CASE WHEN s.status = 'novo' THEN s.created_at END ASC,
+      s.created_at DESC LIMIT ?
   `).bind(Math.min(Math.max(limit, 1), 2000)).all<SupporterRow>();
   return result.results;
 }
@@ -90,6 +93,14 @@ export async function getDailySupporterCounts(days = 30): Promise<DailyCount[]> 
     GROUP BY day ORDER BY day ASC
   `).bind(since).all<DailyCount>();
   return result.results;
+}
+
+export async function getRecentSupporterCount(days = 7): Promise<number> {
+  const db = getD1Binding();
+  const since = Date.now() - days * 24 * 60 * 60 * 1000;
+  const result = await db.prepare(`SELECT COUNT(*) AS total FROM supporters WHERE created_at >= ?`)
+    .bind(since).first<{ total: number }>();
+  return Number(result?.total || 0);
 }
 
 export type LabelCount = { label: string; total: number };

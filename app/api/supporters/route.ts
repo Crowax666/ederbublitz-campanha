@@ -11,6 +11,7 @@ import {
   isValidQuantity,
   type MaterialRequestDetails,
 } from "../../../lib/material-requests";
+import { buildCampaignKey } from "../../../lib/campaign-attribution";
 
 const interests = new Set(["participar", "receber-noticias", "voluntariado", "propostas"]);
 
@@ -28,7 +29,7 @@ export async function POST(request: Request) {
     const clip = (value: unknown, max: number) => String(value || "").trim().slice(0, max) || undefined;
     const utmSource = clip(body.utmSource, 60);
     const utmMedium = clip(body.utmMedium, 60);
-    const utmCampaign = clip(body.utmCampaign, 100);
+    const utmCampaign = buildCampaignKey(clip(body.utmCampaign, 100), clip(body.utmContent, 100));
     const referrer = clip(body.referrer, 200);
     const sessionId = clip(body.sessionId, 40);
     const visitorId = clip(body.visitorId, 40);

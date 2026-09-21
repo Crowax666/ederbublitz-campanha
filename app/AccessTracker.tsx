@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { captureAttribution } from "../lib/attribution";
 
 const VISITOR_KEY = "eder1020_visitor";
 const SESSION_KEY = "eder1020_session";
@@ -31,7 +32,7 @@ export default function AccessTracker() {
       try {
         const visitorId = getId(localStorage, VISITOR_KEY);
         const sessionId = getId(sessionStorage, SESSION_KEY);
-        const params = new URLSearchParams(location.search);
+        const attribution = captureAttribution();
         void fetch("/api/analytics/page-view", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -40,10 +41,11 @@ export default function AccessTracker() {
             visitorId,
             sessionId,
             path: pathname.slice(0, 300),
-            referrer: document.referrer ? new URL(document.referrer).hostname : undefined,
-            utmSource: params.get("utm_source") || undefined,
-            utmMedium: params.get("utm_medium") || undefined,
-            utmCampaign: params.get("utm_campaign") || undefined,
+            referrer: attribution.referrer,
+            utmSource: attribution.utmSource,
+            utmMedium: attribution.utmMedium,
+            utmCampaign: attribution.utmCampaign,
+            utmContent: attribution.utmContent,
             deviceType: deviceType(),
           }),
         });

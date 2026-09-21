@@ -1,4 +1,5 @@
 import { recordPageView } from "../../../../db/analytics";
+import { buildCampaignKey } from "../../../../lib/campaign-attribution";
 
 const devices = new Set(["celular", "tablet", "computador", "desconhecido"]);
 const idPattern = /^[0-9a-f-]{20,40}$/i;
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
       referrer: clip(body.referrer, 200),
       utmSource: clip(body.utmSource, 60),
       utmMedium: clip(body.utmMedium, 60),
-      utmCampaign: clip(body.utmCampaign, 100),
+      utmCampaign: buildCampaignKey(clip(body.utmCampaign, 100), clip(body.utmContent, 100)),
       deviceType: deviceType as "celular" | "tablet" | "computador" | "desconhecido",
     });
     return new Response(null, { status: 204 });

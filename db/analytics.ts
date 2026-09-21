@@ -45,6 +45,13 @@ export type AnalyticsSummary = {
 };
 
 export type AnalyticsCount = { label: string; total: number };
+export type CampaignAnalyticsRow = {
+  campaign: string;
+  content: string;
+  sessions: number;
+  visitors: number;
+  registrations: number;
+};
 
 function sourceSql() {
   return `CASE
@@ -80,9 +87,38 @@ export async function getAccessSourceBreakdown(days = 30): Promise<AnalyticsCoun
   const db = getD1Binding();
   const since = Date.now() - days * 86_400_000;
   const result = await db.prepare(`
-    SELECT ${sourceSql()} label, COUNT(DISTINCT session_id) total
-    FROM page_views WHERE created_at >= ? GROUP BY label ORDER BY total DESC
+    WITH first_session_touch AS (
+      SELECT session_id, utm_source, referrer,
+        ROW_NUMBER() OVER (PARTITION BY session_id ORDER BY created_at ASC, id ASC) AS position
+      FROM page_views WHERE created_at >= ?
+    )
+    SELECT ${sourceSql()} label, COUNT(*) total
+    FROM first_session_touch WHERE position = 1
+    GROUP BY label ORDER BY total DESC
   `).bind(since).all<AnalyticsCount>();
+  return result.results;
+}
+
+export async function getCampaignAnalytics(days = 30): Promise<CampaignAnalyticsRow[]> {
+  const db = getD1Binding();
+  const since = Date.now() - days * 86_400_000;
+  const result = await db.prepare(`
+    SELECT
+      CASE WHEN instr(coalesce(utm_campaign, ''), '::') > 0
+        THEN substr(utm_campaign, 1, instr(utm_campaign, '::') - 1)
+        ELSE coalesce(nullif(utm_campaign, ''), 'sem-campanha') END AS campaign,
+      CASE WHEN instr(coalesce(utm_campaign, ''), '::') > 0
+        THEN substr(utm_campaign, instr(utm_campaign, '::') + 2)
+        ELSE 'sem-peca' END AS content,
+      COUNT(DISTINCT session_id) AS sessions,
+      COUNT(DISTINCT visitor_id) AS visitors,
+      COUNT(DISTINCT supporter_id) AS registrations
+    FROM page_views
+    WHERE created_at >= ? AND lower(coalesce(utm_source, '')) = 'whatsapp'
+    GROUP BY campaign, content
+    ORDER BY sessions DESC, campaign ASC, content ASC
+    LIMIT 30
+  `).bind(since).all<CampaignAnalyticsRow>();
   return result.results;
 }
 
