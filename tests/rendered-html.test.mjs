@@ -36,6 +36,38 @@ test("renders production metadata and security headers", async () => {
   assert.doesNotMatch(html, /\/workspace\/sites\//i);
 });
 
+test("renders the food bank hero with optimized, preloaded media", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("food-bank-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  const response = await worker.fetch(
+    new Request("http://localhost/propostas/banco-de-alimentos", {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: {
+        fetch: async () => new Response("Not found", { status: 404 }),
+      },
+    },
+    {
+      waitUntil() {},
+      passThroughOnException() {},
+    },
+  );
+
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(
+    html,
+    /<link(?=[^>]*\brel=["']preload["'])(?=[^>]*\bas=["']image["'])(?=[^>]*\bhref=["']\/eder-luta-fome-v2\.webp["'])[^>]*>/i,
+  );
+  assert.match(
+    html,
+    /<img(?=[^>]*\bsrc=["']\/eder-luta-fome-v2\.webp["'])(?=[^>]*\bwidth=["']1400["'])(?=[^>]*\bheight=["']933["'])[^>]*>/i,
+  );
+});
+
 test("redirects insecure and workers.dev requests to the official HTTPS domain", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("redirect-test", `${process.pid}-${Date.now()}`);
