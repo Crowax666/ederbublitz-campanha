@@ -1994,3 +1994,19 @@ html.editorial-reveal-ready [data-editorial-reveal].is-visible {
 @media (prefers-reduced-motion:reduce) {
   .materialIntro,.materialRequestFields { animation:none; }
 }
+
+.commerceProposal .bioHeroCopy { min-width:0; }
+.commerceProposal .bioHeroCopy h1 {
+  font-size:clamp(36px,3.8vw,60px);
+  line-height:1;
+  letter-spacing:-1.5px;
+  overflow-wrap:anywhere;
+}
+@media (max-width:800px) {
+  .commerceProposal .bioHeroCopy h1 {
+    font-size:clamp(28px,8.7vw,44px)!important;
+    line-height:1.05!important;
+    letter-spacing:-1px;
+    overflow-wrap:anywhere!important;
+  }
+}
