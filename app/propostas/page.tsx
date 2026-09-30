@@ -14,7 +14,7 @@ const pillars = [
 export const metadata = pageMetadata({
   path: "/propostas",
   title: "Propostas de Eder Bublitz para Deputado Federal pelo Paraná | 1020",
-  description: "Conheça as propostas de Eder Bublitz 1020 para representar o Paraná em Brasília, com prioridades em agricultura, educação, inclusão, reabilitação, segurança alimentar, mulheres e municípios.",
+  description: "Conheça as propostas de Eder Bublitz 1020 para representar o Paraná em Brasília, com prioridades em agricultura, educação, inclusão, reabilitação, segurança alimentar, mulheres, comércio e empregos.",
 });
 
 export default function PropostasPage() {
@@ -106,6 +106,16 @@ export default function PropostasPage() {
               <h3>Inclusão, reabilitação e autonomia para quem mais precisa.</h3>
             </ViewTransition>
             <p>Educação especializada, transporte acessível, reabilitação pelo SUS, paradesporto e mais CERs no Paraná.</p>
+            <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
+          </Link>
+          <Link className="topicProposalCard" href="/propostas/comercio-e-empregos">
+            <ViewTransition name="proposta-tag-comercio-empregos" share="proposal-label-morph" default="none">
+              <span className="topicProposalTag">Comércio e empregos</span>
+            </ViewTransition>
+            <ViewTransition name="proposta-titulo-comercio-empregos" share="proposal-title-morph" default="none">
+              <h3>Portas abertas. Empregos preservados. Concorrência justa.</h3>
+            </ViewTransition>
+            <p>Equilíbrio tributário, responsabilidade dos marketplaces, menos burocracia e crédito para o pequeno comércio também vender online.</p>
             <span className="topicProposalCta">Conheça a proposta <span>→</span></span>
           </Link>
         </div>

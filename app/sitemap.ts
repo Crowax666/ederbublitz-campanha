@@ -16,13 +16,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/propostas/agricultura",
     "/propostas/mulheres",
     "/propostas/inclusao-e-reabilitacao",
+    "/propostas/comercio-e-empregos",
     "/privacidade",
     "/transparencia-eleitoral",
   ];
 
   const staticPages: MetadataRoute.Sitemap = paths.map((path) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: lastContentUpdate,
+    lastModified: path === "/propostas" || path === "/propostas/comercio-e-empregos"
+      ? new Date("2026-09-30T15:11:07.000Z")
+      : lastContentUpdate,
   }));
 
   try {
