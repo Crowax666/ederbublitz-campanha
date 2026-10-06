@@ -4,6 +4,7 @@ import handler from "vinext/server/app-router-entry";
 
 interface Env {
   ASSETS: Fetcher;
+  SITE_OFFLINE?: string;
   DB: D1Database;
   TURNSTILE_SITE_KEY?: string;
   TURNSTILE_SECRET_KEY?: string;
@@ -34,6 +35,21 @@ interface ExecutionContext {
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
 const SITE_ORIGIN = "https://ederbublitz.com.br";
+const OFFLINE_PAGE = `<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site temporariamente indisponível</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f6f7f9; color: #17243b; font: 18px/1.6 system-ui, sans-serif; }
+    main { padding: 32px; max-width: 640px; text-align: center; }
+    h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.2; }
+    p { color: #536174; }
+  </style>
+</head>
+<body><main><h1>Site temporariamente indisponível</h1><p>O acesso ao site está suspenso por enquanto.</p></main></body>
+</html>`;
 
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
@@ -72,6 +88,18 @@ function withSecurityHeaders(response: Response): Response {
 
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    // Temporary suspension: preserve the app and its data for later reactivation.
+    if (env.SITE_OFFLINE === "true") {
+      return withSecurityHeaders(new Response(request.method === "HEAD" ? null : OFFLINE_PAGE, {
+        status: 503,
+        headers: {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-store, max-age=0",
+          "Retry-After": "3600",
+        },
+      }));
+    }
+
     const url = new URL(request.url);
     const isOfficialHttp = url.protocol === "http:" && url.hostname === "ederbublitz.com.br";
     const isWorkersDev = url.hostname.endsWith(".workers.dev");

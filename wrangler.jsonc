@@ -3,10 +3,13 @@
   "name": "ederbublitz-campanha",
   "main": "dist/server/index.js",
   "compatibility_date": "2026-08-20",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "directory": "dist/client",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "run_worker_first": true
   },
   "images": {
     "binding": "IMAGES"
@@ -22,7 +25,8 @@
   "vars": {
     "TURNSTILE_SITE_KEY": "0x4AAAAAAENP2XcBsUkOdQkq",
     "ADMIN_EMAILS": "contato@ederbublitz.com.br",
-    "CLOUDFLARE_DEPLOYMENT": "true"
+    "CLOUDFLARE_DEPLOYMENT": "true",
+    "SITE_OFFLINE": "true"
   },
   "observability": {
     "enabled": true,
